@@ -34,6 +34,7 @@ DEFAULT_DENS_ROOT = Path("/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG")
 DEFAULT_TABLE_PATH = DEFAULT_PROJECT_ROOT / "SPARC_table.txt"
 
 
+
 def parse_args():
     """Define the reproducible command-line controls for a grid run."""
     parser = argparse.ArgumentParser(description="Grid-search SPARC RAR monotonicity probabilities.")
@@ -62,20 +63,31 @@ def parse_args():
     parser.add_argument("--disk-grid-half-width-dex", type=float, default=1.0,
                         help="Half-width of the disk grid around its log10 median.")
     parser.add_argument("--slope-min", type=float, default=-5.0,
-                        help="Lower bound of the broad uniform radial-slope prior.")
+                        help="Lower bound of the uniform radial-slope prior.")
     parser.add_argument("--slope-max", type=float, default=5.0,
-                        help="Upper bound of the broad uniform radial-slope prior.")
-    parser.add_argument("--slope-prior-sigma", type=float, default=0.5,
-                        help="Width of the SPARC-informed Gaussian slope prior centred on zero.")
+                        help="Upper bound of the uniform radial-slope prior.")
     parser.add_argument("--ml-samples", type=int, default=9,
                         help="Gauss-Hermite nodes per gas or bulge M/L term.")
     parser.add_argument("--marginalise-gas-bulge", action=argparse.BooleanOptionalAction,
                         default=True, help="Write grid probabilities marginalised over gas and bulge M/L.")
     parser.add_argument("--marginalise-disk", action=argparse.BooleanOptionalAction,
-                        default=True, help="Integrate over disk M/L under both declared slope priors.")
+                        default=True, help="Integrate the gas/bulge-marginalised grid over the SPARC disk prior.")
     parser.add_argument("--testing", action="store_true", help="Process only the first SPARC galaxy.")
     parser.add_argument("--galaxy", action="append", help="Process only the named galaxy; may be repeated.")
+    parser.add_argument("--galaxy-range", nargs=2, type=int, metavar=("START", "END"), help="Process the inclusive 1-based SPARC catalogue row range.")
+    parser.add_argument("--shard-id", type=int, help="Write concurrency-safe shard artifacts for later merging.")
+    parser.add_argument("--overwrite-shard", action="store_true", help="Replace existing artifacts for this shard ID.")
     args = parser.parse_args()
+    if args.galaxy and args.galaxy_range:
+        parser.error("--galaxy and --galaxy-range are mutually exclusive")
+    if args.galaxy_range is not None:
+        start, end = args.galaxy_range
+        if start < 1 or end < start:
+            parser.error("--galaxy-range requires 1 <= START <= END")
+    if args.shard_id is not None and args.shard_id < 1:
+        parser.error("shard-id must be a positive integer")
+    if args.overwrite_shard and args.shard_id is None:
+        parser.error("--overwrite-shard requires --shard-id")
     if args.grid_size < 2 or args.prob_grid_size < 2:
         parser.error("grid-size and prob-grid-size must both be at least 2")
     if args.gas_ml <= 0 or args.disk_ml <= 0 or args.bulge_ml <= 0:
@@ -86,8 +98,6 @@ def parse_args():
         parser.error("disk-grid-half-width-dex must be positive")
     if args.slope_min >= args.slope_max:
         parser.error("slope-min must be smaller than slope-max")
-    if args.slope_prior_sigma <= 0:
-        parser.error("slope-prior-sigma must be positive")
     if args.ml_samples < 1:
         parser.error("ml-samples must be positive")
     if args.marginalise_disk and not args.marginalise_gas_bulge:
@@ -237,131 +247,100 @@ def trapezoid_weights(coordinates):
     return weights
 
 
-
-
-
 def grid_prior_weights(log10_upsilon, slopes, args):
-    """Build disk weights and both broad and SPARC-informed slope weights."""
+    """Build normalised disk and slope prior weights on the declared grids."""
     # The SPARC prior is Gaussian in x=log10(Upsilon_disk), hence lognormal
     # in Upsilon_disk. Integrating in x avoids an explicit Jacobian.
     x0 = np.log10(args.disk_ml)
-    sigma_x = args.disk_ml_dex
-    disk_density = np.exp(-0.5 * ((log10_upsilon - x0) / sigma_x) ** 2)
-    disk_density /= np.sqrt(2.0 * np.pi) * sigma_x
+    sigma = args.disk_ml_dex
+    disk_density = np.exp(-0.5 * ((log10_upsilon - x0) / sigma) ** 2)
+    disk_density /= np.sqrt(2.0 * np.pi) * sigma
     disk_weights = disk_density * trapezoid_weights(log10_upsilon)
     covered_disk_prior_mass = float(np.sum(disk_weights))
     if not np.isfinite(covered_disk_prior_mass) or covered_disk_prior_mass <= 0:
         raise ValueError("disk prior has no finite mass on the declared grid")
     disk_weights /= covered_disk_prior_mass
 
-    # The broad case is uniform over the finite grid. The SPARC-informed case
-    # encodes the constant-M/L expectation as N(0, sigma_s).
-    slope_cells = trapezoid_weights(slopes)
-    uniform_weights = slope_cells / np.sum(slope_cells)
-    sigma_s = args.slope_prior_sigma
-    gaussian_density = np.exp(-0.5 * (slopes / sigma_s) ** 2)
-    gaussian_density /= np.sqrt(2.0 * np.pi) * sigma_s
-    gaussian_weights = gaussian_density * slope_cells
-    covered_gaussian_prior_mass = float(np.sum(gaussian_weights))
-    if not np.isfinite(covered_gaussian_prior_mass) or covered_gaussian_prior_mass <= 0:
-        raise ValueError("Gaussian slope prior has no finite mass on the declared grid")
-    gaussian_weights /= covered_gaussian_prior_mass
-
-    slope_weights = {
-        "broad_uniform": uniform_weights,
-        "sparc_gaussian": gaussian_weights,
-    }
-    covered_slope_mass = {
-        "broad_uniform": 1.0,
-        "sparc_gaussian": covered_gaussian_prior_mass,
-    }
-    return disk_weights, slope_weights, covered_disk_prior_mass, covered_slope_mass
+    # For radial profiles, the current model assigns a continuous uniform prior
+    # over the declared slope interval. Trapezoidal weights approximate its integral.
+    slope_weights = trapezoid_weights(slopes)
+    slope_weights /= np.sum(slope_weights)
+    return disk_weights, slope_weights, covered_disk_prior_mass
 
 
 def fully_marginalise_grid(galaxy, args, log10_upsilon, slopes,
                            marginal_log_probability_grid, marginal_valid_grid,
                            negative_grid):
-    """Integrate each galaxy grid under the declared disk and slope priors."""
+    """Integrate a gas/bulge-marginalised grid over disk M/L and profile slope."""
     if not args.marginalise_disk:
-        return []
+        return None
 
-    disk_weights, slope_weights, covered_disk_mass, covered_slope_mass = grid_prior_weights(
+    disk_weights, slope_weights, covered_disk_mass = grid_prior_weights(
         log10_upsilon, slopes, args)
     if args.profile == "constant":
-        prior_specs = [(
-            "fully_marginalised_sparc_disk_prior",
-            "none",
-            disk_weights[np.newaxis, :],
-            1.0,
-            np.nan,
-        )]
+        joint_weights = disk_weights[np.newaxis, :]
+        slope_prior = "none"
     else:
-        prior_specs = [
-            (
-                "fully_marginalised_broad_slope_prior",
-                f"uniform({args.slope_min},{args.slope_max})",
-                np.outer(slope_weights["broad_uniform"], disk_weights),
-                covered_slope_mass["broad_uniform"],
-                np.nan,
-            ),
-            (
-                "fully_marginalised_sparc_slope_prior",
-                f"normal(0,{args.slope_prior_sigma})",
-                np.outer(slope_weights["sparc_gaussian"], disk_weights),
-                covered_slope_mass["sparc_gaussian"],
-                args.slope_prior_sigma,
-            ),
-        ]
+        joint_weights = np.outer(slope_weights, disk_weights)
+        slope_prior = f"uniform({args.slope_min},{args.slope_max})"
 
-    # Condition each prior on physically admissible, positive stellar profiles.
-    # A numerical failure at any otherwise allowed cell invalidates that result.
+    # Non-positive or non-finite stellar profiles are outside the physical prior.
+    # We condition on the remaining domain, but never hide failures in an allowed cell.
     physical_grid = ~negative_grid
     failed_allowed = physical_grid & ~marginal_valid_grid
-    integration_mask = physical_grid & marginal_valid_grid & np.isfinite(
-        marginal_log_probability_grid)
-    results = []
-    for probability_kind, slope_prior, joint_weights, covered_slope, slope_sigma in prior_specs:
-        retained_prior_mass = float(np.sum(joint_weights[integration_mask]))
-        if np.any(failed_allowed):
-            log_probability = np.nan
-            valid = False
-            reason = "one_or_more_physical_grid_cells_failed"
-        elif not np.any(integration_mask) or retained_prior_mass <= 0:
-            log_probability = np.nan
-            valid = False
-            reason = "no_valid_prior_mass"
-        else:
-            try:
-                log_probability = log_weighted_average(
-                    marginal_log_probability_grid[integration_mask],
-                    joint_weights[integration_mask],
-                )
-                valid = True
-                reason = ""
-            except Exception as exc:
-                log_probability = np.nan
-                valid = False
-                reason = f"{type(exc).__name__}: {exc}"
-
-        results.append({
+    if np.any(failed_allowed):
+        return {
             "galaxy": galaxy,
             "profile": args.profile,
-            "probability_kind": probability_kind,
-            "log_probability": log_probability,
-            "valid": valid,
-            "invalid_reason": reason,
-            "retained_profile_prior_mass": retained_prior_mass,
+            "probability_kind": "fully_marginalised_sparc_prior",
+            "log_probability": np.nan,
+            "valid": False,
+            "invalid_reason": "one_or_more_physical_grid_cells_failed",
+            "retained_profile_prior_mass": float(np.sum(joint_weights[physical_grid])),
             "covered_disk_prior_mass": covered_disk_mass,
-            "covered_slope_prior_mass": covered_slope,
             "disk_ml_median": args.disk_ml,
             "disk_ml_dex": args.disk_ml_dex,
             "slope_prior": slope_prior,
-            "slope_prior_sigma": slope_sigma,
             "slope_min": np.nan if args.profile == "constant" else args.slope_min,
             "slope_max": np.nan if args.profile == "constant" else args.slope_max,
             "grid_size": args.grid_size,
-        })
-    return results
+        }
+
+    integration_mask = physical_grid & marginal_valid_grid & np.isfinite(marginal_log_probability_grid)
+    retained_prior_mass = float(np.sum(joint_weights[integration_mask]))
+    if not np.any(integration_mask) or retained_prior_mass <= 0:
+        log_probability = np.nan
+        valid = False
+        reason = "no_valid_prior_mass"
+    else:
+        try:
+            log_probability = log_weighted_average(
+                marginal_log_probability_grid[integration_mask],
+                joint_weights[integration_mask],
+            )
+            valid = True
+            reason = ""
+        except Exception as exc:
+            log_probability = np.nan
+            valid = False
+            reason = f"{type(exc).__name__}: {exc}"
+
+    return {
+        "galaxy": galaxy,
+        "profile": args.profile,
+        "probability_kind": "fully_marginalised_sparc_prior",
+        "log_probability": log_probability,
+        "valid": valid,
+        "invalid_reason": reason,
+        "retained_profile_prior_mass": retained_prior_mass,
+        "covered_disk_prior_mass": covered_disk_mass,
+        "disk_ml_median": args.disk_ml,
+        "disk_ml_dex": args.disk_ml_dex,
+        "slope_prior": slope_prior,
+        "slope_min": np.nan if args.profile == "constant" else args.slope_min,
+        "slope_max": np.nan if args.profile == "constant" else args.slope_max,
+        "grid_size": args.grid_size,
+    }
 
 
 def merge_warnings(result, extra_warnings):
@@ -525,10 +504,28 @@ def write_csv(path, rows):
             writer.writerows(rows)
 
 
+def output_paths(args):
+    """Return per-shard paths, preserving legacy names for unsharded runs."""
+    suffix = f".shard_{args.shard_id:02d}" if args.shard_id is not None else ""
+    return {
+        "profile_grid": args.output_root / f"profile_grid{suffix}.csv",
+        "fully_marginalised": args.output_root / f"fully_marginalised{suffix}.csv",
+        "metadata": args.output_root / f"run_metadata{suffix}.json",
+    }
+
+
 def main():
     """Run the selected profile grid and write results plus provenance metadata."""
     args = parse_args()
     args.output_root.mkdir(parents=True, exist_ok=True)
+    paths = output_paths(args)
+    if args.shard_id is not None and not args.overwrite_shard:
+        existing = [str(path) for path in paths.values() if path.exists()]
+        if existing:
+            raise FileExistsError(
+                "Shard artifacts already exist; choose a new shard ID or pass "
+                f"--overwrite-shard: {', '.join(existing)}"
+            )
     table = load_sparc_table(args.table_path)
     galaxies = table["Galaxy"].astype(str).tolist()
     if args.galaxy:
@@ -539,9 +536,12 @@ def main():
         galaxies = [galaxy for galaxy in galaxies if galaxy in requested]
     if args.testing:
         galaxies = galaxies[:1]
+    elif args.galaxy_range is not None:
+        start, end = args.galaxy_range
+        galaxies = galaxies[start - 1:end]
 
-    # Gauss-Hermite quadrature integrates independent lognormal gas and bulge
-    # priors. Disk M/L and both slope priors are integrated on the output grid.
+    # Gauss-Hermite quadrature integrates the independent lognormal gas and
+    # bulge priors. Disk M/L and radial slope are integrated on the output grid.
     gas_nodes, gas_weights = lognormal_quadrature(args.gas_ml, args.gas_ml_dex, args.ml_samples)
     bulge_nodes, bulge_weights = lognormal_quadrature(args.bulge_ml, args.bulge_ml_dex, args.ml_samples)
     log10_upsilon_sparc, log10_upsilon, upsilon, slopes = profile_grids(args)
@@ -566,10 +566,7 @@ def main():
         "bulge_ml_sigma_dex": args.bulge_ml_dex,
         "gas_bulge_quadrature": "Gauss-Hermite in log10(M/L), normalised weights",
         "disk_quadrature": "trapezoidal in log10(M/L) with Gaussian SPARC prior",
-        "slope_quadrature": "trapezoidal with broad uniform and SPARC-informed Gaussian priors",
-        "slope_prior_sigma": args.slope_prior_sigma,
-        "distance_and_inclination": "fixed to SPARC catalogue values",
-        "result_level": "per_galaxy",
+        "slope_quadrature": "trapezoidal with uniform prior for radial profiles",
         "quadrature_samples_per_gas_or_bulge_term": args.ml_samples,
         "gas_term_convention": "Vgas*abs(Vgas)",
         "negative_disk_ml": "excluded; full integral is renormalised on the physical profile domain",
@@ -578,22 +575,23 @@ def main():
         "galaxy_count": len(galaxies),
     }
     for index, galaxy in enumerate(galaxies, start=1):
-        print(f"Processing galaxy {index}/{len(galaxies)}: {galaxy}")
+        print(f"Processing galaxy {index}/{len(galaxies)}", flush=True)
         grid, valid, negative, fully_marginalised = process_galaxy(
             galaxy, table, args, rows, log10_upsilon, upsilon, slopes,
             gas_nodes, gas_weights, bulge_nodes, bulge_weights)
-        fully_marginalised_rows.extend(fully_marginalised)
+        if fully_marginalised is not None:
+            fully_marginalised_rows.append(fully_marginalised)
         save_plot(galaxy, args, log10_upsilon_sparc, log10_upsilon, slopes,
                   grid, valid, negative)
 
-    results_path = args.output_root / "profile_grid.csv"
-    full_results_path = args.output_root / "fully_marginalised.csv"
+    results_path = paths["profile_grid"]
+    full_results_path = paths["fully_marginalised"]
     write_csv(results_path, rows)
     write_csv(full_results_path, fully_marginalised_rows)
     run_metadata["finished_utc"] = datetime.now(timezone.utc).isoformat()
     run_metadata["results_csv"] = str(results_path)
     run_metadata["fully_marginalised_csv"] = str(full_results_path)
-    with (args.output_root / "run_metadata.json").open("w") as output:
+    with paths["metadata"].open("w") as output:
         json.dump(run_metadata, output, indent=2)
     print(f"Wrote {len(rows)} grid rows to {results_path}")
     print(f"Wrote {len(fully_marginalised_rows)} fully marginalised rows to {full_results_path}")

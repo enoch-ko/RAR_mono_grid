@@ -1,0 +1,41 @@
+{
+  "created_utc": "2026-09-22T18:11:12.558761+00:00",
+  "input_csv": "/mnt/users/koe/RAR_mono_grid/ML_Andreea.csv",
+  "input_sha256": "5dcb2c69b8a57a5f1046df07ed8d166e673c1afc0110b6e735558b24c1727890",
+  "required_columns": [
+    "Galaxy",
+    "Sample",
+    "Radius_kpc",
+    "ml_K"
+  ],
+  "n_input_rows": 475,
+  "n_unique_galaxies": 129,
+  "n_unique_sample_galaxy_groups": 129,
+  "expected_129_130_count_note": "The supplied file contains 129 unique Galaxy and Sample/Galaxy groups; the 130-object reference count is not silently assumed.",
+  "sample_counts": {
+    "XMM": 351,
+    "COSMOS_kin": 70,
+    "LADUMA": 34,
+    "COSMOS_DR1": 20
+  },
+  "unique_galaxies_by_sample": {
+    "COSMOS_DR1": 9,
+    "COSMOS_kin": 19,
+    "LADUMA": 6,
+    "XMM": 95
+  },
+  "rows_by_sample": {
+    "COSMOS_DR1": 20,
+    "COSMOS_kin": 70,
+    "LADUMA": 34,
+    "XMM": 351
+  },
+  "ml_uncertainties_used": false,
+  "fit_definition": "unweighted least squares; linear model Upsilon=a+bR; log-linear model log(Upsilon)=a+bR",
+  "normalization_convention": "linear_intercept_c0 and log_linear_intercept_c0 are the R=0 intercepts; *_c_at_Rp are derived values at the mean radius",
+  "notes": [
+    "Duplicate radii are retained and flagged.",
+    "Missing/nonfinite radius or non-positive/nonfinite ml_K rows are excluded and listed.",
+    "COSMOS_kin remains identifiable; COSMOS summaries combine COSMOS_DR1 and COSMOS_kin."
+  ]
+}

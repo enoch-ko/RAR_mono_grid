@@ -13,7 +13,7 @@ Do not turn numerical outputs into scientific claims until convergence checks, q
 - Record durable methodological decisions, interfaces, validation outcomes, and handoffs in AGENTS.md. Use Notion only for concise status, priorities, decisions, blockers, and daily records.
 - The Research Logbook contains only Next priorities and Daily record. Broader goal, dated status, analysis design, and open decisions belong in RAR - Current Status.
 - Treat existing uncommitted changes as user-owned. Inspect and preserve them before editing.
-- Never submit Glamdring jobs automatically. Prepare commands, paths, expected products, and resource estimates for the user to queue manually.
+- Before each Glamdring submission batch, obtain the user’s explicit approval of the exact job count, commands, and purpose. After that approval, the code, analysis, and validation agent may submit only those approved jobs. Without approval, prepare commands, paths, expected products, and resource estimates for the user to queue manually; any material change to the approved batch requires renewed approval.
 
 ## Planning and tracking agent
 
@@ -80,11 +80,19 @@ Validate columns, units, radii, uncertainties, missing values, covariance, and u
 ## Current repository components
 
 - mono_SPARC_RAR.py: SPARC grid evaluation, nuisance integration, radial-prior cases, and output writing.
+- merge_run_shards.py: validates compatible shard outputs and combines them into one CSV pair and provenance file per profile batch.
 - utils.py: loading, radial integrals, quadrature, monotonicity recursion, and tie handling.
 - test_marginalisation.py: lightweight tests without SPARC files or galaxy analysis.
 - mono_SPARC_RAR.py.sh: launcher; verify argument forwarding before production.
 - profile_grid.csv, fully_marginalised.csv, and run_metadata.json: analysis products and provenance outputs.
 - ML_Andreea.csv: MIGHTEE-HI/LADUMA stellar-M/L data supplied by Andreea Vărăşteanu via private communication.
+
+## Parallel batch outputs
+
+- Use one shared output root per profile/settings batch and a unique `--shard-id` for every concurrent `mono_SPARC_RAR.py` job. Shards write flat, uniquely named CSV and metadata files into that root; galaxy diagnostic plots share the profile's plots directory.
+- Do not have concurrent jobs write the common `profile_grid.csv`, `fully_marginalised.csv`, or `run_metadata.json` directly. After all shard jobs finish, run `merge_run_shards.py` once for that profile and pass all expected shard IDs. The merger checks settings, source hashes, schemas, galaxy counts, and duplicate coverage before writing the common outputs.
+- Merged outputs are not complete until this merger has run. Preserve the shard artifacts as provenance; use `--replace-existing` only when intentionally rebuilding an existing aggregate.
+- Run the merger whenever completed shard jobs are found awaiting reorganisation, and remind the user that this step remains outstanding until it has been run.
 
 ## Editing and provenance conventions
 

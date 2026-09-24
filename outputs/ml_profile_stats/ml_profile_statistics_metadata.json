@@ -1,0 +1,21 @@
+{
+  "input_csv": "/mnt/users/koe/RAR_mono_grid/outputs/ml_profile_fits/ml_profile_fits.csv",
+  "input_sha256": "95aacea6c20f1e516dae50d79648f08cbf4093c1260676c6fb63074164927b75",
+  "n_bootstrap": 10000,
+  "seed": 20260922,
+  "weighting": "equal galaxy/sample-group weighting; one fitted row per group",
+  "groups": [
+    "COSMOS",
+    "LADUMA",
+    "XMM",
+    "ALL"
+  ],
+  "cosmos_definition": "COSMOS_DR1 and COSMOS_kin combined in sample_group=COSMOS",
+  "bootstrap": "resample fitted groups with replacement; percentile 95% intervals",
+  "normalization_definition": "constant_c, or fitted c at mean radius Rp for linear/log-linear profiles",
+  "intercept_definition": "linear_intercept_c0 and log_linear_intercept_c0 are the fitted R=0 intercepts in the a+bR convention",
+  "slope_units": {
+    "linear": "native M/L per kpc",
+    "log_linear": "inverse kpc"
+  }
+}
