@@ -1,0 +1,248 @@
+{
+  "status": "feasible_weak_order",
+  "galaxy": "F565-V2",
+  "diagnostic_only": true,
+  "reference_ml": 0.5,
+  "gas_ml_qp": 1.0,
+  "bulge_ml_qp": 0.7,
+  "knots_kpc": [
+    0.60272,
+    0.72326,
+    0.86892,
+    1.0422,
+    1.25064,
+    1.49927,
+    1.80063,
+    2.15975,
+    2.5917,
+    3.10903,
+    3.73184,
+    4.47771,
+    5.37426,
+    6.44911,
+    7.73742,
+    9.28692
+  ],
+  "knot_source": "dens_radii",
+  "photometric_radii_kpc": [
+    0.60272,
+    0.72326,
+    0.86892,
+    1.0422,
+    1.25064,
+    1.49927,
+    1.80063,
+    2.15975,
+    2.5917,
+    3.10903,
+    3.73184,
+    4.47771,
+    5.37426,
+    6.44911,
+    7.73742,
+    9.28692
+  ],
+  "retained_radii_kpc": [
+    1.26,
+    2.51,
+    3.78,
+    5.03,
+    6.29,
+    7.54,
+    8.8
+  ],
+  "excluded_kinematic_rows": 0,
+  "kernel": {
+    "kind": "squared_exponential_correlation",
+    "length_fraction": 0.3,
+    "nugget": 1e-08,
+    "amplitude": "cancels from hard-constrained optimum"
+  },
+  "requested_bounds_ml": [
+    0.01,
+    10.0
+  ],
+  "bounds_ml": [
+    0.01,
+    10.0
+  ],
+  "fit_attempts": [
+    {
+      "upper_ml": 10.0,
+      "status": "feasible_weak_order",
+      "message": ""
+    }
+  ],
+  "cache_gate": {
+    "files": [
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_001-035_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_036-070_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_071-105_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_106-140_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_141-175_20261005.json"
+    ],
+    "records": 14,
+    "zero_start": false,
+    "retained_kinematic_points": 7
+  },
+  "numerical_tolerances": {
+    "scaled_order_feasibility": 1e-08,
+    "scaled_active_constraint": 1e-07,
+    "direct_force_relative_to_peak": 1e-08
+  },
+  "input_sha256": {
+    "rotmod": "c061dfc1a123d6d2dd31681ccd61b12f827ed47ebee03a2b0136065b76ee4064",
+    "dens": "b6c0a72bb13bbde7f3124e95c48ae3f2368f58804973e62c4cd9bdca5c430391",
+    "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+  },
+  "prior_direct_cache_qc": {
+    "max_abs_accel_delta_m_s2": 1.0097419586828951e-27,
+    "relative_to_peak": 4.746506765725841e-16,
+    "tolerance": 1e-08
+  },
+  "provenance": {
+    "created_utc": "2026-10-05T22:54:38.977100+00:00",
+    "script_sha256": "71d11569c319d3308de945aa09127330a4e031adb827d34ab83146362e9c309c",
+    "driver_sha256": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "args": {
+      "galaxy": "F565-V2",
+      "output": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/F565-V2_inverse.json",
+      "data_root": "/mnt/users/koe/data",
+      "dens_root": "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG",
+      "validation_root": "/mnt/users/koe/RAR_mono_grid/outputs",
+      "knots": "8",
+      "knots_from_dens": "True",
+      "length_fraction": "0.3",
+      "min_ml": "0.01",
+      "max_ml": "10.0",
+      "retry_max_ml": "20.0",
+      "gas_ml": "1.0",
+      "bulge_ml": "0.7",
+      "gas_ml_dex": "0.04",
+      "bulge_ml_dex": "0.1",
+      "ml_samples": "9",
+      "prob_grid_size": "400",
+      "replace_existing": "False"
+    },
+    "plot_script_sha256": "a1b3a0c1b2f255e3d2578ec0a8a69bf00d063fb1222015941eb2965889b39ffb"
+  },
+  "optimized_direct_cache_qc": {
+    "max_abs_accel_delta_m_s2": 1.6155871338926322e-27,
+    "relative_to_peak": 3.934816951180534e-16,
+    "tolerance": 1e-08
+  },
+  "optimization": {
+    "status": "feasible_weak_order",
+    "objective": 21.983555759998524,
+    "max_scaled_violation": 5.551115123125783e-17,
+    "active_order_pairs": [
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        2
+      ]
+    ],
+    "active_lower_knots": [],
+    "active_upper_knots": [],
+    "scale_m_s2": 5.960002475660011e-12,
+    "qp_message": "Optimization terminated successfully",
+    "xi": [
+      0.08675347473118068,
+      0.06601367310771002,
+      0.05847653398890498,
+      0.07532559467646799,
+      0.13320830853428986,
+      0.2546125587354002,
+      0.4712631046593515,
+      0.8085908222352919,
+      1.279137074699958,
+      1.8353619632499047,
+      2.3264732262791696,
+      2.469523346266194,
+      1.990291953190536,
+      0.9824238833910962,
+      0.13433735316436876,
+      0.05959037902990111
+    ],
+    "profile_on_photometric_grid": [
+      0.08675347473118068,
+      0.06601367310771002,
+      0.05847653398890498,
+      0.07532559467646799,
+      0.13320830853428986,
+      0.2546125587354002,
+      0.4712631046593515,
+      0.8085908222352919,
+      1.279137074699958,
+      1.8353619632499047,
+      2.3264732262791696,
+      2.469523346266194,
+      1.990291953190536,
+      0.9824238833910962,
+      0.13433735316436876,
+      0.05959037902990111
+    ],
+    "max_abs_deviation_ml": 1.969523346266194,
+    "mahalanobis_distance": 4.688662470257219,
+    "gbar_m_s2": [
+      1.6643062750514878e-12,
+      3.170686541686559e-12,
+      6.0729444435034155e-12,
+      6.313113029646958e-12,
+      6.0729444435034155e-12,
+      4.638517477619842e-12,
+      3.1706865416865587e-12
+    ],
+    "observed_order": [
+      0,
+      1,
+      6,
+      5,
+      4,
+      2,
+      3
+    ],
+    "adjacent_gbar_gaps_m_s2": [
+      1.5063802666350713e-12,
+      -4.0389678347315804e-28,
+      1.4678309359332831e-12,
+      1.4344269658835737e-12,
+      0.0,
+      2.401685861435423e-13
+    ],
+    "boundary_ties_present": true
+  },
+  "post_optimization_probability": {
+    "conditional_logp": -6.345194830578785,
+    "conditional_valid": true,
+    "conditional_reason": "",
+    "marginal_logp": -5.670258035905805,
+    "marginal_valid": true,
+    "marginal_reason": "",
+    "gas_ml_dex": 0.04,
+    "bulge_ml_dex": 0.1,
+    "ml_samples_per_term": 9,
+    "prob_grid_size": 400,
+    "no_reoptimization": true
+  },
+  "plot": {
+    "status": "created",
+    "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/F565-V2_inverse.png",
+    "kind": "optimized",
+    "retained_points": 7,
+    "excluded_kinematic_rows": 0,
+    "sparc_rar_valid_points": 7,
+    "sparc_disc_table_ml": 1.0,
+    "sparc_disc_display_ml": 0.5,
+    "rar_reference": "Casertano constant M/L",
+    "direct_vs_saved_gbar_relative_to_peak": 2.559097431498037e-16,
+    "optimized_ml_range": [
+      0.05847653398890498,
+      2.469523346266194
+    ]
+  }
+}

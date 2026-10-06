@@ -22,6 +22,27 @@ FINAL_NAMES = {
 SHARED_ARGUMENT_EXCLUSIONS = {
     "galaxy", "galaxy_range", "overwrite_shard", "shard_id", "testing",
 }
+PROFILE_GRID_REDUNDANT_COLUMNS = {
+    "gas_ml_median", "disk_ml_median", "bulge_ml_median",
+    "gas_ml_dex", "disk_ml_dex", "bulge_ml_dex",
+    "ml_samples_per_term", "gas_term_convention", "tie_atol",
+}
+FULLY_MARGINALISED_REDUNDANT_COLUMNS = {
+    "disk_ml_median", "disk_ml_dex", "slope_min", "slope_max", "grid_size",
+}
+
+
+def compact_fields(fieldnames, redundant_columns):
+    """Return a CSV schema without run-level settings repeated on every row."""
+    return [name for name in fieldnames if name not in redundant_columns]
+
+
+def compact_rows(rows, redundant_columns):
+    """Drop run-level columns from in-memory rows without editing source shards."""
+    return [
+        {name: value for name, value in row.items() if name not in redundant_columns}
+        for row in rows
+    ]
 
 
 def read_csv(path):
@@ -58,9 +79,9 @@ def read_shard(output_root, shard_id):
         "paths": paths,
         "metadata": metadata,
         "grid_fields": grid_fields,
-        "grid_rows": grid_rows,
+        "grid_rows": compact_rows(grid_rows, PROFILE_GRID_REDUNDANT_COLUMNS),
         "full_fields": full_fields,
-        "full_rows": full_rows,
+        "full_rows": compact_rows(full_rows, FULLY_MARGINALISED_REDUNDANT_COLUMNS),
     }
 
 
@@ -180,6 +201,12 @@ def merge_shards(profile, output_root, shard_ids, replace_existing=False):
      galaxies, shard_records) = validate_shards(profile, shards)
 
     base = dict(shards[0]["metadata"])
+    base["radius_coverage"] = {
+        galaxy: coverage
+        for shard in shards
+        for galaxy, coverage in shard["metadata"].get("radius_coverage", {}).items()
+    }
+
     base["arguments"] = shared_arguments(base)
     base["started_utc"] = min(
         shard["metadata"].get("started_utc", "") for shard in shards
@@ -197,8 +224,20 @@ def merge_shards(profile, output_root, shard_ids, replace_existing=False):
 
     temp_paths = []
     try:
-        temp_paths.append(write_csv_temp(output_root, grid_fields, grid_rows))
-        temp_paths.append(write_csv_temp(output_root, full_fields, full_rows))
+        temp_paths.append(
+            write_csv_temp(
+                output_root,
+                compact_fields(grid_fields, PROFILE_GRID_REDUNDANT_COLUMNS),
+                grid_rows,
+            )
+        )
+        temp_paths.append(
+            write_csv_temp(
+                output_root,
+                compact_fields(full_fields, FULLY_MARGINALISED_REDUNDANT_COLUMNS),
+                full_rows,
+            )
+        )
         temp_paths.append(write_json_temp(output_root, base))
         for temp_path, key in zip(temp_paths, FINAL_NAMES):
             os.replace(temp_path, final_paths[key])

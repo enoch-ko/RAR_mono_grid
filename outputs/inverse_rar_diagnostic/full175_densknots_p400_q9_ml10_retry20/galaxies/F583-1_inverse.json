@@ -1,0 +1,177 @@
+{
+  "status": "infeasible",
+  "galaxy": "F583-1",
+  "diagnostic_only": true,
+  "reference_ml": 0.5,
+  "gas_ml_qp": 1.0,
+  "bulge_ml_qp": 0.7,
+  "knots_kpc": [
+    0.4119,
+    0.49428,
+    0.59382,
+    0.71224,
+    0.85469,
+    1.0246,
+    1.23054,
+    1.47597,
+    1.77116,
+    2.12471,
+    2.55033,
+    3.06006,
+    3.67275,
+    4.40731,
+    5.28774,
+    6.34666,
+    7.61496,
+    9.13898,
+    10.663,
+    12.18702,
+    13.71104,
+    15.23507
+  ],
+  "knot_source": "dens_radii",
+  "photometric_radii_kpc": [
+    0.4119,
+    0.49428,
+    0.59382,
+    0.71224,
+    0.85469,
+    1.0246,
+    1.23054,
+    1.47597,
+    1.77116,
+    2.12471,
+    2.55033,
+    3.06006,
+    3.67275,
+    4.40731,
+    5.28774,
+    6.34666,
+    7.61496,
+    9.13898,
+    10.663,
+    12.18702,
+    13.71104,
+    15.23507
+  ],
+  "retained_radii_kpc": [
+    0.44,
+    0.77,
+    0.89,
+    1.22,
+    1.55,
+    1.8,
+    2.21,
+    2.31,
+    2.54,
+    3.1,
+    3.43,
+    3.86,
+    4.09,
+    4.37,
+    4.76,
+    5.4,
+    5.86,
+    6.08,
+    6.43,
+    6.97,
+    7.96,
+    10.29
+  ],
+  "excluded_kinematic_rows": 3,
+  "kernel": {
+    "kind": "squared_exponential_correlation",
+    "length_fraction": 0.3,
+    "nugget": 1e-08,
+    "amplitude": "cancels from hard-constrained optimum"
+  },
+  "requested_bounds_ml": [
+    0.01,
+    10.0
+  ],
+  "bounds_ml": [
+    0.01,
+    20.0
+  ],
+  "fit_attempts": [
+    {
+      "upper_ml": 10.0,
+      "status": "infeasible",
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Basic)"
+    },
+    {
+      "upper_ml": 20.0,
+      "status": "infeasible",
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Basic)"
+    }
+  ],
+  "cache_gate": {
+    "files": [
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_001-035_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_036-070_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_071-105_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_106-140_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_141-175_20261005.json"
+    ],
+    "records": 14,
+    "zero_start": false,
+    "retained_kinematic_points": 22
+  },
+  "numerical_tolerances": {
+    "scaled_order_feasibility": 1e-08,
+    "scaled_active_constraint": 1e-07,
+    "direct_force_relative_to_peak": 1e-08
+  },
+  "input_sha256": {
+    "rotmod": "c29c53664306ab21285a967b4ea23e7b7574d9b4dfbe5decfd40364426819bd6",
+    "dens": "58fae69a0b8221f56b9391741aa934534bc76b9edf52d6cbab1cf98482bbc4cb",
+    "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+  },
+  "prior_direct_cache_qc": {
+    "max_abs_accel_delta_m_s2": 3.2311742677852644e-27,
+    "relative_to_peak": 7.95097625625796e-16,
+    "tolerance": 1e-08
+  },
+  "provenance": {
+    "created_utc": "2026-10-05T22:47:09.785637+00:00",
+    "script_sha256": "71d11569c319d3308de945aa09127330a4e031adb827d34ab83146362e9c309c",
+    "driver_sha256": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "args": {
+      "galaxy": "F583-1",
+      "output": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/F583-1_inverse.json",
+      "data_root": "/mnt/users/koe/data",
+      "dens_root": "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG",
+      "validation_root": "/mnt/users/koe/RAR_mono_grid/outputs",
+      "knots": "8",
+      "knots_from_dens": "True",
+      "length_fraction": "0.3",
+      "min_ml": "0.01",
+      "max_ml": "10.0",
+      "retry_max_ml": "20.0",
+      "gas_ml": "1.0",
+      "bulge_ml": "0.7",
+      "gas_ml_dex": "0.04",
+      "bulge_ml_dex": "0.1",
+      "ml_samples": "9",
+      "prob_grid_size": "400",
+      "replace_existing": "False"
+    },
+    "plot_script_sha256": "a1b3a0c1b2f255e3d2578ec0a8a69bf00d063fb1222015941eb2965889b39ffb"
+  },
+  "optimization": {
+    "status": "infeasible",
+    "lp_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Basic)"
+  },
+  "plot": {
+    "status": "created",
+    "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/F583-1_inverse.png",
+    "kind": "sparc_reference_only",
+    "retained_points": 22,
+    "excluded_kinematic_rows": 3,
+    "sparc_rar_valid_points": 22,
+    "sparc_disc_table_ml": 1.0,
+    "sparc_disc_display_ml": 0.5,
+    "rar_reference": "SPARC rotmod constant M/L"
+  }
+}

@@ -1,0 +1,351 @@
+{
+  "status": "feasible_weak_order",
+  "galaxy": "UGC04305",
+  "diagnostic_only": true,
+  "reference_ml": 0.5,
+  "gas_ml_qp": 1.0,
+  "bulge_ml_qp": 0.7,
+  "knots_kpc": [
+    0.04014,
+    0.04817,
+    0.05787,
+    0.06941,
+    0.0833,
+    0.09985,
+    0.11993,
+    0.14384,
+    0.17261,
+    0.20707,
+    0.24855,
+    0.29823,
+    0.35794,
+    0.42953,
+    0.51533,
+    0.61853,
+    0.74214,
+    0.89066,
+    1.28256,
+    1.53897,
+    1.84673,
+    2.21604,
+    3.19117,
+    3.82943,
+    4.4677,
+    5.10597
+  ],
+  "knot_source": "dens_radii",
+  "photometric_radii_kpc": [
+    0.04014,
+    0.04817,
+    0.05787,
+    0.06941,
+    0.0833,
+    0.09985,
+    0.11993,
+    0.14384,
+    0.17261,
+    0.20707,
+    0.24855,
+    0.29823,
+    0.35794,
+    0.42953,
+    0.51533,
+    0.61853,
+    0.74214,
+    0.89066,
+    1.28256,
+    1.53897,
+    1.84673,
+    2.21604,
+    3.19117,
+    3.82943,
+    4.4677,
+    5.10597
+  ],
+  "retained_radii_kpc": [
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.26,
+    1.5,
+    1.76,
+    2.01,
+    2.26,
+    2.51,
+    2.76,
+    3.01,
+    3.27,
+    3.51,
+    3.76,
+    4.02,
+    4.26,
+    4.52,
+    4.77,
+    5.02
+  ],
+  "excluded_kinematic_rows": 2,
+  "kernel": {
+    "kind": "squared_exponential_correlation",
+    "length_fraction": 0.3,
+    "nugget": 1e-08,
+    "amplitude": "cancels from hard-constrained optimum"
+  },
+  "requested_bounds_ml": [
+    0.01,
+    10.0
+  ],
+  "bounds_ml": [
+    0.01,
+    10.0
+  ],
+  "fit_attempts": [
+    {
+      "upper_ml": 10.0,
+      "status": "feasible_weak_order",
+      "message": ""
+    }
+  ],
+  "cache_gate": {
+    "files": [
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_001-035_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_036-070_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_071-105_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_106-140_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_141-175_20261005.json"
+    ],
+    "records": 14,
+    "zero_start": false,
+    "retained_kinematic_points": 20
+  },
+  "numerical_tolerances": {
+    "scaled_order_feasibility": 1e-08,
+    "scaled_active_constraint": 1e-07,
+    "direct_force_relative_to_peak": 1e-08
+  },
+  "input_sha256": {
+    "rotmod": "f8456a46a09418e2849f163a2db361fb5360720e5f4aa0d650e5a5ebe8f31c14",
+    "dens": "a3aea228add32bc85c8d215ccb8f2b282f96007b21d0ecd42491bce06cd18afb",
+    "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+  },
+  "prior_direct_cache_qc": {
+    "max_abs_accel_delta_m_s2": 4.8467614016778965e-27,
+    "relative_to_peak": 4.426476370000449e-16,
+    "tolerance": 1e-08
+  },
+  "provenance": {
+    "created_utc": "2026-10-05T23:54:24.740688+00:00",
+    "script_sha256": "71d11569c319d3308de945aa09127330a4e031adb827d34ab83146362e9c309c",
+    "driver_sha256": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "args": {
+      "galaxy": "UGC04305",
+      "output": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC04305_inverse.json",
+      "data_root": "/mnt/users/koe/data",
+      "dens_root": "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG",
+      "validation_root": "/mnt/users/koe/RAR_mono_grid/outputs",
+      "knots": "8",
+      "knots_from_dens": "True",
+      "length_fraction": "0.3",
+      "min_ml": "0.01",
+      "max_ml": "10.0",
+      "retry_max_ml": "20.0",
+      "gas_ml": "1.0",
+      "bulge_ml": "0.7",
+      "gas_ml_dex": "0.04",
+      "bulge_ml_dex": "0.1",
+      "ml_samples": "9",
+      "prob_grid_size": "400",
+      "replace_existing": "False"
+    },
+    "plot_script_sha256": "a1b3a0c1b2f255e3d2578ec0a8a69bf00d063fb1222015941eb2965889b39ffb"
+  },
+  "optimized_direct_cache_qc": {
+    "max_abs_accel_delta_m_s2": 3.2311742677852644e-26,
+    "relative_to_peak": 7.605906885268976e-16,
+    "tolerance": 1e-08
+  },
+  "optimization": {
+    "status": "feasible_weak_order",
+    "objective": 5723578.368352411,
+    "max_scaled_violation": 8.326672684688674e-17,
+    "active_order_pairs": [
+      [
+        1,
+        14
+      ],
+      [
+        14,
+        19
+      ],
+      [
+        17,
+        13
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        6,
+        5
+      ]
+    ],
+    "active_lower_knots": [
+      0,
+      22,
+      25
+    ],
+    "active_upper_knots": [
+      23
+    ],
+    "scale_m_s2": 3.406463384114644e-11,
+    "qp_message": "Optimization terminated successfully",
+    "xi": [
+      0.010000000000000116,
+      0.05351262448231075,
+      0.13076631922192133,
+      0.22102922930309893,
+      0.32718304796059094,
+      0.44989527212385294,
+      0.5928037673979182,
+      0.7538421668673233,
+      0.9337105277633037,
+      1.1286069597205965,
+      1.3308103139855676,
+      1.531535433736699,
+      1.7152466448669068,
+      1.8703924605276632,
+      2.0271951403755653,
+      2.085370895958201,
+      1.8032455808025747,
+      1.738205730131791,
+      2.510401796846685,
+      3.0697541621957773,
+      3.273620689113902,
+      1.525166411307589,
+      0.01,
+      9.999999999999993,
+      8.823650036013776,
+      0.010000000000000269
+    ],
+    "profile_on_photometric_grid": [
+      0.010000000000000116,
+      0.05351262448231075,
+      0.13076631922192133,
+      0.22102922930309893,
+      0.32718304796059094,
+      0.44989527212385294,
+      0.5928037673979182,
+      0.7538421668673233,
+      0.9337105277633037,
+      1.1286069597205965,
+      1.3308103139855676,
+      1.531535433736699,
+      1.7152466448669068,
+      1.8703924605276632,
+      2.0271951403755653,
+      2.085370895958201,
+      1.8032455808025747,
+      1.738205730131791,
+      2.510401796846685,
+      3.0697541621957773,
+      3.273620689113902,
+      1.525166411307589,
+      0.01,
+      9.999999999999993,
+      8.823650036013776,
+      0.010000000000000269
+    ],
+    "max_abs_deviation_ml": 9.499999999999993,
+    "mahalanobis_distance": 2392.400127142701,
+    "gbar_m_s2": [
+      -1.4602451266427694e-12,
+      2.198212154446692e-11,
+      3.879925874949747e-11,
+      5.021988140114996e-11,
+      5.882391064535924e-11,
+      6.014174631084749e-11,
+      6.01417463108475e-11,
+      5.5495886395057434e-11,
+      5.021988140114996e-11,
+      4.4413979273324755e-11,
+      3.8799258749497466e-11,
+      3.282411394665842e-11,
+      2.71466349597249e-11,
+      2.4590301810747576e-11,
+      2.1982121544466924e-11,
+      2.2170019937211917e-11,
+      2.3506954159741928e-11,
+      2.4590301810747576e-11,
+      2.3243687781953825e-11,
+      2.1982121544466924e-11
+    ],
+    "observed_order": [
+      0,
+      1,
+      14,
+      19,
+      15,
+      18,
+      16,
+      17,
+      13,
+      12,
+      11,
+      10,
+      2,
+      9,
+      3,
+      8,
+      7,
+      4,
+      6,
+      5
+    ],
+    "adjacent_gbar_gaps_m_s2": [
+      2.344236667110969e-11,
+      3.2311742677852644e-27,
+      0.0,
+      1.8789839274499264e-13,
+      1.0736678447419087e-12,
+      2.63266377788103e-13,
+      1.0833476510056477e-12,
+      0.0,
+      2.5563331489773237e-12,
+      5.677478986933518e-12,
+      5.975144802839049e-12,
+      6.462348535570529e-27,
+      5.614720523827282e-12,
+      5.805902127825206e-12,
+      0.0,
+      5.276004993907473e-12,
+      3.328024250301803e-12,
+      1.3178356654882698e-12,
+      -1.2924697071141057e-26
+    ],
+    "boundary_ties_present": true
+  },
+  "post_optimization_probability": {
+    "conditional_logp": -21.192081222101503,
+    "conditional_valid": true,
+    "conditional_reason": "",
+    "marginal_logp": -21.54706179853788,
+    "marginal_valid": true,
+    "marginal_reason": "",
+    "gas_ml_dex": 0.04,
+    "bulge_ml_dex": 0.1,
+    "ml_samples_per_term": 9,
+    "prob_grid_size": 400,
+    "no_reoptimization": true
+  },
+  "plot": {
+    "status": "failed",
+    "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC04305_inverse.png",
+    "reason": "ValueError: non-positive baryonic velocity square in fitted RAR"
+  }
+}

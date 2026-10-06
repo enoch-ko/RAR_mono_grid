@@ -1,0 +1,134 @@
+{
+  "created_utc": "2026-10-05T22:42:54.241748+00:00",
+  "shard": 7,
+  "shards": 10,
+  "galaxies": [
+    "NGC2915",
+    "NGC2903",
+    "IC2574",
+    "NGC3992",
+    "UGC06786",
+    "UGC07151",
+    "NGC5585",
+    "NGC3949",
+    "UGC00634",
+    "UGC04278",
+    "UGC05414",
+    "UGC06917",
+    "UGC05764",
+    "F568-3",
+    "F568-V1",
+    "UGC05999",
+    "F583-4",
+    "F565-V2"
+  ],
+  "estimated_weight": 61053,
+  "driver_sha256": "71d11569c319d3308de945aa09127330a4e031adb827d34ab83146362e9c309c",
+  "plotter_sha256": "a1b3a0c1b2f255e3d2578ec0a8a69bf00d063fb1222015941eb2965889b39ffb",
+  "catalogue_sha256": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+  "settings": {
+    "knots": "all .dens radii",
+    "max_ml": 10.0,
+    "retry_max_ml": 20.0,
+    "prob_grid_size": 400,
+    "ml_samples": 9
+  },
+  "results": {
+    "NGC2915": {
+      "status": "infeasible",
+      "seconds": 11.4,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC2915_inverse.json"
+    },
+    "NGC2903": {
+      "status": "infeasible",
+      "seconds": 7.74,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC2903_inverse.json"
+    },
+    "IC2574": {
+      "status": "infeasible",
+      "seconds": 6.36,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/IC2574_inverse.json"
+    },
+    "NGC3992": {
+      "status": "feasible_weak_order",
+      "seconds": 11.11,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC3992_inverse.json"
+    },
+    "UGC06786": {
+      "status": "error",
+      "seconds": 6.21,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "/mnt/users/koe/.local/lib/python3.10/site-packages/scipy/optimize/_slsqp_py.py:434: RuntimeWarning: Values in x were outside bounds during a minimize step, clipping to bounds\n  fx = wrapped_fun(x)\n/mnt/users/koe/.local/lib/python3.10/site-packages/scipy/optimize/_slsqp_py.py:438: RuntimeWarning: Values in x were outside bounds during a minimize step, clipping to bounds\n  g = append(wrapped_grad(x), 0.0)\nTraceback (most recent call last):\n  File \"/mnt/users/koe/RAR_mono_grid/inverse_rar_diagnostic.py\", line 339, in <module>\n    main()\n  File \"/mnt/users/koe/RAR_mono_grid/inverse_rar_diagnostic.py\", line 334, in main\n    args.output.write_text(json.dumps(result, indent=2, allow_nan=False) + \"\\n\")\n  File \"/usr/lib/python3.10/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 201, in encode\n    chunks = list(chunks)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 431, in _iterencode\n    yield from _iterencode_dict(o, _current_indent_level)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 405, in _iterencode_dict\n    yield from chunks\n  File \"/usr/lib/python3.10/json/encoder.py\", line 397, in _iterencode_dict\n    yield _floatstr(value)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 239, in floatstr\n    raise ValueError(\nValueError: Out of range float values are not JSON compliant: nan\n",
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC06786_inverse.json"
+    },
+    "UGC07151": {
+      "status": "feasible_weak_order",
+      "seconds": 13.93,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC07151_inverse.json"
+    },
+    "NGC5585": {
+      "status": "feasible_weak_order",
+      "seconds": 22.32,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC5585_inverse.json"
+    },
+    "NGC3949": {
+      "status": "feasible_weak_order",
+      "seconds": 8.95,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC3949_inverse.json"
+    },
+    "UGC00634": {
+      "status": "feasible_weak_order",
+      "seconds": 5.43,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC00634_inverse.json"
+    },
+    "UGC04278": {
+      "status": "feasible_weak_order",
+      "seconds": 58.53,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC04278_inverse.json"
+    },
+    "UGC05414": {
+      "status": "feasible_weak_order",
+      "seconds": 8.98,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC05414_inverse.json"
+    },
+    "UGC06917": {
+      "status": "feasible_weak_order",
+      "seconds": 12.89,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC06917_inverse.json"
+    },
+    "UGC05764": {
+      "status": "feasible_weak_order",
+      "seconds": 16.48,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC05764_inverse.json"
+    },
+    "F568-3": {
+      "status": "feasible_weak_order",
+      "seconds": 470.62,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/F568-3_inverse.json"
+    },
+    "F568-V1": {
+      "status": "error",
+      "seconds": 28.35,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "/mnt/users/koe/.local/lib/python3.10/site-packages/scipy/optimize/_slsqp_py.py:434: RuntimeWarning: Values in x were outside bounds during a minimize step, clipping to bounds\n  fx = wrapped_fun(x)\n/mnt/users/koe/.local/lib/python3.10/site-packages/scipy/optimize/_slsqp_py.py:438: RuntimeWarning: Values in x were outside bounds during a minimize step, clipping to bounds\n  g = append(wrapped_grad(x), 0.0)\nTraceback (most recent call last):\n  File \"/mnt/users/koe/RAR_mono_grid/inverse_rar_diagnostic.py\", line 339, in <module>\n    main()\n  File \"/mnt/users/koe/RAR_mono_grid/inverse_rar_diagnostic.py\", line 326, in main\n    result[\"plot\"] = plotter.render_plot(\n  File \"/mnt/users/koe/RAR_mono_grid/plot_inverse_rar_comparison.py\", line 106, in render_plot\n    raise ValueError(\"non-positive baryonic velocity square in fitted RAR\")\nValueError: non-positive baryonic velocity square in fitted RAR\n",
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/F568-V1_inverse.json"
+    },
+    "UGC05999": {
+      "status": "feasible_weak_order",
+      "seconds": 4.0,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC05999_inverse.json"
+    },
+    "F583-4": {
+      "status": "feasible_weak_order",
+      "seconds": 10.0,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/F583-4_inverse.json"
+    },
+    "F565-V2": {
+      "status": "feasible_weak_order",
+      "seconds": 5.72,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/F565-V2_inverse.json"
+    }
+  }
+}

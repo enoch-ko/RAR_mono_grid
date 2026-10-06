@@ -1,0 +1,131 @@
+{
+  "created_utc": "2026-10-05T22:42:43.884237+00:00",
+  "shard": 5,
+  "shards": 10,
+  "galaxies": [
+    "NGC2841",
+    "NGC3198",
+    "NGC5005",
+    "NGC4157",
+    "UGC08286",
+    "UGC02455",
+    "UGC12632",
+    "NGC5371",
+    "UGC06930",
+    "UGC06983",
+    "UGC09037",
+    "UGC06923",
+    "F563-1",
+    "UGC06818",
+    "NGC4389",
+    "ESO444-G084",
+    "NGC0247",
+    "UGC05918"
+  ],
+  "estimated_weight": 61165,
+  "driver_sha256": "71d11569c319d3308de945aa09127330a4e031adb827d34ab83146362e9c309c",
+  "plotter_sha256": "a1b3a0c1b2f255e3d2578ec0a8a69bf00d063fb1222015941eb2965889b39ffb",
+  "catalogue_sha256": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+  "settings": {
+    "knots": "all .dens radii",
+    "max_ml": 10.0,
+    "retry_max_ml": 20.0,
+    "prob_grid_size": 400,
+    "ml_samples": 9
+  },
+  "results": {
+    "NGC2841": {
+      "status": "feasible_weak_order",
+      "seconds": 55.72,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC2841_inverse.json"
+    },
+    "NGC3198": {
+      "status": "error",
+      "seconds": 9.62,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "/mnt/users/koe/.local/lib/python3.10/site-packages/scipy/optimize/_slsqp_py.py:434: RuntimeWarning: Values in x were outside bounds during a minimize step, clipping to bounds\n  fx = wrapped_fun(x)\n/mnt/users/koe/.local/lib/python3.10/site-packages/scipy/optimize/_slsqp_py.py:438: RuntimeWarning: Values in x were outside bounds during a minimize step, clipping to bounds\n  g = append(wrapped_grad(x), 0.0)\nTraceback (most recent call last):\n  File \"/mnt/users/koe/RAR_mono_grid/inverse_rar_diagnostic.py\", line 339, in <module>\n    main()\n  File \"/mnt/users/koe/RAR_mono_grid/inverse_rar_diagnostic.py\", line 334, in main\n    args.output.write_text(json.dumps(result, indent=2, allow_nan=False) + \"\\n\")\n  File \"/usr/lib/python3.10/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 201, in encode\n    chunks = list(chunks)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 431, in _iterencode\n    yield from _iterencode_dict(o, _current_indent_level)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 405, in _iterencode_dict\n    yield from chunks\n  File \"/usr/lib/python3.10/json/encoder.py\", line 397, in _iterencode_dict\n    yield _floatstr(value)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 239, in floatstr\n    raise ValueError(\nValueError: Out of range float values are not JSON compliant: nan\n",
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC3198_inverse.json"
+    },
+    "NGC5005": {
+      "status": "feasible_weak_order",
+      "seconds": 20.08,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC5005_inverse.json"
+    },
+    "NGC4157": {
+      "status": "feasible_weak_order",
+      "seconds": 18.37,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC4157_inverse.json"
+    },
+    "UGC08286": {
+      "status": "feasible_weak_order",
+      "seconds": 19.87,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC08286_inverse.json"
+    },
+    "UGC02455": {
+      "status": "feasible_weak_order",
+      "seconds": 9.93,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC02455_inverse.json"
+    },
+    "UGC12632": {
+      "status": "feasible_weak_order",
+      "seconds": 16.54,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC12632_inverse.json"
+    },
+    "NGC5371": {
+      "status": "feasible_weak_order",
+      "seconds": 16.05,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC5371_inverse.json"
+    },
+    "UGC06930": {
+      "status": "feasible_weak_order",
+      "seconds": 10.09,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC06930_inverse.json"
+    },
+    "UGC06983": {
+      "status": "feasible_weak_order",
+      "seconds": 15.35,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC06983_inverse.json"
+    },
+    "UGC09037": {
+      "status": "feasible_weak_order",
+      "seconds": 23.26,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC09037_inverse.json"
+    },
+    "UGC06923": {
+      "status": "feasible_weak_order",
+      "seconds": 8.66,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC06923_inverse.json"
+    },
+    "F563-1": {
+      "status": "infeasible",
+      "seconds": 3.61,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/F563-1_inverse.json"
+    },
+    "UGC06818": {
+      "status": "feasible_weak_order",
+      "seconds": 9.0,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC06818_inverse.json"
+    },
+    "NGC4389": {
+      "status": "feasible_weak_order",
+      "seconds": 7.44,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC4389_inverse.json"
+    },
+    "ESO444-G084": {
+      "status": "feasible_weak_order",
+      "seconds": 5.62,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/ESO444-G084_inverse.json"
+    },
+    "NGC0247": {
+      "status": "infeasible",
+      "seconds": 1.87,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/NGC0247_inverse.json"
+    },
+    "UGC05918": {
+      "status": "feasible_weak_order",
+      "seconds": 6.09,
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC05918_inverse.json"
+    }
+  }
+}

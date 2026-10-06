@@ -1,0 +1,85 @@
+{
+  "schema_version": 2,
+  "tool": "sparc_scale_proxies.py",
+  "input_profile_grid": "/mnt/users/koe/RAR_mono_grid/outputs/production_linear_51/profile_grid.csv",
+  "input_profile_grid_sha256": "016467a0c61d4bc1e65feb2aac6337dac1d34b73fa64db848627969a3d683d04",
+  "run_metadata": "/mnt/users/koe/RAR_mono_grid/outputs/production_linear_51/run_metadata.json",
+  "run_metadata_sha256": "c3d431ae12f5e111d4e6fdf10a153703a8fcb3fe532ba02b048bf032bce80414",
+  "settings_source": "/mnt/users/koe/RAR_mono_grid/outputs/production_linear_51/run_metadata.json",
+  "nuisance_settings": {
+    "gas_ml": 1.0,
+    "bulge_ml": 0.7,
+    "gas_ml_dex": 0.04,
+    "bulge_ml_dex": 0.1,
+    "quadrature_samples": 9
+  },
+  "table_path": "/mnt/users/koe/RAR_mono_grid/SPARC_table.txt",
+  "table_sha256": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+  "dens_root": "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG",
+  "source_probability_kind": "conditional",
+  "profile_types": [
+    "linear"
+  ],
+  "rows_written": 2601,
+  "invalid_mass_rows": 2398,
+  "galaxy_inputs": {
+    "UGC07399": {
+      "catalogue": {
+        "L_total_1e9_Lsun": 1.156,
+        "Rdisk_kpc": 1.64,
+        "MHI_raw_1e9_Msun": 0.745
+      },
+      "a_proxy_kpc": 1.9294117647058824,
+      "light_profile": {
+        "sha256": "340fccc8b74f39aa416906c5ba6395f7889784840922500de81cecda7c205677",
+        "L_disk_1e9_Lsun": 1.156,
+        "L_bulge_1e9_Lsun": 0.0,
+        "bulge_light_fraction": 0.0,
+        "raw_light_scale_to_catalog": 0.39860273335902413,
+        "rmax_kpc": 6.7145,
+        "n_radii": 59,
+        "bulge_light_method": "integrated SBbulge/(SBdisk+SBbulge) light fraction, jointly scaled to catalogue L3.6; no radial extrapolation"
+      },
+      "median_nuisance_masses_1e9_Msun": {
+        "gas": 0.99085,
+        "bulge": 0.0
+      },
+      "light_profile_error": null
+    }
+  },
+  "shared_physical_settings": {
+    "helium_factor": 1.33,
+    "a0_m_s2": 1.2e-10,
+    "gas_mass_convention": "Mgas = gas_ML * helium_factor * catalogue MHI; helium included exactly once; molecular gas omitted",
+    "disk_profile_normalisation": "exact mono_SPARC_RAR.py luminosity-weighted mean; integrated disk mass checked against mean_ML * Ldisk",
+    "a_proxy_definition": "Rdisk/0.85 kpc; exploratory Miyamoto-Nagai geometry correspondence",
+    "r_M_definition": "sqrt(G*Mbar/a0); G=6.67430e-11 m^3 kg^-1 s^-2, Msun=1.98847e30 kg, kpc=3.0856775814913673e19 m",
+    "mass_quadrature": "independent Gauss-Hermite lognormal gas and bulge nuisance priors; reported mean and inverse-weighted-CDF 16/84 percentiles are prior summaries, not probability-conditioned posteriors",
+    "selection_policy": "invalid source cells and invalid light/profile cells are retained and flagged; this diagnostic does not exclude galaxies or alter monotonicity probabilities",
+    "limitations": "surface-brightness profiles are integrated only over tabulated radial coverage; disk/bulge component ratio is jointly scaled to catalogue total L3.6; screen is not a theory test"
+  },
+  "output_csv": "/mnt/users/koe/RAR_mono_grid/outputs/physical_scale_proxies_UGC07399_linear_validation.csv",
+  "output_schema": [
+    "galaxy",
+    "grid_i",
+    "grid_j",
+    "upsilon_disk_mean",
+    "disk_slope",
+    "source_grid_valid",
+    "source_invalid_reason",
+    "mass_status",
+    "M_disk_1e9_Msun",
+    "M_bar_median_1e9_Msun",
+    "M_bar_qmean_1e9_Msun",
+    "M_bar_q16_1e9_Msun",
+    "M_bar_q84_1e9_Msun",
+    "r_M_median_kpc",
+    "r_M_qmean_kpc",
+    "r_M_q16_kpc",
+    "r_M_q84_kpc",
+    "eta_median",
+    "eta_qmean",
+    "eta_q16",
+    "eta_q84"
+  ]
+}

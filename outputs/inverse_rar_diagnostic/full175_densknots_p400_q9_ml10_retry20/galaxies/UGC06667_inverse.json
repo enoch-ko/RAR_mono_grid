@@ -1,0 +1,286 @@
+{
+  "status": "feasible_weak_order",
+  "galaxy": "UGC06667",
+  "diagnostic_only": true,
+  "reference_ml": 0.5,
+  "gas_ml_qp": 1.0,
+  "bulge_ml_qp": 0.7,
+  "knots_kpc": [
+    0.20944,
+    0.25133,
+    0.30194,
+    0.36216,
+    0.43459,
+    0.52098,
+    0.6257,
+    0.75049,
+    0.90059,
+    1.08036,
+    1.29678,
+    1.55596,
+    1.8675,
+    2.241,
+    2.68868,
+    3.22711,
+    3.87201,
+    4.64694,
+    5.57633,
+    6.69159,
+    8.02939,
+    9.63509,
+    11.56193
+  ],
+  "knot_source": "dens_radii",
+  "photometric_radii_kpc": [
+    0.20944,
+    0.25133,
+    0.30194,
+    0.36216,
+    0.43459,
+    0.52098,
+    0.6257,
+    0.75049,
+    0.90059,
+    1.08036,
+    1.29678,
+    1.55596,
+    1.8675,
+    2.241,
+    2.68868,
+    3.22711,
+    3.87201,
+    4.64694,
+    5.57633,
+    6.69159,
+    8.02939,
+    9.63509,
+    11.56193
+  ],
+  "retained_radii_kpc": [
+    0.87,
+    1.74,
+    2.61,
+    3.5,
+    4.37,
+    5.24,
+    6.11,
+    6.98,
+    7.85
+  ],
+  "excluded_kinematic_rows": 0,
+  "kernel": {
+    "kind": "squared_exponential_correlation",
+    "length_fraction": 0.3,
+    "nugget": 1e-08,
+    "amplitude": "cancels from hard-constrained optimum"
+  },
+  "requested_bounds_ml": [
+    0.01,
+    10.0
+  ],
+  "bounds_ml": [
+    0.01,
+    10.0
+  ],
+  "fit_attempts": [
+    {
+      "upper_ml": 10.0,
+      "status": "feasible_weak_order",
+      "message": ""
+    }
+  ],
+  "cache_gate": {
+    "files": [
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_001-035_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_036-070_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_071-105_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_106-140_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_141-175_20261005.json"
+    ],
+    "records": 14,
+    "zero_start": false,
+    "retained_kinematic_points": 9
+  },
+  "numerical_tolerances": {
+    "scaled_order_feasibility": 1e-08,
+    "scaled_active_constraint": 1e-07,
+    "direct_force_relative_to_peak": 1e-08
+  },
+  "input_sha256": {
+    "rotmod": "df909c416a68e59f41fad411e8e5cd02a6385fa8eb4cbeb8c01161981e8fab6e",
+    "dens": "44cea0d550f01bd4cbbc22312c4e1d9bb7f672dedaa0c60691b921c013d8565d",
+    "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+  },
+  "prior_direct_cache_qc": {
+    "max_abs_accel_delta_m_s2": 1.2116903504194741e-27,
+    "relative_to_peak": 9.039434508379922e-16,
+    "tolerance": 1e-08
+  },
+  "provenance": {
+    "created_utc": "2026-10-05T22:49:51.814826+00:00",
+    "script_sha256": "71d11569c319d3308de945aa09127330a4e031adb827d34ab83146362e9c309c",
+    "driver_sha256": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "args": {
+      "galaxy": "UGC06667",
+      "output": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC06667_inverse.json",
+      "data_root": "/mnt/users/koe/data",
+      "dens_root": "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG",
+      "validation_root": "/mnt/users/koe/RAR_mono_grid/outputs",
+      "knots": "8",
+      "knots_from_dens": "True",
+      "length_fraction": "0.3",
+      "min_ml": "0.01",
+      "max_ml": "10.0",
+      "retry_max_ml": "20.0",
+      "gas_ml": "1.0",
+      "bulge_ml": "0.7",
+      "gas_ml_dex": "0.04",
+      "bulge_ml_dex": "0.1",
+      "ml_samples": "9",
+      "prob_grid_size": "400",
+      "replace_existing": "False"
+    },
+    "plot_script_sha256": "a1b3a0c1b2f255e3d2578ec0a8a69bf00d063fb1222015941eb2965889b39ffb"
+  },
+  "optimized_direct_cache_qc": {
+    "max_abs_accel_delta_m_s2": 1.5146129380243427e-28,
+    "relative_to_peak": 4.958198446407042e-16,
+    "tolerance": 1e-08
+  },
+  "optimization": {
+    "status": "feasible_weak_order",
+    "objective": 2.455056331143754,
+    "max_scaled_violation": 6.938893903907228e-18,
+    "active_order_pairs": [
+      [
+        6,
+        1
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "active_lower_knots": [
+      18
+    ],
+    "active_upper_knots": [],
+    "scale_m_s2": 3.9473227205021115e-12,
+    "qp_message": "Optimization terminated successfully",
+    "xi": [
+      0.15138624662280015,
+      0.14588183996036785,
+      0.139447399361186,
+      0.13210213659456163,
+      0.12371925494114937,
+      0.1143710905722395,
+      0.10399271334278672,
+      0.09298723754516176,
+      0.08168757523057582,
+      0.0708567191828515,
+      0.06150095215458761,
+      0.05505161888102926,
+      0.0529559722026764,
+      0.05612294475755008,
+      0.0635137525117333,
+      0.07027139321910197,
+      0.06671071612562124,
+      0.04345164101813846,
+      0.01,
+      0.01951252411072516,
+      0.13608537084676317,
+      0.2631332396743414,
+      0.10026184133982313
+    ],
+    "profile_on_photometric_grid": [
+      0.15138624662280015,
+      0.14588183996036785,
+      0.139447399361186,
+      0.13210213659456163,
+      0.12371925494114937,
+      0.1143710905722395,
+      0.10399271334278672,
+      0.09298723754516176,
+      0.08168757523057582,
+      0.0708567191828515,
+      0.06150095215458761,
+      0.05505161888102926,
+      0.0529559722026764,
+      0.05612294475755008,
+      0.0635137525117333,
+      0.07027139321910197,
+      0.06671071612562124,
+      0.04345164101813846,
+      0.01,
+      0.01951252411072516,
+      0.13608537084676317,
+      0.2631332396743414,
+      0.10026184133982313
+    ],
+    "max_abs_deviation_ml": 0.49,
+    "mahalanobis_distance": 1.5668619374864379,
+    "gbar_m_s2": [
+      2.089074621332025e-12,
+      2.4501411800458173e-12,
+      2.7202404711055864e-12,
+      2.7960824555681313e-12,
+      2.7202404711055864e-12,
+      2.603534090995213e-12,
+      2.4501411800458177e-12,
+      2.347894775215194e-12,
+      2.329927185104544e-12
+    ],
+    "observed_order": [
+      0,
+      8,
+      7,
+      6,
+      1,
+      5,
+      2,
+      4,
+      3
+    ],
+    "adjacent_gbar_gaps_m_s2": [
+      2.408525637725188e-13,
+      1.7967590110650266e-14,
+      1.0224640483062354e-13,
+      -4.0389678347315804e-28,
+      1.533929109493959e-13,
+      1.1670638011037326e-13,
+      0.0,
+      7.584198446254487e-14
+    ],
+    "boundary_ties_present": true
+  },
+  "post_optimization_probability": {
+    "conditional_logp": -5.625052942249356,
+    "conditional_valid": true,
+    "conditional_reason": "",
+    "marginal_logp": -5.64667842845409,
+    "marginal_valid": true,
+    "marginal_reason": "",
+    "gas_ml_dex": 0.04,
+    "bulge_ml_dex": 0.1,
+    "ml_samples_per_term": 9,
+    "prob_grid_size": 400,
+    "no_reoptimization": true
+  },
+  "plot": {
+    "status": "created",
+    "path": "/mnt/users/koe/RAR_mono_grid/outputs/inverse_rar_diagnostic/full175_densknots_p400_q9_ml10_retry20/galaxies/UGC06667_inverse.png",
+    "kind": "optimized",
+    "retained_points": 9,
+    "excluded_kinematic_rows": 0,
+    "sparc_rar_valid_points": 9,
+    "sparc_disc_table_ml": 1.0,
+    "sparc_disc_display_ml": 0.5,
+    "rar_reference": "Casertano constant M/L",
+    "direct_vs_saved_gbar_relative_to_peak": 1.4445095589682491e-16,
+    "optimized_ml_range": [
+      0.01,
+      0.2631332396743414
+    ]
+  }
+}

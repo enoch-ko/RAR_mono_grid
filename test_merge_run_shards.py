@@ -6,7 +6,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from merge_run_shards import merge_shards
+from merge_run_shards import (
+    FULLY_MARGINALISED_REDUNDANT_COLUMNS,
+    PROFILE_GRID_REDUNDANT_COLUMNS,
+    merge_shards,
+)
 
 
 class MergeRunShardsTests(unittest.TestCase):
@@ -22,12 +26,19 @@ class MergeRunShardsTests(unittest.TestCase):
         grid_path = self.root / f"profile_grid{suffix}.csv"
         full_path = self.root / f"fully_marginalised{suffix}.csv"
         metadata_path = self.root / f"run_metadata{suffix}.json"
-        rows = [{"galaxy": galaxy, "profile": profile, "log_probability": "-0.5"}]
+        row = {
+            "galaxy": galaxy,
+            "profile": profile,
+            "log_probability": "-0.5",
+            **{column: "run-setting" for column in (
+                PROFILE_GRID_REDUNDANT_COLUMNS | FULLY_MARGINALISED_REDUNDANT_COLUMNS
+            )},
+        }
         for path in (grid_path, full_path):
             with path.open("w", newline="") as stream:
-                writer = csv.DictWriter(stream, fieldnames=rows[0])
+                writer = csv.DictWriter(stream, fieldnames=row)
                 writer.writeheader()
-                writer.writerows(rows)
+                writer.writerow(row)
         metadata = {
             "profile": profile,
             "source_sha256": "same-source",
@@ -62,6 +73,22 @@ class MergeRunShardsTests(unittest.TestCase):
         self.assertEqual(metadata["galaxy_count"], 2)
         self.assertEqual(metadata["shard_ids"], [1, 2])
         self.assertEqual(len(metadata["shards"]), 2)
+
+    def test_aggregates_drop_redundant_columns_but_shards_keep_them(self):
+        self.write_shard(1, "G1")
+        _, _, _, paths = merge_shards("linear", self.root, [1])
+
+        with paths["profile_grid"].open(newline="") as stream:
+            grid_fields = set(csv.DictReader(stream).fieldnames)
+        with paths["fully_marginalised"].open(newline="") as stream:
+            full_fields = set(csv.DictReader(stream).fieldnames)
+        self.assertTrue(PROFILE_GRID_REDUNDANT_COLUMNS.isdisjoint(grid_fields))
+        self.assertTrue(FULLY_MARGINALISED_REDUNDANT_COLUMNS.isdisjoint(full_fields))
+
+        shard_path = self.root / "profile_grid.shard_01.csv"
+        with shard_path.open(newline="") as stream:
+            shard_fields = set(csv.DictReader(stream).fieldnames)
+        self.assertTrue(PROFILE_GRID_REDUNDANT_COLUMNS.issubset(shard_fields))
 
     def test_missing_shard_is_rejected(self):
         self.write_shard(1, "G1")

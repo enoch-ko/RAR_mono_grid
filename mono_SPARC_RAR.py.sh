@@ -1,6 +1,6 @@
 #!/bin/bash -l
 echo =========================================================   
-echo Job submitted  date = Thu 24 Sep 01:01:14 BST 2026      
+echo Job submitted  date = Fri 25 Sep 02:29:48 BST 2026      
 date_start=`date +%s`
 echo $SLURM_JOB_NUM_NODES nodes \( $SLURM_CPUS_ON_NODE processes per node \)        
 echo $SLURM_JOB_NUM_NODES hosts used: $SLURM_JOB_NODELIST      
@@ -15,7 +15,7 @@ echo
 ulimit -l unlimited
 
 export OMP_NUM_THEADS=1
- /usr/local/shared/slurm/bin/srun -u -n 1 --mpi=pmix --mem-per-cpu=8192 nice -n 10 /mnt/users/koe/RAR_mono_grid/./mono_SPARC_RAR.py --profile log_linear --grid-size 31 --prob-grid-size 400 --ml-samples 9 --galaxy-range 141 175 --output-root /mnt/users/koe/RAR_mono_grid/outputs/production_log_linear_31 --shard-id 5
+ /usr/local/shared/slurm/bin/srun -u -n 1 --mpi=pmix --mem-per-cpu=8192 nice -n 10 /mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR.py --profile log_linear --grid-size 51 --prob-grid-size 400 --ml-samples 9 --output-root /mnt/users/koe/RAR_mono_grid/outputs/production_log_linear_51 --shard-id 5 --galaxy-range 141 175
   echo ---------------                                           
   echo Job output ends                                           
 

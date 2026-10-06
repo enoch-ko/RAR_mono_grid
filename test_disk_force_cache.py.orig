@@ -1,0 +1,128 @@
+"""Fast standard-library checks for cached signed Casertano disk forces."""
+
+import tempfile
+import unittest
+import warnings
+from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import patch
+
+import numpy as np
+import pandas as pd
+
+import mono_SPARC_RAR as mono
+from utils import compute_A_B, compute_A_beta
+
+
+class DiskForceTests(unittest.TestCase):
+    def setUp(self):
+        self.rad = np.linspace(0.4, 5.6, 12)
+        self.sb = 90.0 * np.exp(-self.rad / 1.8)
+        self.r = np.array([0.25, 0.9, 2.3, 5.9])
+        self.zd = 0.28
+
+    def test_outward_force_and_endpoint_coverage(self):
+        rad = np.array([1.0, 2.0, 3.0])
+        velocity = np.array([-2.0, -3.0, 4.0])
+        signed = mono.signed_disk_term(velocity)
+        np.testing.assert_array_equal(signed, [-4.0, -9.0, 16.0])
+        r = np.array([0.5, 1.5, 4.0])
+        expected_force = np.interp(r, rad, signed / rad)
+        np.testing.assert_allclose(mono.interpolate_disk_force(rad, signed, r), r * expected_force)
+        self.assertLess(mono.interpolate_disk_force(rad, signed, r)[1], 0)
+        with self.assertRaises(ValueError):
+            mono.interpolate_disk_force([0, 1], [0, 1], [0.5])
+
+    def test_linear_two_bases_match_direct_signed_force(self):
+        A, B = compute_A_B(self.rad, self.sb)
+        centered = self.rad - B / A
+        mean, _, error = mono.solve_disk_basis(self.rad, self.sb, self.zd, self.r)
+        self.assertFalse(error)
+        slope, _, error = mono.solve_disk_basis(self.rad, self.sb * centered, self.zd, self.r)
+        self.assertFalse(error)
+        for mu, s in ((0.5, 0.0), (0.6, 0.03), (0.8, -0.02)):
+            self.assertTrue(np.all(mu + s * centered > 0))
+            direct, _, error = mono.solve_disk_basis(
+                self.rad, self.sb * (mu + s * centered), self.zd, self.r)
+            self.assertFalse(error)
+            np.testing.assert_allclose(mu * mean + s * slope, direct, rtol=2e-7, atol=2e-5)
+
+    def test_loglinear_shape_matches_direct_signed_force(self):
+        A, _ = compute_A_B(self.rad, self.sb)
+        for s in (-0.08, 0.0, 0.08):
+            _, beta = compute_A_beta(self.rad, self.sb, s)
+            shape = A / beta * np.exp(s * self.rad)
+            basis, _, error = mono.solve_disk_basis(self.rad, self.sb * shape, self.zd, self.r)
+            self.assertFalse(error)
+            for mu in (0.4, 0.8):
+                direct, _, error = mono.solve_disk_basis(
+                    self.rad, self.sb * mu * shape, self.zd, self.r)
+                self.assertFalse(error)
+                np.testing.assert_allclose(mu * basis, direct, rtol=2e-7, atol=2e-5)
+
+    def run_grid(self, profile, solver, marginalise=False, upsilon=None, slopes=None):
+        upsilon = np.array([0.4, 0.5, 0.7] if upsilon is None else upsilon)
+        slopes = np.array([-0.05, 0.0, 0.05] if slopes is None else slopes)
+        with tempfile.TemporaryDirectory() as directory:
+            data_root = Path(directory)
+            radii = np.array([0.8, 1.5, 2.5])
+            raw = np.column_stack((radii, [25, 35, 45], [2, 2, 2],
+                                   [5, 5, 5], [12, 12, 12], [0, 0, 0],
+                                   [1, 1, 1], [0, 0, 0]))
+            np.savetxt(data_root / "G_rotmod.dat", raw)
+            args = SimpleNamespace(data_root=data_root, dens_root=data_root,
+                                   profile=profile, grid_size=len(upsilon),
+                                   marginalise_disk=marginalise,
+                                   marginalise_gas_bulge=marginalise,
+                                   disk_ml=0.5, disk_ml_dex=0.1,
+                                   slope_min=float(slopes[0]), slope_max=float(slopes[-1]))
+            result = ((-0.3, True, "", []), (-0.3, True, "", []) if marginalise else None)
+            rows = []
+            with patch.object(mono, "get_SBdisk", return_value=(self.rad, self.sb)),                  patch.object(mono, "vcdisk", side_effect=solver) as mocked,                  patch.object(mono, "evaluate_disk_term", return_value=result):
+                grids = mono.process_galaxy(
+                    "G", pd.DataFrame({"Galaxy": ["G"], "Rdisk": [2.0]}),
+                    args, rows, np.log10(upsilon), upsilon, slopes,
+                    None, None, None, None)
+            return mocked.call_count, rows, grids
+
+    def test_solver_calls_do_not_scale_with_grid_cells(self):
+        solver = lambda rad, surface_density, **kwargs: np.ones_like(rad)
+        self.assertEqual(self.run_grid("constant", solver)[0], 0)
+        self.assertEqual(self.run_grid("linear", solver)[0], 2)
+        self.assertEqual(self.run_grid("log_linear", solver)[0], 3)
+
+    def test_invalid_loglinear_slope_does_not_trigger_solver(self):
+        solver = lambda rad, surface_density, **kwargs: np.ones_like(rad)
+        calls, rows, _ = self.run_grid("log_linear", solver,
+                                      slopes=np.array([-0.05, 0.0, 1000.0]))
+        self.assertEqual(calls, 2)
+        self.assertTrue(any(row["invalid_reason"] == "nonpositive_or_nonfinite_disk_ml" for row in rows))
+
+    def test_cached_basis_warnings_reach_grid_rows(self):
+        def warning_solver(rad, surface_density, **kwargs):
+            warnings.warn("synthetic basis warning")
+            return np.ones_like(rad)
+        _, rows, _ = self.run_grid("linear", warning_solver)
+        self.assertTrue(all("synthetic basis warning" in row["warnings"] for row in rows))
+
+    def test_failed_physical_basis_is_not_silently_dropped(self):
+        def failed_solver(*args, **kwargs):
+            raise RuntimeError("synthetic force failure")
+        calls, rows, grids = self.run_grid("linear", failed_solver, marginalise=True)
+        self.assertEqual(calls, 2)
+        self.assertFalse(grids[3]["valid"])
+        self.assertEqual(grids[3]["invalid_reason"], "one_or_more_physical_grid_cells_failed")
+        self.assertTrue(all("synthetic force failure" in row["invalid_reason"] for row in rows))
+
+    def test_nonpositive_profiles_reduce_retained_prior_mass(self):
+        solver = lambda rad, surface_density, **kwargs: np.ones_like(rad)
+        _, rows, grids = self.run_grid("linear", solver, marginalise=True,
+                                      slopes=np.array([-1.0, 0.0, 1.0]))
+        self.assertTrue(grids[3]["valid"])
+        self.assertGreater(grids[3]["retained_profile_prior_mass"], 0)
+        self.assertLess(grids[3]["retained_profile_prior_mass"], 1)
+        self.assertTrue(any(row["invalid_reason"] == "nonpositive_or_nonfinite_disk_ml" for row in rows))
+
+
+if __name__ == "__main__":
+    unittest.main()
