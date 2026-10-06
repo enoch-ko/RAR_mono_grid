@@ -195,15 +195,7 @@ def append_row(rows, galaxy, profile, grid_i, grid_j, log10_upsilon, upsilon,
         "valid": valid,
         "invalid_reason": reason,
         "warnings": " | ".join(warning_messages),
-        "gas_ml_median": args.gas_ml,
-        "disk_ml_median": args.disk_ml,
-        "bulge_ml_median": args.bulge_ml,
-        "gas_ml_dex": args.gas_ml_dex,
-        "disk_ml_dex": args.disk_ml_dex,
-        "bulge_ml_dex": args.bulge_ml_dex,
-        "ml_samples_per_term": args.ml_samples,
-        "gas_term_convention": "Vgas*abs(Vgas)",
-        "tie_atol": args.tie_atol,
+
     })
 
 
@@ -298,12 +290,9 @@ def fully_marginalise_grid(galaxy, args, log10_upsilon, slopes,
             "invalid_reason": "one_or_more_physical_grid_cells_failed",
             "retained_profile_prior_mass": float(np.sum(joint_weights[physical_grid])),
             "covered_disk_prior_mass": covered_disk_mass,
-            "disk_ml_median": args.disk_ml,
-            "disk_ml_dex": args.disk_ml_dex,
+
             "slope_prior": slope_prior,
-            "slope_min": np.nan if args.profile == "constant" else args.slope_min,
-            "slope_max": np.nan if args.profile == "constant" else args.slope_max,
-            "grid_size": args.grid_size,
+
         }
 
     integration_mask = physical_grid & marginal_valid_grid & np.isfinite(marginal_log_probability_grid)
@@ -334,12 +323,9 @@ def fully_marginalise_grid(galaxy, args, log10_upsilon, slopes,
         "invalid_reason": reason,
         "retained_profile_prior_mass": retained_prior_mass,
         "covered_disk_prior_mass": covered_disk_mass,
-        "disk_ml_median": args.disk_ml,
-        "disk_ml_dex": args.disk_ml_dex,
+
         "slope_prior": slope_prior,
-        "slope_min": np.nan if args.profile == "constant" else args.slope_min,
-        "slope_max": np.nan if args.profile == "constant" else args.slope_max,
-        "grid_size": args.grid_size,
+
     }
 
 
@@ -351,6 +337,62 @@ def merge_warnings(result, extra_warnings):
     return logp, valid, reason, warning_messages + list(extra_warnings)
 
 
+def signed_disk_term(velocity):
+    """Signed W=-R F_R from a signed circular-velocity response."""
+    velocity = np.asarray(velocity, dtype=float)
+    return velocity * np.abs(velocity)
+
+
+def interpolate_disk_force(rad, signed_term, r):
+    """Interpolate signed force W/R, then reconstruct W at observed radii.
+
+    Match the previous np.interp endpoint-clamping policy outside the .dens grid.
+    """
+    rad = np.asarray(rad, dtype=float)
+    signed_term = np.asarray(signed_term, dtype=float)
+    r = np.asarray(r, dtype=float)
+    if (rad.ndim != 1 or r.ndim != 1 or signed_term.shape != rad.shape
+            or rad.size < 2 or np.any(~np.isfinite(rad))
+            or np.any(~np.isfinite(r)) or np.any(rad < 0)
+            or np.any(r <= 0) or np.any(np.diff(rad) <= 0)):
+        raise ValueError("disk force interpolation requires finite ordered radii and signed terms")
+    # Some SPARC .dens grids start at R=0, where W/R is undefined. The first
+    # positive-radius force supplies the inner clamped endpoint.
+    if rad[0] == 0:
+        rad = rad[1:]
+        signed_term = signed_term[1:]
+    if rad.size < 2 or np.any(~np.isfinite(signed_term)):
+        raise ValueError("disk force interpolation has fewer than two finite positive-radius nodes")
+    return r * np.interp(r, rad, signed_term / rad)
+
+
+def solve_disk_basis(rad, surface_density, zd, r):
+    """One Casertano solve, preserving its signed force and warnings."""
+    with warnings.catch_warnings(record=True) as records:
+        warnings.simplefilter("always")
+        try:
+            rad = np.asarray(rad, dtype=float)
+            surface_density = np.asarray(surface_density, dtype=float)
+            if rad.ndim != 1 or surface_density.shape != rad.shape:
+                raise ValueError("disk radii and surface density must be matching 1D arrays")
+            # Four plotted SPARC comparisons favoured exact R=0 removal over
+            # epsilon substitutions (1e-3, 1e-6, 1e-9 of R1) in overall shape.
+            # The multiplicative normalisation discrepancy remains unexplained;
+            # this is a provisional numerical treatment, not a physical claim.
+            keep = rad != 0.0
+            if np.count_nonzero(keep) < 2:
+                raise ValueError("fewer than two nonzero-radius disk nodes remain")
+            rad = rad[keep]
+            surface_density = surface_density[keep]
+            velocity = vcdisk(rad, surface_density, z0=zd, rhoz="exp")
+            response = interpolate_disk_force(rad, signed_disk_term(velocity), r)
+            error = ""
+        except Exception as exc:
+            response = None
+            error = f"{type(exc).__name__}: {exc}"
+    return response, [str(record.message) for record in records], error
+
+
 def process_galaxy(galaxy, table, args, rows, log10_upsilon, upsilon, slopes,
                    gas_nodes, gas_weights, bulge_nodes, bulge_weights):
     """Evaluate the profile grid and its SPARC-prior integral for one galaxy."""
@@ -358,11 +400,36 @@ def process_galaxy(galaxy, table, args, rows, log10_upsilon, upsilon, slopes,
     data_path = args.data_root / f"{galaxy}_rotmod.dat"
     rawdata = np.loadtxt(data_path)
     data = pd.DataFrame(rawdata, columns=columns)
-    r = data["Rad"].to_numpy(float)
-    Vobs = data["Vobs"].to_numpy(float)
-    errV = data["errV"].to_numpy(float)
-    Vgas = data["Vgas"].to_numpy(float)
-    Vbul = data["Vbul"].to_numpy(float)
+    r_input = data["Rad"].to_numpy(float)
+    rad, SBdisk = get_SBdisk(galaxy, dens_root=args.dens_root, table=table)
+    if rad.size < 2 or np.any(~np.isfinite(rad)) or np.any(np.diff(rad) <= 0):
+        raise ValueError(f"{galaxy}: invalid photometric radius grid")
+    dens_r_min, dens_r_max = float(rad[0]), float(rad[-1])
+    finite_r = np.isfinite(r_input)
+    in_overlap = finite_r & (r_input >= dens_r_min) & (r_input <= dens_r_max)
+    if np.count_nonzero(in_overlap) < 2:
+        raise ValueError(
+        f"{galaxy}: only {np.count_nonzero(in_overlap)} kinematic radii overlap "
+        f"the .dens range [{dens_r_min}, {dens_r_max}] kpc"
+        )
+    radius_coverage = {
+    "dens_r_min_kpc": dens_r_min,
+    "dens_r_max_kpc": dens_r_max,
+    "kinematic_r_min_input_kpc": float(np.min(r_input[finite_r])) if np.any(finite_r) else None,
+    "kinematic_r_max_input_kpc": float(np.max(r_input[finite_r])) if np.any(finite_r) else None,
+    "kinematic_points_input": int(r_input.size),
+    "kinematic_points_retained": int(np.count_nonzero(in_overlap)),
+    "kinematic_points_excluded_outside_dens": int(np.count_nonzero(finite_r & ~in_overlap)),
+    "kinematic_points_excluded_nonfinite_radius": int(np.count_nonzero(~finite_r)),
+    "kinematic_r_min_retained_kpc": float(np.min(r_input[in_overlap])),
+    "kinematic_r_max_retained_kpc": float(np.max(r_input[in_overlap])),
+    }
+    r = r_input[in_overlap]
+    Vobs = data["Vobs"].to_numpy(float)[in_overlap]
+    errV = data["errV"].to_numpy(float)[in_overlap]
+    Vgas = data["Vgas"].to_numpy(float)[in_overlap]
+    Vbul = data["Vbul"].to_numpy(float)[in_overlap]
+
 
     shape = (1 if args.profile == "constant" else args.grid_size, args.grid_size)
     log_probability_grid = np.full(shape, np.nan)
@@ -372,12 +439,27 @@ def process_galaxy(galaxy, table, args, rows, log10_upsilon, upsilon, slopes,
     negative_grid = np.zeros(shape, dtype=bool)
 
     if args.profile == "constant":
-        Vdisk = data["Vdisk"].to_numpy(float)
+        
+        i_tab = np.flatnonzero(table["Galaxy"].to_numpy() == galaxy)
+        if len(i_tab) != 1:
+            raise ValueError(f"Expected one SPARC table row for {galaxy!r}, found {len(i_tab)}")
+        rdisk = float(table.iloc[i_tab[0]]["Rdisk"])
+        zd = 0.196 * rdisk**0.633
+        constant_basis, construction_warnings, solver_error = solve_disk_basis(
+            rad, SBdisk, zd, r)
         for p, pdisk in enumerate(upsilon):
             # Constant-profile velocity-squared scales linearly with disk M/L.
-            results = evaluate_disk_term(
-                Vdisk**2 * pdisk, Vgas, Vbul, r, Vobs, errV, args,
-                gas_nodes, gas_weights, bulge_nodes, bulge_weights)
+            if solver_error:
+                invalid = (np.nan, False, solver_error, construction_warnings)
+                results = (invalid, invalid if args.marginalise_gas_bulge else None)
+            else:
+                results = evaluate_disk_term(
+                    constant_basis * pdisk, Vgas, Vbul, r, Vobs, errV, args,
+                    gas_nodes, gas_weights, bulge_nodes, bulge_weights)
+                results = (
+                    merge_warnings(results[0], construction_warnings),
+                    merge_warnings(results[1], construction_warnings),
+                )
             logp, valid, _, _ = results[0]
             log_probability_grid[0, p] = logp
             valid_grid[0, p] = valid
@@ -392,8 +474,15 @@ def process_galaxy(galaxy, table, args, rows, log10_upsilon, upsilon, slopes,
             raise ValueError(f"Expected one SPARC table row for {galaxy!r}, found {len(i_tab)}")
         rdisk = float(table.iloc[i_tab[0]]["Rdisk"])
         zd = 0.196 * rdisk**0.633
-        rad, SBdisk = get_SBdisk(galaxy, dens_root=args.dens_root, table=table)
+        
         A, B = compute_A_B(rad, SBdisk)
+        centered_rad = rad - B / A
+        basis_cache = {}
+        if args.profile == "linear":
+            # Two signed-force solves per galaxy, independent of the grid size.
+            basis_cache["mean"] = solve_disk_basis(rad, SBdisk, zd, r)
+            basis_cache["slope"] = solve_disk_basis(rad, SBdisk * centered_rad, zd, r)
+        slope_profiles = {}
         for p, pdisk in enumerate(upsilon):
             for m, slope in enumerate(slopes):
                 # pdisk is the luminosity-weighted mean. The intercept or
@@ -402,9 +491,11 @@ def process_galaxy(galaxy, table, args, rows, log10_upsilon, upsilon, slopes,
                     y_intercept = pdisk - slope * (B / A)
                     Upsilon_disk = slope * rad + y_intercept
                 else:
-                    _, beta = compute_A_beta(rad, SBdisk, slope)
-                    norm_scale = pdisk / (beta / A)
-                    Upsilon_disk = norm_scale * np.exp(slope * rad)
+                    if m not in slope_profiles:
+                        with np.errstate(over="ignore", under="ignore", divide="ignore", invalid="ignore"):
+                            _, beta = compute_A_beta(rad, SBdisk, slope)
+                            slope_profiles[m] = (A / beta) * np.exp(slope * rad)
+                    Upsilon_disk = pdisk * slope_profiles[m]
                 negative = np.any(~np.isfinite(Upsilon_disk) | (Upsilon_disk <= 0))
                 negative_grid[m, p] = negative
                 if negative:
@@ -414,19 +505,32 @@ def process_galaxy(galaxy, table, args, rows, log10_upsilon, upsilon, slopes,
                                             pdisk, slope, results, args)
                     continue
                 try:
-                    with warnings.catch_warnings(record=True) as records:
-                        warnings.simplefilter("always")
-                        surface_density = SBdisk * Upsilon_disk
-                        Vdisk_dens = vcdisk(rad, surface_density, z0=zd, rhoz="exp")
-                        Vdisk = np.interp(r, rad, Vdisk_dens)
+                    if args.profile == "linear":
+                        mean_response, mean_warnings, mean_error = basis_cache["mean"]
+                        slope_response, slope_warnings, slope_error = basis_cache["slope"]
+                        construction_warnings = mean_warnings + slope_warnings
+                        solver_error = "; ".join(error for error in (mean_error, slope_error) if error)
+                        if not solver_error:
+                            disk_term = pdisk * mean_response + slope * slope_response
+                    else:
+                        if m not in basis_cache:
+                            # One shape solve per valid slope; mean M/L only rescales force.
+                            basis_cache[m] = solve_disk_basis(
+                                rad, SBdisk * slope_profiles[m], zd, r)
+                        response, construction_warnings, solver_error = basis_cache[m]
+                        if not solver_error:
+                            disk_term = pdisk * response
+                    if solver_error:
+                        invalid = (np.nan, False, solver_error, construction_warnings)
+                        results = (invalid, invalid if args.marginalise_gas_bulge else None)
+                    else:
                         results = evaluate_disk_term(
-                            Vdisk**2, Vgas, Vbul, r, Vobs, errV, args,
+                            disk_term, Vgas, Vbul, r, Vobs, errV, args,
                             gas_nodes, gas_weights, bulge_nodes, bulge_weights)
-                    construction_warnings = [str(record.message) for record in records]
-                    results = (
-                        merge_warnings(results[0], construction_warnings),
-                        merge_warnings(results[1], construction_warnings),
-                    )
+                        results = (
+                            merge_warnings(results[0], construction_warnings),
+                            merge_warnings(results[1], construction_warnings),
+                        )
                 except Exception as exc:
                     invalid = (np.nan, False, f"{type(exc).__name__}: {exc}", [])
                     results = (invalid, invalid if args.marginalise_gas_bulge else None)
@@ -443,7 +547,7 @@ def process_galaxy(galaxy, table, args, rows, log10_upsilon, upsilon, slopes,
         galaxy, args, log10_upsilon, slopes,
         marginal_log_probability_grid, marginal_valid_grid, negative_grid,
     )
-    return log_probability_grid, valid_grid, negative_grid, fully_marginalised
+    return log_probability_grid, valid_grid, negative_grid, fully_marginalised, radius_coverage
 
 
 def finite_plot_grid(log_probability_grid, valid_grid):
@@ -547,6 +651,7 @@ def main():
     log10_upsilon_sparc, log10_upsilon, upsilon, slopes = profile_grids(args)
     rows = []
     fully_marginalised_rows = []
+    radius_coverage_by_galaxy = {}
     run_metadata = {
         "started_utc": datetime.now(timezone.utc).isoformat(),
         "profile": args.profile,
@@ -569,6 +674,10 @@ def main():
         "slope_quadrature": "trapezoidal with uniform prior for radial profiles",
         "quadrature_samples_per_gas_or_bulge_term": args.ml_samples,
         "gas_term_convention": "Vgas*abs(Vgas)",
+        "disk_term_convention": "signed Vdisk*abs(Vdisk) = -R F_R",
+        "disk_force_solver": "one Casertano basis for constant; two Casertano bases for linear; one normalized Casertano shape per valid log-linear slope",
+        "radius_overlap_policy": "Pass full .dens radius and surface-density arrays to vcdisk; after calculation, retain only kinematic rows within the inclusive overlap of the kinematic and .dens radius ranges.",
+        "disk_force_interpolation": "Interpolate signed W/R on positive-radius .dens nodes after vcdisk, then multiply by retained kinematic radii; kinematic radii outside the inclusive .dens range are excluded.",
         "negative_disk_ml": "excluded; full integral is renormalised on the physical profile domain",
         "tie_policy": "arithmetic_mean_over_orderings_in_logspace",
         "disk_ml_reference": f"{args.disk_ml} with {args.disk_ml_dex} dex SPARC uncertainty",
@@ -576,9 +685,10 @@ def main():
     }
     for index, galaxy in enumerate(galaxies, start=1):
         print(f"Processing galaxy {index}/{len(galaxies)}", flush=True)
-        grid, valid, negative, fully_marginalised = process_galaxy(
+        grid, valid, negative, fully_marginalised, radius_coverage = process_galaxy(
             galaxy, table, args, rows, log10_upsilon, upsilon, slopes,
             gas_nodes, gas_weights, bulge_nodes, bulge_weights)
+        radius_coverage_by_galaxy[galaxy] = radius_coverage
         if fully_marginalised is not None:
             fully_marginalised_rows.append(fully_marginalised)
         save_plot(galaxy, args, log10_upsilon_sparc, log10_upsilon, slopes,
