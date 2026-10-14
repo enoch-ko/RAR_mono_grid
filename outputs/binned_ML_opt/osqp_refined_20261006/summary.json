@@ -1,0 +1,262 @@
+{
+  "created_utc": "2026-10-06T14:08:55.567223+00:00",
+  "diagnostic_only": true,
+  "status": "partial_resolution_1_of_4_failed_galaxies",
+  "rows": [
+    {
+      "galaxy": "D512-2",
+      "old_status": "feasible_weak_order",
+      "slsqp_status": "feasible_weak_order",
+      "osqp_status": "feasible_weak_order",
+      "solver_status": "exact_reference",
+      "iterations": 0,
+      "failure_stage": null,
+      "objective": 0.0,
+      "max_scaled_violation": 0.0,
+      "max_bound_violation": 0.0,
+      "optimality": {
+        "method": "exact_reference",
+        "gap": 0.0,
+        "tolerance": 1e-06,
+        "passed": true
+      },
+      "osqp_seconds": 0.0007039851043373346,
+      "total_comparison_seconds": 0.3889747110661119,
+      "direct_cache_qc": {
+        "max_abs_accel_delta_m_s2": 2.4233807008389483e-27,
+        "relative_to_peak": 6.125424529850544e-16,
+        "tolerance": 1e-08
+      },
+      "comparison": {
+        "objective_osqp_minus_slsqp": 0.0,
+        "max_abs_xi_delta": 0.0,
+        "max_abs_gbar_delta_m_s2": 0.0
+      },
+      "result_path": "/mnt/users/koe/RAR_mono_grid/outputs/binned_ML_opt/osqp_refined_20261006/D512-2_comparison.json",
+      "result_sha256": "fa32d5cbcfe46506c97669bddd45ad66a15e116d34299a3828af77a1084e1cbc"
+    },
+    {
+      "galaxy": "F568-V1",
+      "old_status": "qp_failure",
+      "slsqp_status": "qp_failure",
+      "osqp_status": "feasible_weak_order",
+      "solver_status": "solved",
+      "iterations": 51825,
+      "failure_stage": null,
+      "objective": 90235.53907045492,
+      "max_scaled_violation": 6.315542533386065e-11,
+      "max_bound_violation": 4.3947068206762196e-11,
+      "optimality": {
+        "method": "nonnegative_multiplier_duality_gap",
+        "gap": -0.00017896792159375268,
+        "multiplier_source": "osqp_lower_bound_dual",
+        "dual_lower_bound": 90235.53924942219,
+        "stationarity_norm": 1.5267419488799068e-08,
+        "tolerance": 0.09023553907045426,
+        "passed": true
+      },
+      "osqp_seconds": 0.872623085975647,
+      "total_comparison_seconds": 3.4900449698325247,
+      "direct_cache_qc": {
+        "max_abs_accel_delta_m_s2": 2.5849394142282115e-26,
+        "relative_to_peak": 8.676809984102399e-16,
+        "tolerance": 1e-08
+      },
+      "comparison": null,
+      "result_path": "/mnt/users/koe/RAR_mono_grid/outputs/binned_ML_opt/osqp_refined_20261006/F568-V1_comparison.json",
+      "result_sha256": "3b9598aad09919f4c4b71251067de12c3608cb718358763522e73191bb04342b"
+    },
+    {
+      "galaxy": "NGC0100",
+      "old_status": "qp_failure",
+      "slsqp_status": "qp_failure",
+      "osqp_status": "qp_failure",
+      "solver_status": "maximum iterations reached",
+      "iterations": 100000,
+      "failure_stage": "solver",
+      "objective": 492176.27492617787,
+      "max_scaled_violation": 1.7622095185021447e-05,
+      "max_bound_violation": 4.534844961412432e-05,
+      "optimality": {
+        "method": "nonnegative_multiplier_duality_gap",
+        "gap": -227.09666070572138,
+        "multiplier_source": "osqp_lower_bound_dual",
+        "dual_lower_bound": 492403.3715868836,
+        "stationarity_norm": 0.006677244912020687,
+        "tolerance": 0.4921762749261778,
+        "passed": false
+      },
+      "osqp_seconds": 3.6041913859080523,
+      "total_comparison_seconds": 10.17154341796413,
+      "direct_cache_qc": null,
+      "comparison": null,
+      "result_path": "/mnt/users/koe/RAR_mono_grid/outputs/binned_ML_opt/osqp_refined_20261006/NGC0100_comparison.json",
+      "result_sha256": "297644e31434a838f22ca704bb966223fbb9fe63ae0176c0e31e8014e5802b34"
+    },
+    {
+      "galaxy": "NGC3198",
+      "old_status": "qp_failure",
+      "slsqp_status": "qp_failure",
+      "osqp_status": "qp_failure",
+      "solver_status": "maximum iterations reached",
+      "iterations": 100000,
+      "failure_stage": "solver",
+      "objective": 268066103.172074,
+      "max_scaled_violation": 0.01146164308801978,
+      "max_bound_violation": 0.0326500357245294,
+      "optimality": {
+        "method": "nonnegative_multiplier_duality_gap",
+        "gap": -20461651.358962927,
+        "multiplier_source": "osqp_lower_bound_dual",
+        "dual_lower_bound": 288527754.5310369,
+        "stationarity_norm": 3.479482330011478,
+        "tolerance": 268.06610317207395,
+        "passed": false
+      },
+      "osqp_seconds": 5.575960921123624,
+      "total_comparison_seconds": 16.336569929029793,
+      "direct_cache_qc": null,
+      "comparison": null,
+      "result_path": "/mnt/users/koe/RAR_mono_grid/outputs/binned_ML_opt/osqp_refined_20261006/NGC3198_comparison.json",
+      "result_sha256": "10f761146205f81f3d51c2727267431a13b0f72bd7f466f2be2cd795315af3c6"
+    },
+    {
+      "galaxy": "NGC4183",
+      "old_status": "feasible_weak_order",
+      "slsqp_status": "feasible_weak_order",
+      "osqp_status": "feasible_weak_order",
+      "solver_status": "solved",
+      "iterations": 250,
+      "failure_stage": null,
+      "objective": 0.16072242873402062,
+      "max_scaled_violation": 0.0,
+      "max_bound_violation": 0.0,
+      "optimality": {
+        "method": "nonnegative_multiplier_duality_gap",
+        "gap": -4.450906519681536e-17,
+        "multiplier_source": "osqp_lower_bound_dual",
+        "dual_lower_bound": 0.16072242873402062,
+        "stationarity_norm": 1.8113222275221862e-16,
+        "tolerance": 1e-06,
+        "passed": true
+      },
+      "osqp_seconds": 0.08283158694393933,
+      "total_comparison_seconds": 6.06218050699681,
+      "direct_cache_qc": {
+        "max_abs_accel_delta_m_s2": 1.2924697071141057e-26,
+        "relative_to_peak": 9.522427517614236e-16,
+        "tolerance": 1e-08
+      },
+      "comparison": {
+        "objective_osqp_minus_slsqp": -8.326672684688674e-17,
+        "max_abs_xi_delta": 2.9976021664879227e-15,
+        "max_abs_gbar_delta_m_s2": 6.462348535570529e-27
+      },
+      "result_path": "/mnt/users/koe/RAR_mono_grid/outputs/binned_ML_opt/osqp_refined_20261006/NGC4183_comparison.json",
+      "result_sha256": "f35d3c79ab07a6ac1b3640002552366476112d2d8e2ef1d2f1750e3fb5930ebc"
+    },
+    {
+      "galaxy": "UGC02916",
+      "old_status": "qp_failure",
+      "slsqp_status": "qp_failure",
+      "osqp_status": "qp_failure",
+      "solver_status": "maximum iterations reached",
+      "iterations": 100000,
+      "failure_stage": "solver",
+      "objective": 781013940.8019274,
+      "max_scaled_violation": 0.010988708025394728,
+      "max_bound_violation": 0.05685468807186567,
+      "optimality": {
+        "method": "nonnegative_multiplier_duality_gap",
+        "gap": -203610851.24839866,
+        "multiplier_source": "osqp_lower_bound_dual",
+        "dual_lower_bound": 984624792.0503261,
+        "stationarity_norm": 17.327116405128486,
+        "tolerance": 781.0139408019274,
+        "passed": false
+      },
+      "osqp_seconds": 6.952325733844191,
+      "total_comparison_seconds": 20.35406966204755,
+      "direct_cache_qc": null,
+      "comparison": null,
+      "result_path": "/mnt/users/koe/RAR_mono_grid/outputs/binned_ML_opt/osqp_refined_20261006/UGC02916_comparison.json",
+      "result_sha256": "6e14a7bffe2b1d4aa6ee7b3e3d86e5eca0939e3a5da5fa07f7fb31603e388937"
+    },
+    {
+      "galaxy": "UGC07399",
+      "old_status": "feasible_weak_order",
+      "slsqp_status": "feasible_weak_order",
+      "osqp_status": "feasible_weak_order",
+      "solver_status": "solved",
+      "iterations": 2225,
+      "failure_stage": null,
+      "objective": 38.498960805601534,
+      "max_scaled_violation": 0.0,
+      "max_bound_violation": 0.0,
+      "optimality": {
+        "method": "nonnegative_multiplier_duality_gap",
+        "gap": 2.5604920440807933e-14,
+        "multiplier_source": "osqp_lower_bound_dual",
+        "dual_lower_bound": 38.49896080560155,
+        "stationarity_norm": 1.8625728465820413e-15,
+        "tolerance": 3.849896080560157e-05,
+        "passed": true
+      },
+      "osqp_seconds": 0.11326787993311882,
+      "total_comparison_seconds": 5.151886173058301,
+      "direct_cache_qc": {
+        "max_abs_accel_delta_m_s2": 9.693522803355793e-27,
+        "relative_to_peak": 1.685434877774796e-16,
+        "tolerance": 1e-08
+      },
+      "comparison": {
+        "objective_osqp_minus_slsqp": -3.836930773104541e-12,
+        "max_abs_xi_delta": 2.4424906541753444e-13,
+        "max_abs_gbar_delta_m_s2": 3.308722450212111e-24
+      },
+      "result_path": "/mnt/users/koe/RAR_mono_grid/outputs/binned_ML_opt/osqp_refined_20261006/UGC07399_comparison.json",
+      "result_sha256": "d8dc2a83e0893f374ebfe83d2a6f5aa545c782749fbe09ff8f9276f468b9e9a8"
+    }
+  ],
+  "unittests": {
+    "unittest.log": {
+      "sha256": "2e1093c1c5e0d866d1b62f7a092c738730a4ef08637dfaac07b94867fe6c01b6",
+      "text": "----------------------------------------------------------------------\nRan 69 tests in 2.958s\n\nOK\n"
+    },
+    "unittest_base.log": {
+      "sha256": "5b643b33f2e7f5168aa1f35b47d192912d1c4e0d1c5c29ff6d1dbff3b5b90c29",
+      "text": "----------------------------------------------------------------------\nRan 69 tests in 4.061s\n\nOK (skipped=2)\n"
+    }
+  },
+  "unchanged_source_checks": {
+    "mono_SPARC_RAR.py": true,
+    "utils.py": true,
+    "probability_recursion.py": true,
+    "inverse_rar_boundary.py": true,
+    "run_binned_ML_opt.py": true,
+    "plot_inverse_rar_comparison.py": true
+  },
+  "existing_175_json_png_pairs_present": true,
+  "default_backend": "slsqp",
+  "osqp_requires_explicit_selection": true,
+  "current_source_sha256": {
+    "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+    "run_inverse_rar_batch.py": "02435c6fc74a204b0cf34a7c2b431f7c00cec071d0d0c35717a8564d294a30e8",
+    "test_inverse_rar_diagnostic.py": "982a9c0d1cd695458c060ffa0008a9dbb7b8a9aad301eef7742248c612560d44",
+    "check_osqp_fits.py": "cbd01e04f6010357201c8c64d7152531d3fffb6d9fc1f9ba3b8865e37e57ce3b",
+    "check_osqp_scaling.py": "f03cc38bf0bf2fae57033d08e50312a34fc76a75c94ce135d1d7928332234577"
+  },
+  "scaling_probes": {
+    "NGC3198_scaling.json": "06b7a609a7fa3cdfeeac73161e1d34b1e168c644484b3f5c5af429e9220763c5",
+    "F568-V1_scaling.json": "292c99566c0bdf68a54a3762dc983da0b672d8da06de8d9fb3d0853c89583ee9",
+    "NGC0100_scaling.json": "95438665250b45def77aa7532e2080bcfa034258bdd827104ff948fb4de6f787",
+    "UGC02916_scaling.json": "3b5aab7314adacac9e5092910a1e08f6e4890d89063e68db27b98b2a69c51d0b"
+  },
+  "pending": [
+    "longer numerical checks for NGC3198, UGC02916 and NGC0100 require queue approval",
+    "compute-node OSQP environment smoke",
+    "full-sample validation",
+    "post-fit probabilities not rerun"
+  ],
+  "queue_submissions": 0
+}

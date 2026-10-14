@@ -1,0 +1,144 @@
+{
+  "version": "1",
+  "pip_version": "23.1.2",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/18/b6/d569a65c4c371ee0ec866a17cafb21af2f1201390ac3aaa9c70672459fea/osqp-1.1.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+        "archive_info": {
+          "hash": "sha256=f6e6b384c356681b93c8698304b8910bd4a198e95664ab533cf5a422c126cd40",
+          "hashes": {
+            "sha256": "f6e6b384c356681b93c8698304b8910bd4a198e95664ab533cf5a422c126cd40"
+          }
+        }
+      },
+      "is_direct": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "osqp",
+        "version": "1.1.3",
+        "summary": "OSQP: The Operator Splitting QP Solver",
+        "description": "[![PyPI version](https://badge.fury.io/py/osqp.svg)](https://badge.fury.io/py/osqp)\n[![Python 3.8‒3.14](https://img.shields.io/badge/python-3.8%E2%80%923.14-blue)](https://www.python.org)\n[![Build](https://github.com/osqp/osqp-python/actions/workflows/build_default.yml/badge.svg)](https://github.com/osqp/osqp-python/actions/workflows/build_default.yml)\n\n# OSQP Python\nPython wrapper for [OSQP](https://osqp.org): The Operator Splitting QP solver.\n\nThe OSQP (Operator Splitting Quadratic Program) solver is a numerical\noptimization package for solving problems in the form\n\n$$\\begin{array}{ll}\n    \\mbox{minimize} & \\frac{1}{2} x^T P x + q^T x \\\\\n    \\mbox{subject to} & l \\le A x \\le u\n\\end{array}\n$$\n\nwhere $\\( x \\in \\mathbf{R}^n \\)$ is the optimization variable and $\\( P \\in \\mathbf{S}^{n}_{+} \\)$ is a positive semidefinite matrix.\n\n## Installation\nTo install `osqp` for python, make sure that you're using a recent version of `pip` (`pip install --upgrade pip`)\nand then use ``pip install osqp``.\n\nTo install `osqp` from source, clone the repository (`git clone https://github.com/osqp/osqp-python`)\nand run `pip install .` from inside the cloned folder.\n\n## Documentation\nThe interface is documented [here](https://osqp.org/docs/interfaces/python.html).\n",
+        "description_content_type": "text/markdown",
+        "author": "Goran Banjac",
+        "author_email": "Bartolomeo Stellato <bartolomeo.stellato@gmail.com>, Vineet Bansal <vineetbansal@protonmail.com>, Amit Solomon <as3993@princeton.edu>, Henry Schreiner <HenrySchreinerIII@gmail.com>",
+        "requires_dist": [
+          "jinja2",
+          "numpy>=1.7",
+          "scipy>=0.13.2",
+          "setuptools",
+          "joblib",
+          "osqp-mkl; extra == \"mkl\"",
+          "pre-commit; extra == \"dev\"",
+          "pytest>=6; extra == \"dev\"",
+          "torch; extra == \"dev\"",
+          "scipy!=1.12.0; extra == \"dev\"",
+          "osqp-cu12; extra == \"cu12\""
+        ],
+        "requires_python": ">=3.8",
+        "project_url": [
+          "Homepage, https://osqp.org/"
+        ],
+        "provides_extra": [
+          "mkl",
+          "dev",
+          "cu12"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/18/53/84099323c2ec4be98d935f63c033ac4151ee83836ca1050ede3b3aadf155/joblib-1.6.0-py3-none-any.whl",
+        "archive_info": {
+          "hash": "sha256=3dbbf9f6e4b592a2357b854608e980fe6390d131d7a82f011a377ef2ebef7aba",
+          "hashes": {
+            "sha256": "3dbbf9f6e4b592a2357b854608e980fe6390d131d7a82f011a377ef2ebef7aba"
+          }
+        }
+      },
+      "is_direct": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "joblib",
+        "version": "1.6.0",
+        "dynamic": [
+          "license-file"
+        ],
+        "platform": [
+          "any"
+        ],
+        "summary": "Lightweight pipelining with Python functions",
+        "description": "|PyPi| |CIStatus| |ReadTheDocs| |Codecov|\n\n.. |PyPi| image:: https://badge.fury.io/py/joblib.svg\n   :target: https://badge.fury.io/py/joblib\n   :alt: Joblib version\n\n.. |CIStatus| image:: https://github.com/joblib/joblib/actions/workflows/test.yml/badge.svg\n   :target: https://github.com/joblib/joblib/actions/workflows/test.yml?query=branch%3Amain\n   :alt: CI status\n\n.. |ReadTheDocs| image:: https://readthedocs.org/projects/joblib/badge/?version=latest\n    :target: https://joblib.readthedocs.io/en/latest/?badge=latest\n    :alt: Documentation Status\n\n.. |Codecov| image:: https://codecov.io/gh/joblib/joblib/branch/main/graph/badge.svg\n   :target: https://codecov.io/gh/joblib/joblib\n   :alt: Codecov coverage\n\n\nThe homepage of joblib with user documentation is located on:\n\nhttps://joblib.readthedocs.io\n\nGetting the latest code\n=======================\n\nTo get the latest code using git, simply type::\n\n    git clone https://github.com/joblib/joblib.git\n\nIf you don't have git installed, you can download a zip\nof the latest code: https://github.com/joblib/joblib/archive/refs/heads/main.zip\n\nInstalling\n==========\n\nYou can use `pip` to install joblib from any directory::\n\n    pip install joblib\n\nor install it in editable mode from the source directory::\n\n    pip install -e .\n\nDependencies\n============\n\n- Joblib supports Python >= 3.10.\n- The only dependency is `cloudpickle <https://github.com/cloudpipe/cloudpickle>`_ >= 3.\n- Joblib includes its own vendored copy of\n  `loky <https://github.com/tomMoral/loky>`_ for process management.\n- Joblib can efficiently dump and load numpy arrays but does not require numpy\n  to be installed. The oldest numpy version supported is the oldest numpy version\n  supported by Python 3.10 (numpy version 1.21.3).\n- Joblib can use Dask distributed backend but does not require distributed to be\n  installed. The oldest distributed version supported is 2022.8.1.\n- Joblib has an optional dependency on\n  `python-lz4 <https://pypi.python.org/pypi/lz4>`_ as a faster alternative to\n  zlib and gzip for compressed serialization.\n- Joblib has an optional dependency on psutil to mitigate memory leaks in\n  parallel worker processes.\n- Some examples require external dependencies such as pandas. See the\n  instructions in the `Building the docs`_ section for details.\n\nWorkflow to contribute\n======================\n\nTo contribute to joblib, first create an account on `github\n<https://github.com/>`_. Once this is done, fork the `joblib repository\n<https://github.com/joblib/joblib>`_ to have your own repository,\nclone it using ``git clone``. Make your changes in a branch of your clone, push\nthem to your github account, test them locally, and when you are happy with\nthem, send a pull request to the main repository.\n\nYou can use `pre-commit <https://pre-commit.com/#install>`_ to run code style checks\nbefore each commit::\n\n    pip install pre-commit\n    pre-commit install\n\npre-commit checks can be disabled for a single commit with::\n\n    git commit -n\n\nRunning the test suite\n======================\n\nTo run the test suite, you need the pytest (version >= 3) and coverage modules.\nRun the test suite using::\n\n    pip install joblib[test]\n    pytest joblib\n\nfrom the root of the project.\n\nBuilding the docs\n=================\n\nTo build the docs you need to have sphinx (>=1.4) and some dependencies\ninstalled::\n\n    pip install .[docs]\n\nThe docs can then be built with the following command::\n\n    make doc\n\nThe html docs are located in the ``doc/_build/html`` directory.\n\n\nMaking a source tarball\n=======================\n\nTo create a source tarball, eg for packaging or distributing, run the\nfollowing command::\n\n    pip install build\n    python -m build --sdist\n\nThe tarball will be created in the `dist` directory. This command will create\nthe resulting tarball that can be installed with no extra dependencies than the\nPython standard library.\n\nMaking a release and uploading it to PyPI\n=========================================\n\nTo generate a release, create a new Release in GitHub; the release will be\nautomatically published to PyPI.\n\nUpdating the changelog\n======================\n\nChanges are listed in the CHANGES.rst file. They must be manually updated\nbut, the following git command may be used to generate the lines::\n\n    git log --abbrev-commit --date=short --no-merges --sparse\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "Gael Varoquaux <gael.varoquaux@normalesup.org>",
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "Intended Audience :: Science/Research",
+          "Intended Audience :: Education",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Topic :: Scientific/Engineering",
+          "Topic :: Utilities",
+          "Topic :: Software Development :: Libraries"
+        ],
+        "requires_dist": [
+          "cloudpickle>=3.0",
+          "distributed; extra == \"test\"",
+          "lz4; extra == \"test\"",
+          "numpy; extra == \"test\"",
+          "memory_profiler; extra == \"test\"",
+          "pytest; extra == \"test\"",
+          "pytest-asyncio; extra == \"test\"",
+          "pytest-cov; extra == \"test\"",
+          "pytest-run-parallel; extra == \"test\"",
+          "pytest-timeout; extra == \"test\"",
+          "threadpoolctl; extra == \"test\"",
+          "distributed; extra == \"docs\"",
+          "lz4; extra == \"docs\"",
+          "numpy; extra == \"docs\"",
+          "numpydoc; extra == \"docs\"",
+          "matplotlib; extra == \"docs\"",
+          "pandas; extra == \"docs\"",
+          "psutil; extra == \"docs\"",
+          "sphinx; extra == \"docs\"",
+          "pydata-sphinx-theme; extra == \"docs\"",
+          "sphinx-gallery; extra == \"docs\"",
+          "sphinx-copybutton; extra == \"docs\"",
+          "sphinx-design; extra == \"docs\"",
+          "tqdm; extra == \"docs\""
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Homepage, https://joblib.readthedocs.io",
+          "Source, https://github.com/joblib/joblib"
+        ],
+        "provides_extra": [
+          "test",
+          "docs"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.11.4",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "6.6.157",
+    "platform_system": "Linux",
+    "platform_version": "#1 SMP PREEMPT_DYNAMIC Tue Sep 15 02:30:39 BST 2026",
+    "python_full_version": "3.11.4",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.11",
+    "sys_platform": "linux"
+  }
+}

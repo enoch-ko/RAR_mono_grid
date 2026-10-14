@@ -1,0 +1,2613 @@
+{
+  "status": "feasible_weak_order",
+  "galaxy": "UGC05750",
+  "diagnostic_only": true,
+  "reference_ml": 0.5,
+  "gas_ml_qp": 1.0,
+  "bulge_ml_qp": 0.7,
+  "knots_kpc": [
+    0.68301,
+    0.81961,
+    0.98467,
+    1.18103,
+    1.41724,
+    1.69898,
+    2.04048,
+    2.44744,
+    2.93692,
+    3.52317,
+    4.22894,
+    5.07416,
+    6.09013,
+    7.30816,
+    8.76808,
+    10.52398,
+    12.62706,
+    15.15418,
+    18.18502,
+    21.21586
+  ],
+  "knot_source": "dens_radii",
+  "photometric_radii_kpc": [
+    0.68301,
+    0.81961,
+    0.98467,
+    1.18103,
+    1.41724,
+    1.69898,
+    2.04048,
+    2.44744,
+    2.93692,
+    3.52317,
+    4.22894,
+    5.07416,
+    6.09013,
+    7.30816,
+    8.76808,
+    10.52398,
+    12.62706,
+    15.15418,
+    18.18502,
+    21.21586
+  ],
+  "retained_radii_kpc": [
+    1.47,
+    2.52,
+    3.35,
+    4.09,
+    4.82,
+    6.6,
+    7.86,
+    9.43,
+    11.43
+  ],
+  "excluded_kinematic_rows": 2,
+  "kernel": {
+    "kind": "squared_exponential_correlation",
+    "length_fraction": 0.3,
+    "nugget": 1e-08,
+    "amplitude": "cancels from hard-constrained optimum"
+  },
+  "requested_bounds_ml": [
+    0.01,
+    10.0
+  ],
+  "bounds_ml": [
+    0.01,
+    10.0
+  ],
+  "positivity_constraint": {
+    "kind": "signed_net_gbar",
+    "relative_numerical_floor": 1e-08,
+    "strict_positive_postcheck": true
+  },
+  "fit_attempts": [
+    {
+      "upper_ml": 10.0,
+      "status": "feasible_weak_order",
+      "message": ""
+    }
+  ],
+  "cache_gate": {
+    "files": [
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_001-035_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_036-070_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_071-105_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_106-140_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_141-175_20261005.json"
+    ],
+    "records": 14,
+    "zero_start": false,
+    "retained_kinematic_points": 9
+  },
+  "numerical_tolerances": {
+    "scaled_order_feasibility": 1e-08,
+    "scaled_active_constraint": 1e-07,
+    "direct_force_relative_to_peak": 1e-08
+  },
+  "input_sha256": {
+    "rotmod": "a444eff1d95f31337116163d4bad7946b5bfb6e19d40940bc26f938f3b27f385",
+    "dens": "7f7e4a662bb263dbcfcfb33218e37cde0286ba9901a0b920259b0d44b7663199",
+    "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+  },
+  "prior_direct_cache_qc": {
+    "max_abs_accel_delta_m_s2": 1.2116903504194741e-27,
+    "relative_to_peak": 3.6058509525541946e-16,
+    "tolerance": 1e-08
+  },
+  "provenance": {
+    "created_utc": "2026-10-06T12:35:14.070853+00:00",
+    "script_sha256": "649a9a7a04e8c19d668cc2bbdca40d9bfb6ae91c233bb316167228cd824d2ea4",
+    "driver_sha256": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+    "utils_sha256": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "args": {
+      "galaxy": "UGC05750",
+      "output": "outputs/rerun_boundary_20261006/binned_ML_opt/galaxies/UGC05750_inverse.json",
+      "data_root": "/mnt/users/koe/data",
+      "dens_root": "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG",
+      "validation_root": "/mnt/users/koe/RAR_mono_grid/outputs",
+      "knots": "8",
+      "knots_from_dens": "True",
+      "length_fraction": "0.3",
+      "min_ml": "0.01",
+      "max_ml": "10.0",
+      "retry_max_ml": "20.0",
+      "gbar_floor_relative": "1e-08",
+      "gas_ml": "1.0",
+      "bulge_ml": "0.7",
+      "gas_ml_dex": "0.04",
+      "bulge_ml_dex": "0.1",
+      "ml_samples": "9",
+      "prob_grid_size": "400",
+      "zpadding": "8.0",
+      "replace_existing": "False"
+    },
+    "boundary_entry_sha256": "40306966b6e661f73e18717d299cab024b98314b683572420c7d49d0b5b333a4",
+    "probability_recursion_sha256": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f",
+    "plot_script_sha256": "0786d429a29b1cb6df3b77cb264a56020d2deb6ef89d23b91cdbfaa7b1f537ac"
+  },
+  "optimized_direct_cache_qc": {
+    "max_abs_accel_delta_m_s2": 2.4233807008389483e-27,
+    "relative_to_peak": 3.529276760527678e-16,
+    "tolerance": 1e-08
+  },
+  "optimization": {
+    "status": "feasible_weak_order",
+    "objective": 7.993776475834632,
+    "optimizer_method": "cholesky_whitened_v1",
+    "constraint_version": "positive_net_gbar_v1",
+    "gbar_floor_relative": 1e-08,
+    "gbar_floor_m_s2": 9.525299589196903e-20,
+    "minimum_gbar_m_s2": 3.805651394056536e-12,
+    "active_positivity_radii": [],
+    "reference_feasible": false,
+    "iterations": 9,
+    "optimality": {
+      "method": "nonnegative_multiplier_duality_gap",
+      "gap": -2.0349854834892956e-13,
+      "dual_lower_bound": 7.993776475834836,
+      "stationarity_norm": 5.901805709338504e-08,
+      "tolerance": 7.993776475834631e-06,
+      "passed": true
+    },
+    "max_scaled_violation": 1.6792123247455493e-15,
+    "max_bound_violation": 0.0,
+    "active_order_pairs": [
+      [
+        2,
+        3
+      ],
+      [
+        7,
+        5
+      ]
+    ],
+    "active_lower_knots": [
+      0,
+      16
+    ],
+    "active_upper_knots": [],
+    "scale_m_s2": 9.525299589196902e-12,
+    "qp_message": "Optimization terminated successfully",
+    "xi": [
+      0.010000000000006781,
+      0.06170206113520332,
+      0.12387756380645482,
+      0.19716915897494774,
+      0.28393772020310376,
+      0.3847197263288154,
+      0.5017061947081576,
+      0.6317378822407981,
+      0.771513156057663,
+      0.9104858405444534,
+      1.0308244786668808,
+      1.1021611393927355,
+      1.0843907550937621,
+      0.9369087221368348,
+      0.6485218716194949,
+      0.2830145081939832,
+      0.010000000000008558,
+      0.012997639741497036,
+      0.2705701171303142,
+      0.47673594004151715
+    ],
+    "profile_on_photometric_grid": [
+      0.010000000000006781,
+      0.06170206113520332,
+      0.12387756380645482,
+      0.19716915897494774,
+      0.28393772020310376,
+      0.3847197263288154,
+      0.5017061947081576,
+      0.6317378822407981,
+      0.771513156057663,
+      0.9104858405444534,
+      1.0308244786668808,
+      1.1021611393927355,
+      1.0843907550937621,
+      0.9369087221368348,
+      0.6485218716194949,
+      0.2830145081939832,
+      0.010000000000008558,
+      0.012997639741497036,
+      0.2705701171303142,
+      0.47673594004151715
+    ],
+    "max_abs_deviation_ml": 0.6021611393927355,
+    "mahalanobis_distance": 2.8273267366603796,
+    "gbar_m_s2": [
+      3.805651394056536e-12,
+      5.074455322115181e-12,
+      6.504905840149405e-12,
+      6.504905840149389e-12,
+      8.079724743602498e-12,
+      1.2382291441886785e-11,
+      1.3031462481251583e-11,
+      1.2382291441886793e-11,
+      8.578871426311044e-12
+    ],
+    "observed_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      7,
+      5,
+      6
+    ],
+    "adjacent_gbar_gaps_m_s2": [
+      1.2688039280586452e-12,
+      1.4304505180342241e-12,
+      -1.6155871338926322e-26,
+      1.5748189034531096e-12,
+      4.991466827085455e-13,
+      3.803420015575749e-12,
+      -8.077935669463161e-27,
+      6.491710393647987e-13
+    ],
+    "boundary_ties_present": true
+  },
+  "post_optimization_probability": {
+    "conditional_logp": -8.089812461629656,
+    "conditional_valid": true,
+    "conditional_reason": "",
+    "marginal_logp": -7.974692142986786,
+    "marginal_valid": true,
+    "marginal_reason": "",
+    "gas_ml_dex": 0.04,
+    "bulge_ml_dex": 0.1,
+    "ml_samples_per_term": 9,
+    "prob_grid_size": 400,
+    "zpadding": 8.0,
+    "no_reoptimization": true
+  },
+  "probability_numerics": {
+    "method": "boundary_log_cumulative_v1",
+    "log_tolerance": 2e-05,
+    "max_refinements": 8,
+    "resolution_meaning": "starting neighbourhood/background points; doubled adaptively",
+    "tail_convergence": "must be checked independently of resolution refinement",
+    "physics_cache_gate": "unchanged disk-basis gate; old probability QC is not new-solver QC",
+    "ordered_solver_calls": [
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -7.745482296329621,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -7.745520054183535,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -7.745489626751851,
+            "log_delta": 3.042743168357731e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -7.745482296329621,
+            "log_delta": 7.330422230111822e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      },
+      {
+        "valid": true,
+        "log_probability": -8.089812461629656,
+        "levels": [
+          {
+            "resolution": 400,
+            "points": 7029,
+            "log_probability": -8.089851593001107,
+            "log_delta": null,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 800,
+            "points": 14067,
+            "log_probability": -8.089820008538775,
+            "log_delta": 3.158446233264556e-05,
+            "log_upper_tail_union_bound": -34.646247546677145
+          },
+          {
+            "resolution": 1600,
+            "points": 28159,
+            "log_probability": -8.089812461629656,
+            "log_delta": 7.546909118971712e-06,
+            "log_upper_tail_union_bound": -34.646247546677145
+          }
+        ],
+        "zpadding": 8.0
+      }
+    ]
+  },
+  "plot": {
+    "status": "created",
+    "path": "outputs/rerun_boundary_20261006/binned_ML_opt/galaxies/UGC05750_inverse.png",
+    "kind": "optimized",
+    "left_panel": "signed_acceleration_decomposition",
+    "acceleration_units": "m s^-2",
+    "observed_errorbars": "transformed_plus_minus_1sigma_velocity_interval",
+    "retained_points": 9,
+    "excluded_kinematic_rows": 2,
+    "sparc_rar_valid_points": 9,
+    "sparc_disc_table_ml": 1.0,
+    "sparc_disc_display_ml": 0.5,
+    "rar_reference": "Casertano constant M/L",
+    "direct_vs_saved_gbar_relative_to_peak": 2.4795177612903907e-16,
+    "optimized_ml_range": [
+      0.010000000000006781,
+      1.1021611393927355
+    ],
+    "component_sum_relative_to_peak": 1.2397588806451956e-16
+  }
+}
