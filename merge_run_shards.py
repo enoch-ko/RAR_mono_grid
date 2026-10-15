@@ -250,7 +250,7 @@ def merge_shards(profile, output_root, shard_ids, replace_existing=False):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--profile", choices=("linear", "log_linear"), required=True)
+    parser.add_argument("--profile", choices=("constant", "linear", "log_linear"), required=True)
     parser.add_argument("--output-root", type=Path, required=True)
     parser.add_argument("--shard-ids", type=int, nargs="+", required=True)
     parser.add_argument("--replace-existing", action="store_true")
@@ -265,3 +265,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

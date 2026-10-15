@@ -4,6 +4,7 @@
 For a fitted profile, both RAR tracks use direct Casertano disc solves. The
 SPARC tabulated disc is a separate reference. If no bounded fit is identified,
 only SPARC-based curves are shown; no optimized M/L curve is invented.
+The upper-left panel displays signed component accelerations, not speeds.
 """
 import argparse
 import hashlib
@@ -56,9 +57,19 @@ def render_plot(result, output, data_root, dens_root, diagnostic,
     sparc_vbar2 = sparc_disc * np.abs(sparc_disc) + gas_w + bulge_w
     sparc_valid = np.isfinite(sparc_vbar2) & (sparc_vbar2 > 0)
     gobs = vel2acc(vobs**2, r)
+    # Transform the +/-1 sigma velocity interval, not a Gaussian g_obs model.
+    gobs_interval = np.vstack((
+        gobs - vel2acc(np.maximum(np.abs(vobs) - errv, 0.0)**2, r),
+        vel2acc((np.abs(vobs) + errv)**2, r) - gobs))
+    gas_g = vel2acc(gas_w, r)
+    bulge_g = vel2acc(bulge_w, r)
+    sparc_disc_g = vel2acc(sparc_disc * np.abs(sparc_disc), r)
     has_fit = "xi" in result.get("optimization", {})
     qc = {"status": "created", "path": str(output),
           "kind": "optimized" if has_fit else "sparc_reference_only",
+          "left_panel": "signed_acceleration_decomposition",
+          "acceleration_units": "m s^-2",
+          "observed_errorbars": "transformed_plus_minus_1sigma_velocity_interval",
           "retained_points": len(r), "excluded_kinematic_rows": excluded,
           "sparc_rar_valid_points": int(np.count_nonzero(sparc_valid)),
           "sparc_disc_table_ml": 1.0, "sparc_disc_display_ml": reference_ml,
@@ -67,25 +78,27 @@ def render_plot(result, output, data_root, dens_root, diagnostic,
     fig = plt.figure(figsize=(16, 8.4))
     grid = fig.add_gridspec(2, 2, width_ratios=[1.12, 1],
                             height_ratios=[2.25, 1], wspace=0.27, hspace=0.06)
-    axv = fig.add_subplot(grid[0, 0])
-    axml = fig.add_subplot(grid[1, 0], sharex=axv)
+    axg = fig.add_subplot(grid[0, 0])
+    axml = fig.add_subplot(grid[1, 0], sharex=axg)
     axrar = fig.add_subplot(grid[:, 1])
     blue, violet, green = "#2874A6", "#8E44AD", "#148F77"
-    axv.errorbar(r, vobs, yerr=errv, fmt="ko", ms=4, capsize=2,
-                 label=r"Observed $V_{obs}$", zorder=7)
-    axv.plot(r, vgas, color="#16A085", lw=1.6, label=r"Gas $V_{gas}$")
-    axv.plot(r, signed_velocity(bulge_w), color="#D68910", lw=1.6,
-             label=r"Bulge $V_{bulge}$")
-    axv.plot(r, sparc_disc, color="0.45", lw=1.8, ls=":",
+    axg.errorbar(r, gobs, yerr=gobs_interval, fmt="ko", ms=4, capsize=2,
+                 label=r"Observed $g_{obs}$", zorder=7)
+    axg.plot(r, gas_g, color="#16A085", lw=1.6, label=r"Gas $g_{gas}$")
+    axg.plot(r, bulge_g, color="#D68910", lw=1.6,
+             label=r"Bulge $g_{bulge}$")
+    axg.plot(r, sparc_disc_g, color="0.45", lw=1.8, ls=":",
              label=f"SPARC disc, M/L={reference_ml:g}")
     axml.axhline(reference_ml, color=blue if has_fit else "0.45", ls="--",
                  lw=1.8, label=f"Reference M/L={reference_ml:g}")
     axml.set(xlabel="Radius [kpc]", ylabel="Disc M/L")
     axml.set_xlim(float(rad[0]), float(rad[-1]))
-    axv.set(ylabel="Circular speed [km s$^{-1}$]",
-            title="Rotation-curve decomposition")
-    axv.tick_params(labelbottom=False)
-    axv.grid(alpha=0.2)
+    axg.set(ylabel=r"Acceleration [m s$^{-2}$]",
+            title="Acceleration decomposition")
+    axg.ticklabel_format(axis="y", style="sci", scilimits=(0, 0))
+    axg.axhline(0.0, color="0.7", lw=0.7)
+    axg.tick_params(labelbottom=False)
+    axg.grid(alpha=0.2)
     axml.grid(alpha=0.2)
     axrar.set(xscale="log", yscale="log",
               xlabel=r"Baryonic acceleration $g_{bar}$ [m s$^{-2}$]",
@@ -113,14 +126,24 @@ def render_plot(result, output, data_root, dens_root, diagnostic,
             raise ValueError(f"optimized plot differs from saved gbar: {delta}")
         qc["direct_vs_saved_gbar_relative_to_peak"] = delta
         qc["optimized_ml_range"] = [float(np.min(profile)), float(np.max(profile))]
-        axv.plot(r, signed_velocity(before_w), color=blue, lw=2, ls="--",
+        before_disc_g = vel2acc(before_w, r)
+        after_disc_g = vel2acc(after_w, r)
+        # Retain force signs: components must sum to the same RAR abscissa.
+        component_delta = float(max(
+            np.max(np.abs(before_disc_g + gas_g + bulge_g - before_gbar)),
+            np.max(np.abs(after_disc_g + gas_g + bulge_g - after_gbar))) /
+            max(np.max(np.abs(before_gbar)), np.max(np.abs(after_gbar))))
+        if component_delta > 1e-12:
+            raise ValueError(f"acceleration decomposition mismatch: {component_delta}")
+        qc["component_sum_relative_to_peak"] = component_delta
+        axg.plot(r, before_disc_g, color=blue, lw=2, ls="--",
                  label=f"Casertano disc, M/L={reference_ml:g}")
-        axv.plot(r, signed_velocity(after_w), color=violet, lw=2.2,
+        axg.plot(r, after_disc_g, color=violet, lw=2.2,
                  label="Casertano disc, optimized M/L(R)")
-        axv.plot(r, np.sqrt(before_vbar2), color=green, lw=2, ls="--",
-                 label=r"Before $V_{bar}$")
-        axv.plot(r, np.sqrt(after_vbar2), color="#5B2C6F", lw=2.3,
-                 label=r"After $V_{bar}$")
+        axg.plot(r, before_gbar, color=green, lw=2, ls="--",
+                 label=r"Before $g_{bar}$")
+        axg.plot(r, after_gbar, color="#5B2C6F", lw=2.3,
+                 label=r"After $g_{bar}$")
         axml.plot(rad, profile, color=violet, lw=2, label="Optimized M/L(R)")
         axrar.plot(before_gbar, gobs, "o--", color=green, ms=4, lw=1.7,
                    label=f"Before: Casertano M/L={reference_ml:g}")
@@ -130,8 +153,8 @@ def render_plot(result, output, data_root, dens_root, diagnostic,
         note = f"Weak-order fit; active ties: {ties}"
         subtitle = "Casertano before/after tracks; SPARC disc is a separate tabulated reference."
     else:
-        axv.plot(r, np.where(sparc_valid, np.sqrt(np.clip(sparc_vbar2, 0, None)), np.nan),
-                 color="#5B2C6F", lw=2.3, label=r"SPARC-based $V_{bar}$")
+        axg.plot(r, vel2acc(sparc_vbar2, r),
+                 color="#5B2C6F", lw=2.3, label=r"SPARC-based $g_{bar}$")
         axml.text(0.5, 0.78, "No feasible M/L profile identified",
                   transform=axml.transAxes, ha="center", va="center",
                   fontsize=11, color="#A93226")
@@ -150,7 +173,7 @@ def render_plot(result, output, data_root, dens_root, diagnostic,
                ha="right", va="bottom", fontsize=9,
                bbox={"facecolor": "white", "alpha": 0.88, "edgecolor": "none"})
     fig.suptitle(f"{galaxy}: inverse disc-M/L diagnostic", fontsize=15)
-    handles, labels = axv.get_legend_handles_labels()
+    handles, labels = axg.get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower center", bbox_to_anchor=(0.5, 0.08),
                ncol=4, fontsize=8, frameon=False)
     fig.text(0.5, 0.025, subtitle + " Diagnostic only; not a converged science result.",
@@ -186,3 +209,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
