@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "galaxy": "UGC07399",
+  "selection": "explicit_analytic_profile_not_threshold_selected",
+  "input_paths": {
+    "table": "/mnt/users/koe/RAR_mono_grid/SPARC_table.txt",
+    "dens": "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC07399.dens",
+    "rotmod": "/mnt/users/koe/data/UGC07399_rotmod.dat"
+  },
+  "input_sha256": {
+    "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+    "dens": "340fccc8b74f39aa416906c5ba6395f7889784840922500de81cecda7c205677",
+    "rotmod": "da764292b2408250db2b377f079b586b133930ca60c9eeb9a9ab82f603ee12de"
+  },
+  "source_sha256": {
+    "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+    "sparc_scale_proxies.py": "d1cbf0cf63ed9850c6279356c4bb47483144ff37aafbb124fec55f468adb3600",
+    "report_mg_compactness.py": "a2d7d79db947c089d02c6745d754b829cf525a3d502df53ebb4850d6065ddd06"
+  },
+  "nuisance": {
+    "gas_ml": 1.0,
+    "gas_ml_dex": 0.04,
+    "bulge_ml": 0.7,
+    "bulge_ml_dex": 0.1,
+    "ml_samples": 9
+  },
+  "bulge": {
+    "presence": "absent_in_supplied_rotmod_template",
+    "total_mass_1e9": 0.0,
+    "total_status": "absent_template",
+    "enclosed_proxy_1e9": null,
+    "enclosed_radius_kpc": null
+  },
+  "a_proxy_kpc": 1.9294117647058824,
+  "a0_m_s2": 1.2e-10,
+  "helium_factor": 1.33,
+  "gas_catalogue_1e9_Msun": 0.99085,
+  "gas_support": "catalogue_HI_mass; molecular_gas_omitted; radial_distribution_unavailable",
+  "bulge_enclosed_method": "median_ML*R_last*Vbul_template_last^2/G; spherical; not total",
+  "conventions": {
+    "solver_disk_normalization": "disc alone scaled to full catalogue L; bulge total unavailable unless template absent",
+    "decomposed_light": "disc+bulge light jointly scaled to catalogue L; photometric bulge unverified against rotmod"
+  },
+  "supports": {
+    "original_photometric": {
+      "rmin_kpc": 0.02657,
+      "rmax_kpc": 6.7145,
+      "bins": 59
+    },
+    "positive_radius_force": {
+      "rmin_kpc": 0.02657,
+      "rmax_kpc": 6.7145,
+      "bins": 59
+    }
+  },
+  "integration": "trapezoidal 2*pi*R*SB*ML over labelled tabulated support; not exact implicit vcdisk mass",
+  "profile_parameters": {
+    "family": "constant",
+    "mean_ml": 0.5,
+    "slope": 0.0
+  },
+  "force_or_probability_recomputed": false,
+  "radial_acceleration_fields": "unavailable_no_audited_saved_field_adapter",
+  "categorical_MG_classification": false,
+  "rows": 4
+}

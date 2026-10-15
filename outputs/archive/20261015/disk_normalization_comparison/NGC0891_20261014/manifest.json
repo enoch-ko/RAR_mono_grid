@@ -1,0 +1,48 @@
+{
+  "galaxy": "NGC0891",
+  "disc_ML": 1.0,
+  "bulge_reference_ML": 1.0,
+  "distance_Mpc": 9.91,
+  "inclination_deg": 90.0,
+  "zd_kpc": 0.3544834840926084,
+  "raw_disk_luminosity_1e9": 298.4910133012072,
+  "raw_bulge_light_integral_1e9": 20.765774150474726,
+  "catalogue_total_luminosity_1e9": 138.34,
+  "published_bulge_luminosity_1e9": 18.8773,
+  "published_source": "https://astroweb.case.edu/SPARC/Bulges.mrt",
+  "published_value_policy": "explicit parameter copied from cited table; full public table not archived by this script",
+  "bulge_distance_assumption": "explicit supplied SPARC reference distance; bulge table itself has no distance column",
+  "density_header": "# Rad[kpc] SBdisk[Lsun/pc^2] SBbulge[Lsun/pc^2]",
+  "density_units": "Lsun/pc2 converted to Lsun/kpc2",
+  "inclination_calibration": "UNRESOLVED; no cos(i) correction inferred or applied",
+  "normalization_factors": {
+    "raw_absolute": 1.0,
+    "disk_to_catalogue_total": 0.463464539417812,
+    "joint_disk_bulge_light": 0.43331890013751745,
+    "disk_to_total_minus_published_bulge": 0.40022209941526854
+  },
+  "force_support": [
+    0.1917,
+    16.78069
+  ],
+  "zero_radius_nodes_removed_by_common_solver": 1,
+  "kinematic_rows_excluded": 1,
+  "compared_rows": 17,
+  "input_source_sha256": {
+    "dens": "7793bf9fe8ce17dde33119290a5379705d80484f8e5d678818c5f33e6b708ba7",
+    "rotmod": "646e25cf1943a57f5a3da9d86126298bd5d38419f62a70664e2b7f7bb3247a34",
+    "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+    "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+    "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+    "sparc_scale_proxies.py": "d1cbf0cf63ed9850c6279356c4bb47483144ff37aafbb124fec55f468adb3600",
+    "compare_disk_normalizations.py": "847601c5dc6ee10ea1f865e8b1c59cce2c2dbfb0067f72fcbe1ee92d89dfd775"
+  },
+  "numerical_policy": "one raw solve; signed W and signed-force interpolation; identical height/radii/support in every case",
+  "SPARC_outer_extrapolation": "not recreated; finite .dens support is a separate limitation",
+  "global_scale_comparison_not_physical_model_selection": true,
+  "vcdisk_file": "/mnt/users/koe/.local/lib/python3.11/site-packages/vcdisk.py",
+  "vcdisk_sha256": "92be1231d7c15ca3cacf87d4ae2da82ecafb5b4d4ed5f97f1f6bbeaf3ad76c4f",
+  "numpy_version": "1.26.4",
+  "solver_warnings": [],
+  "raw_Casertano_solve_count": 1
+}

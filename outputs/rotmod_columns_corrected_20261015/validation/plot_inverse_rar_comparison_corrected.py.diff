@@ -1,0 +1,53 @@
+--- plot_inverse_rar_comparison.py
++++ plot_inverse_rar_comparison_corrected.py
+@@ -33,17 +33,27 @@
+     return np.asarray(response, float)
+ 
+ 
++from sparc_rotmod_columns import (ROTMOD_PARSER_ID, read_rotmod, parser_provenance,
++                                  disc_reference_velocity)
++
++
+ def render_plot(result, output, data_root, dens_root, diagnostic,
+                 replace_existing=False):
+     """Save one PNG and return auditable plot QC for the diagnostic JSON."""
+     output = Path(output)
+     if output.exists() and not replace_existing:
+         raise FileExistsError(output)
++    if getattr(diagnostic,"ROTMOD_PARSER_ID",None)!=ROTMOD_PARSER_ID:
++        raise ValueError("corrected rotmod diagnostic loader required")
++    if result.get("provenance",{}).get("input_parser")!=parser_provenance():
++        raise ValueError("legacy/unverified gas-column result cannot be replotted as corrected")
+     galaxy = result["galaxy"]
+     rad, brightness, r, vobs, errv, vgas, vbul, zd, excluded = diagnostic.galaxy_data(
+         galaxy, data_root, dens_root)
+     np.testing.assert_allclose(r, result["retained_radii_kpc"], rtol=0, atol=1e-12)
+-    raw = np.loadtxt(Path(data_root) / f"{galaxy}_rotmod.dat", ndmin=2)
++    raw = read_rotmod(Path(data_root) / f"{galaxy}_rotmod.dat")
++    if result.get("input_sha256",{}).get("rotmod")!=hashlib.sha256((Path(data_root)/f"{galaxy}_rotmod.dat").read_bytes()).hexdigest():
++        raise ValueError("plot rotmod differs from corrected parent result")
+     mask = np.isfinite(raw[:, 0]) & (raw[:, 0] >= rad[0]) & (raw[:, 0] <= rad[-1])
+     np.testing.assert_allclose(raw[mask, 0], r, rtol=0, atol=1e-12)
+ 
+@@ -53,7 +63,7 @@
+     gas_w = gas_ml * vgas * np.abs(vgas)
+     bulge_w = bulge_ml * vbul**2
+     # SPARC rotmod Vdisk is tabulated at M/L=1; rescale its signed V|V| term.
+-    sparc_disc = raw[mask, 3] * np.sqrt(reference_ml)
++    sparc_disc = disc_reference_velocity(raw, mask, reference_ml)
+     sparc_vbar2 = sparc_disc * np.abs(sparc_disc) + gas_w + bulge_w
+     sparc_valid = np.isfinite(sparc_vbar2) & (sparc_vbar2 > 0)
+     gobs = vel2acc(vobs**2, r)
+@@ -186,10 +196,9 @@
+ 
+ 
+ def main():
+-    import inverse_rar_diagnostic as diagnostic
++    import inverse_rar_diagnostic_corrected as diagnostic
+     parser = argparse.ArgumentParser(description=__doc__)
+-    parser.add_argument("--result", type=Path, default=Path(
+-        "outputs/inverse_rar_diagnostic/pilots/inverse_UGC07399_densknots_ml10_final_20261005.json"))
++    parser.add_argument("--result", type=Path, required=True)
+     parser.add_argument("--output", type=Path, required=True)
+     parser.add_argument("--replace-existing", action="store_true")
+     args = parser.parse_args()

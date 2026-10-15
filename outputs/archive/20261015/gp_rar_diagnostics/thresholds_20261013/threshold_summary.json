@@ -1,0 +1,2043 @@
+{
+  "thresholds_P_min": {
+    "P_4.5_percent": 0.045,
+    "2sigma_one_sided": 0.02275013194817922,
+    "5sigma_one_sided": 2.866515718791946e-07
+  },
+  "probability": "marginal_logp",
+  "selection": "minimum found J among valid saved records, including baseline and saved QP",
+  "sigma_labels_are_not_calibrated_significance": true,
+  "different_seeds_and_nonnested_direction_sets": true,
+  "not_global_optima_or_posterior_samples": true,
+  "script_sha256": "95bff094cebaafeb0075cd63c0d5e03ce2e63a4db77df91cacfe4b42379dccfb",
+  "results": [
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261012/d256_a16_seed20261256/D512-2_gp_search.json",
+      "sha256": "c0fc31730af15c942372d79c9a4a2827fa218d442b0c1789028fcb4a12fbddd6",
+      "galaxy": "D512-2",
+      "settings": {
+        "seed": 20261256,
+        "directions_per_ell": 256,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "dbe12d638c4d2f8105c1f6c20764a443c09c606ed2c21d94b7001e7ab438a0f3",
+          "dens": "3b82a27e37cbfdd6f56687d89d2dd5da284ae23504def1e443818bcf471e2c4e",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 15362,
+      "expected_records": 15362,
+      "valid_records": 15360,
+      "invalid_reasons": {
+        "signed_gbar_below_floor": 2
+      },
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 1.1541597312118727e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 1024,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 6.125424529850544e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -1.5374783797573524,
+        "marginal_logp": -1.5374783797573524,
+        "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+      },
+      "maximum_found_P": 0.21492237130370784,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261012/d512_a16_seed20261512/D512-2_gp_search.json",
+      "sha256": "d6001a5bcb40be1ba49dc36846af56d11653dea47d9e3ef20c6113a3834c86e9",
+      "galaxy": "D512-2",
+      "settings": {
+        "seed": 20261512,
+        "directions_per_ell": 512,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "dbe12d638c4d2f8105c1f6c20764a443c09c606ed2c21d94b7001e7ab438a0f3",
+          "dens": "3b82a27e37cbfdd6f56687d89d2dd5da284ae23504def1e443818bcf471e2c4e",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 30722,
+      "expected_records": 30722,
+      "valid_records": 30716,
+      "invalid_reasons": {
+        "signed_gbar_below_floor": 6
+      },
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 1.1541597312118727e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 2048,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 6.125424529850544e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -1.5374783797573524,
+        "marginal_logp": -1.5374783797573524,
+        "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+      },
+      "maximum_found_P": 0.21492237130370784,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261012/d1024_a16_seed20262024/D512-2_gp_search.json",
+      "sha256": "232415b333dc5cd1348c98ce4330ddbba2f21784669579470ff08eaa9a193bcf",
+      "galaxy": "D512-2",
+      "settings": {
+        "seed": 20262024,
+        "directions_per_ell": 1024,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "dbe12d638c4d2f8105c1f6c20764a443c09c606ed2c21d94b7001e7ab438a0f3",
+          "dens": "3b82a27e37cbfdd6f56687d89d2dd5da284ae23504def1e443818bcf471e2c4e",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 61442,
+      "expected_records": 61442,
+      "valid_records": 61439,
+      "invalid_reasons": {
+        "signed_gbar_below_floor": 3
+      },
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 1.1541597312118727e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 4096,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 6.125424529850544e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -1.5374783797573524,
+        "marginal_logp": -1.5374783797573524,
+        "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+      },
+      "maximum_found_P": 0.21492237130370784,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261013/d2000_a16_seed20263000/D512-2_gp_search.json",
+      "sha256": "a7483d6f9713cff3c64d7d19e44cd6fa589a939df0b76888c451fad8ac559933",
+      "galaxy": "D512-2",
+      "settings": {
+        "seed": 20263000,
+        "directions_per_ell": 2000,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "dbe12d638c4d2f8105c1f6c20764a443c09c606ed2c21d94b7001e7ab438a0f3",
+          "dens": "3b82a27e37cbfdd6f56687d89d2dd5da284ae23504def1e443818bcf471e2c4e",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 120002,
+      "expected_records": 120002,
+      "valid_records": 119990,
+      "invalid_reasons": {
+        "signed_gbar_below_floor": 12
+      },
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 1.1541597312118727e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 8000,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 6.125424529850544e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -1.5374783797573524,
+        "marginal_logp": -1.5374783797573524,
+        "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+      },
+      "maximum_found_P": 0.21492237130370784,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261013/d5000_a16_seed20266000/D512-2_gp_search.json",
+      "sha256": "3a52f6daa30b0393e866d0f19904acfd74d71e86012228f5a8fc4151b5298bb1",
+      "galaxy": "D512-2",
+      "settings": {
+        "seed": 20266000,
+        "directions_per_ell": 5000,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "dbe12d638c4d2f8105c1f6c20764a443c09c606ed2c21d94b7001e7ab438a0f3",
+          "dens": "3b82a27e37cbfdd6f56687d89d2dd5da284ae23504def1e443818bcf471e2c4e",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 300002,
+      "expected_records": 300002,
+      "valid_records": 299978,
+      "invalid_reasons": {
+        "signed_gbar_below_floor": 24
+      },
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 1.1541597312118727e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 20000,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 6.125424529850544e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -1.5374783797573524,
+        "marginal_logp": -1.5374783797573524,
+        "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+      },
+      "maximum_found_P": 0.21492237130370784,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261013/d10000_a16_seed20271000/D512-2_gp_search.json",
+      "sha256": "e07cbf3c5ec68c31bcd4cfc5733e16b4f57476907f48f1aa68de5198dc58b03b",
+      "galaxy": "D512-2",
+      "settings": {
+        "seed": 20271000,
+        "directions_per_ell": 10000,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "dbe12d638c4d2f8105c1f6c20764a443c09c606ed2c21d94b7001e7ab438a0f3",
+          "dens": "3b82a27e37cbfdd6f56687d89d2dd5da284ae23504def1e443818bcf471e2c4e",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 600002,
+      "expected_records": 600002,
+      "valid_records": 599923,
+      "invalid_reasons": {
+        "signed_gbar_below_floor": 79
+      },
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 1.1541597312118727e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 40000,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 6.125424529850544e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -1.5374783797573524,
+        "marginal_logp": -1.5374783797573524,
+        "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+      },
+      "maximum_found_P": 0.21492237130370784,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.21492237130370784,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -1.5374783797573524,
+            "marginal_logp": -1.5374783797573524,
+            "minimum_nuisance_gbar_m_s2": 3.934140171311888e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261012/d256_a16_seed20261256/NGC3521_gp_search.json",
+      "sha256": "a610164ef10e85f7c9631f224242991332a2b03a83bc8be1ca922a6f0f4fd031",
+      "galaxy": "NGC3521",
+      "settings": {
+        "seed": 20261256,
+        "directions_per_ell": 256,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "d958ae90aa3bfde0c4e0681ff80bc82726d0a6bff97072db9b7b9eb69a808c81",
+          "dens": "d17ae1e402e141da205303fb06ef4d33ffb65dd41b63a9445194ed2d4dea3c13",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 15361,
+      "expected_records": 15361,
+      "valid_records": 15361,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 3.590126355770111e-17,
+        "excluded_directions": 0,
+        "attempted_directions": 1024,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 3.572487734372076e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -34.13296135059562,
+        "marginal_logp": -34.13296135059562,
+        "minimum_nuisance_gbar_m_s2": 6.169150213069603e-11
+      },
+      "maximum_found_P": 1.5005249961625742e-15,
+      "minimum_found_J": {
+        "P_4.5_percent": null,
+        "2sigma_one_sided": null,
+        "5sigma_one_sided": null
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261012/d512_a16_seed20261512/NGC3521_gp_search.json",
+      "sha256": "25f52a66584e420ec9242c45cc142fd8011bc0491c9ee54c4b462730490b48f2",
+      "galaxy": "NGC3521",
+      "settings": {
+        "seed": 20261512,
+        "directions_per_ell": 512,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "d958ae90aa3bfde0c4e0681ff80bc82726d0a6bff97072db9b7b9eb69a808c81",
+          "dens": "d17ae1e402e141da205303fb06ef4d33ffb65dd41b63a9445194ed2d4dea3c13",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 30721,
+      "expected_records": 30721,
+      "valid_records": 30721,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 3.590126355770111e-17,
+        "excluded_directions": 0,
+        "attempted_directions": 2048,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 3.572487734372076e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -34.13296135059562,
+        "marginal_logp": -34.13296135059562,
+        "minimum_nuisance_gbar_m_s2": 6.169150213069603e-11
+      },
+      "maximum_found_P": 1.5005249961625742e-15,
+      "minimum_found_J": {
+        "P_4.5_percent": null,
+        "2sigma_one_sided": null,
+        "5sigma_one_sided": null
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261012/d1024_a16_seed20262024/NGC3521_gp_search.json",
+      "sha256": "90b26a4965b2ee4e558e9bfb3e4e29aff9ddc5298f58560d12604f232aefabf8",
+      "galaxy": "NGC3521",
+      "settings": {
+        "seed": 20262024,
+        "directions_per_ell": 1024,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "d958ae90aa3bfde0c4e0681ff80bc82726d0a6bff97072db9b7b9eb69a808c81",
+          "dens": "d17ae1e402e141da205303fb06ef4d33ffb65dd41b63a9445194ed2d4dea3c13",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 61441,
+      "expected_records": 61441,
+      "valid_records": 61441,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 3.590126355770111e-17,
+        "excluded_directions": 0,
+        "attempted_directions": 4096,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 3.572487734372076e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -34.13296135059562,
+        "marginal_logp": -34.13296135059562,
+        "minimum_nuisance_gbar_m_s2": 6.169150213069603e-11
+      },
+      "maximum_found_P": 1.5005249961625742e-15,
+      "minimum_found_J": {
+        "P_4.5_percent": null,
+        "2sigma_one_sided": null,
+        "5sigma_one_sided": null
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261013/d2000_a16_seed20263000/NGC3521_gp_search.json",
+      "sha256": "ee3b27ad88aa758d509081455e964238bab7c6e8e778b85dc235eeb042a558d0",
+      "galaxy": "NGC3521",
+      "settings": {
+        "seed": 20263000,
+        "directions_per_ell": 2000,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "d958ae90aa3bfde0c4e0681ff80bc82726d0a6bff97072db9b7b9eb69a808c81",
+          "dens": "d17ae1e402e141da205303fb06ef4d33ffb65dd41b63a9445194ed2d4dea3c13",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 120001,
+      "expected_records": 120001,
+      "valid_records": 120001,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 3.590126355770111e-17,
+        "excluded_directions": 0,
+        "attempted_directions": 8000,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 3.572487734372076e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -34.13296135059562,
+        "marginal_logp": -34.13296135059562,
+        "minimum_nuisance_gbar_m_s2": 6.169150213069603e-11
+      },
+      "maximum_found_P": 1.5005249961625742e-15,
+      "minimum_found_J": {
+        "P_4.5_percent": null,
+        "2sigma_one_sided": null,
+        "5sigma_one_sided": null
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261013/d5000_a16_seed20266000/NGC3521_gp_search.json",
+      "sha256": "e3999aac0efdfa63420af1c868f2722003363c55662e6973e353cdceba5b6c46",
+      "galaxy": "NGC3521",
+      "settings": {
+        "seed": 20266000,
+        "directions_per_ell": 5000,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "d958ae90aa3bfde0c4e0681ff80bc82726d0a6bff97072db9b7b9eb69a808c81",
+          "dens": "d17ae1e402e141da205303fb06ef4d33ffb65dd41b63a9445194ed2d4dea3c13",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 300001,
+      "expected_records": 300001,
+      "valid_records": 300001,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 3.590126355770111e-17,
+        "excluded_directions": 0,
+        "attempted_directions": 20000,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 3.572487734372076e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -34.13296135059562,
+        "marginal_logp": -34.13296135059562,
+        "minimum_nuisance_gbar_m_s2": 6.169150213069603e-11
+      },
+      "maximum_found_P": 1.5005249961625742e-15,
+      "minimum_found_J": {
+        "P_4.5_percent": null,
+        "2sigma_one_sided": null,
+        "5sigma_one_sided": null
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261013/d10000_a16_seed20271000/NGC3521_gp_search.json",
+      "sha256": "b90d89a8d03a98250ba05a236cd7027d0199e736049a10b1a916c14d67c3ce44",
+      "galaxy": "NGC3521",
+      "settings": {
+        "seed": 20271000,
+        "directions_per_ell": 10000,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "d958ae90aa3bfde0c4e0681ff80bc82726d0a6bff97072db9b7b9eb69a808c81",
+          "dens": "d17ae1e402e141da205303fb06ef4d33ffb65dd41b63a9445194ed2d4dea3c13",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 600001,
+      "expected_records": 600001,
+      "valid_records": 600001,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 3.590126355770111e-17,
+        "excluded_directions": 0,
+        "attempted_directions": 40000,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 3.572487734372076e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -34.13296135059562,
+        "marginal_logp": -34.13296135059562,
+        "minimum_nuisance_gbar_m_s2": 6.169150213069603e-11
+      },
+      "maximum_found_P": 1.5005249961625742e-15,
+      "minimum_found_J": {
+        "P_4.5_percent": null,
+        "2sigma_one_sided": null,
+        "5sigma_one_sided": null
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261012/d256_a16_seed20261256/UGC07399_gp_search.json",
+      "sha256": "bbfb8b795d345d720e7cb254041a195059d5604a54be8feee62232c5ccf08064",
+      "galaxy": "UGC07399",
+      "settings": {
+        "seed": 20261256,
+        "directions_per_ell": 256,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "da764292b2408250db2b377f079b586b133930ca60c9eeb9a9ab82f603ee12de",
+          "dens": "340fccc8b74f39aa416906c5ba6395f7889784840922500de81cecda7c205677",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 15362,
+      "expected_records": 15362,
+      "valid_records": 15362,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 8.112853710154721e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 1024,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 4.970498651199086e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -4.031695172942804,
+        "marginal_logp": -4.031695172942804,
+        "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+      },
+      "maximum_found_P": 0.04787500083292875,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 6646,
+          "J_ref": 8091.970184207996,
+          "P": 0.04787500083292875,
+          "record": {
+            "source": "GP_direction",
+            "ell_over_rd": 1.0,
+            "direction": 186,
+            "amplitude_ml": 9.5,
+            "J_ref": 8091.970184207996,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.0391618140833376,
+            "minimum_nuisance_gbar_m_s2": 4.168422261514343e-11
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 1,
+          "J_ref": 38.49896080560537,
+          "P": 0.0429236467794163,
+          "record": {
+            "source": "saved_audited_central_order_QP",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 38.49896080560537,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.148332397927531,
+            "minimum_nuisance_gbar_m_s2": 1.8448078237499687e-11
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.017744224914278812,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -4.031695172942804,
+            "marginal_logp": -4.031695172942804,
+            "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261012/d512_a16_seed20261512/UGC07399_gp_search.json",
+      "sha256": "b5e5e2cb6beb78bf02e62cdc78be3c3bfa069f1543b9564398f4edec930470a3",
+      "galaxy": "UGC07399",
+      "settings": {
+        "seed": 20261512,
+        "directions_per_ell": 512,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "da764292b2408250db2b377f079b586b133930ca60c9eeb9a9ab82f603ee12de",
+          "dens": "340fccc8b74f39aa416906c5ba6395f7889784840922500de81cecda7c205677",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 30722,
+      "expected_records": 30722,
+      "valid_records": 30722,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 8.112853710154721e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 2048,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 5.047328748993319e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -4.031695172942804,
+        "marginal_logp": -4.031695172942804,
+        "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+      },
+      "maximum_found_P": 0.047829923382359085,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 9931,
+          "J_ref": 1208.0694053682746,
+          "P": 0.04543468750384563,
+          "record": {
+            "source": "GP_direction",
+            "ell_over_rd": 1.0,
+            "direction": 149,
+            "amplitude_ml": 4.297949148105603,
+            "J_ref": 1208.0694053682746,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.0914794237313608,
+            "minimum_nuisance_gbar_m_s2": 1.7351944879848667e-11
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 1,
+          "J_ref": 38.49896080560537,
+          "P": 0.0429236467794163,
+          "record": {
+            "source": "saved_audited_central_order_QP",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 38.49896080560537,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.148332397927531,
+            "minimum_nuisance_gbar_m_s2": 1.8448078237499687e-11
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.017744224914278812,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -4.031695172942804,
+            "marginal_logp": -4.031695172942804,
+            "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261012/d1024_a16_seed20262024/UGC07399_gp_search.json",
+      "sha256": "b9467096abdb4c39b838d1a44c8b79dccffb5ee1f7561cbc06c89ec017b30403",
+      "galaxy": "UGC07399",
+      "settings": {
+        "seed": 20262024,
+        "directions_per_ell": 1024,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "da764292b2408250db2b377f079b586b133930ca60c9eeb9a9ab82f603ee12de",
+          "dens": "340fccc8b74f39aa416906c5ba6395f7889784840922500de81cecda7c205677",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 61442,
+      "expected_records": 61442,
+      "valid_records": 61442,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 8.112853710154721e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 4096,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 3.4359978239029513e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -4.031695172942804,
+        "marginal_logp": -4.031695172942804,
+        "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+      },
+      "maximum_found_P": 0.047791973214353835,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 21556,
+          "J_ref": 10023.227611633214,
+          "P": 0.04701122873833188,
+          "record": {
+            "source": "GP_direction",
+            "ell_over_rd": 1.0,
+            "direction": 412,
+            "amplitude_ml": 9.5,
+            "J_ref": 10023.227611633214,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.057368796480157,
+            "minimum_nuisance_gbar_m_s2": 3.32059016442181e-11
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 1,
+          "J_ref": 38.49896080560537,
+          "P": 0.0429236467794163,
+          "record": {
+            "source": "saved_audited_central_order_QP",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 38.49896080560537,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.148332397927531,
+            "minimum_nuisance_gbar_m_s2": 1.8448078237499687e-11
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.017744224914278812,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -4.031695172942804,
+            "marginal_logp": -4.031695172942804,
+            "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261013/d2000_a16_seed20263000/UGC07399_gp_search.json",
+      "sha256": "556440a04338c11da4196d3298d46e7316a4195af3fa9a096aa454bf0f28af5a",
+      "galaxy": "UGC07399",
+      "settings": {
+        "seed": 20263000,
+        "directions_per_ell": 2000,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "da764292b2408250db2b377f079b586b133930ca60c9eeb9a9ab82f603ee12de",
+          "dens": "340fccc8b74f39aa416906c5ba6395f7889784840922500de81cecda7c205677",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 120002,
+      "expected_records": 120002,
+      "valid_records": 120002,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 8.112853710154721e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 8000,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 3.370869755549399e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -4.031695172942804,
+        "marginal_logp": -4.031695172942804,
+        "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+      },
+      "maximum_found_P": 0.04787566896400455,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 18466,
+          "J_ref": 112014237.76145303,
+          "P": 0.04787566896400455,
+          "record": {
+            "source": "GP_direction",
+            "ell_over_rd": 0.5,
+            "direction": 1230,
+            "amplitude_ml": 9.5,
+            "J_ref": 112014237.76145303,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.039147858440474,
+            "minimum_nuisance_gbar_m_s2": 3.022140258365273e-11
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 1,
+          "J_ref": 38.49896080560537,
+          "P": 0.0429236467794163,
+          "record": {
+            "source": "saved_audited_central_order_QP",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 38.49896080560537,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.148332397927531,
+            "minimum_nuisance_gbar_m_s2": 1.8448078237499687e-11
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.017744224914278812,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -4.031695172942804,
+            "marginal_logp": -4.031695172942804,
+            "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261013/d5000_a16_seed20266000/UGC07399_gp_search.json",
+      "sha256": "2e9b139b1356a6eba286b9c0bbd3429486008136fb1331122fe15c663bd637c2",
+      "galaxy": "UGC07399",
+      "settings": {
+        "seed": 20266000,
+        "directions_per_ell": 5000,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "da764292b2408250db2b377f079b586b133930ca60c9eeb9a9ab82f603ee12de",
+          "dens": "340fccc8b74f39aa416906c5ba6395f7889784840922500de81cecda7c205677",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 300002,
+      "expected_records": 300002,
+      "valid_records": 300002,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 8.112853710154721e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 20000,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 4.499939373219736e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -4.031695172942804,
+        "marginal_logp": -4.031695172942804,
+        "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+      },
+      "maximum_found_P": 0.04787566896400455,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 142530,
+          "J_ref": 702.432532024465,
+          "P": 0.04701056060725605,
+          "record": {
+            "source": "GP_direction",
+            "ell_over_rd": 1.0,
+            "direction": 4501,
+            "amplitude_ml": 4.344035529555877,
+            "J_ref": 702.432532024465,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.057383008740538,
+            "minimum_nuisance_gbar_m_s2": 1.7349544530199895e-11
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 1,
+          "J_ref": 38.49896080560537,
+          "P": 0.0429236467794163,
+          "record": {
+            "source": "saved_audited_central_order_QP",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 38.49896080560537,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.148332397927531,
+            "minimum_nuisance_gbar_m_s2": 1.8448078237499687e-11
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.017744224914278812,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -4.031695172942804,
+            "marginal_logp": -4.031695172942804,
+            "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_budget_20261013/d10000_a16_seed20271000/UGC07399_gp_search.json",
+      "sha256": "6ab239a2281f7884f7647553d74d375df3f317ecbe8ec35f5dbce3e774b84c55",
+      "galaxy": "UGC07399",
+      "settings": {
+        "seed": 20271000,
+        "directions_per_ell": 10000,
+        "amplitude_steps": 16,
+        "proposal_ell_over_rd": [
+          0.5,
+          1.0,
+          2.0,
+          4.0
+        ],
+        "reference_length_fraction_of_span": 0.3,
+        "reference_nugget": 1e-08,
+        "bounds_ml": [
+          0.01,
+          10.0
+        ],
+        "signed_gbar_floor_relative": 1e-08,
+        "gas_ml": 1.0,
+        "gas_ml_dex": 0.04,
+        "bulge_ml": 0.7,
+        "bulge_ml_dex": 0.1,
+        "quadrature_nodes_per_term": 9,
+        "probability_starting_grid": 400,
+        "zpadding": 8.0,
+        "boundary_log_tolerance": 2e-05,
+        "boundary_max_refinements": 8
+      },
+      "provenance": {
+        "script_sha256": "cb78ccbecbd010abd1e398ef9b3868fdcee72e97dc2a609c9b8782b47c12bd6f",
+        "source_sha256": {
+          "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+          "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+          "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+          "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+        },
+        "input_sha256": {
+          "rotmod": "da764292b2408250db2b377f079b586b133930ca60c9eeb9a9ab82f603ee12de",
+          "dens": "340fccc8b74f39aa416906c5ba6395f7889784840922500de81cecda7c205677",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        },
+        "python": "3.11.4 (main, Jun  3 2024, 14:22:32) [GCC 11.4.0]",
+        "python_executable": "/usr/local/shared/python/3.11.4/bin/python3",
+        "numpy": "1.26.4",
+        "scipy": "1.14.1"
+      },
+      "records": 600002,
+      "expected_records": 600002,
+      "valid_records": 600002,
+      "invalid_reasons": {},
+      "invalid_numeric_valid_records": 0,
+      "physical_domain": {
+        "policy": "signed net gbar at every gas/bulge quadrature node must meet the existing numerical floor",
+        "floor_m_s2": 8.112853710154721e-19,
+        "excluded_directions": 0,
+        "attempted_directions": 40000,
+        "strictly_more_restrictive_than_fixed_nuisance_QP": true
+      },
+      "basis_warnings": [],
+      "max_direct_cache_relative_to_peak": 5.075566451591853e-16,
+      "baseline": {
+        "source": "SPARC_constant_0.5",
+        "ell_over_rd": null,
+        "direction": null,
+        "amplitude_ml": null,
+        "J_ref": 0.0,
+        "valid": true,
+        "conditional_logp": -4.031695172942804,
+        "marginal_logp": -4.031695172942804,
+        "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+      },
+      "maximum_found_P": 0.04787603546520108,
+      "minimum_found_J": {
+        "P_4.5_percent": {
+          "record_index": 398416,
+          "J_ref": 1792.2784746755997,
+          "P": 0.04543432358977294,
+          "record": {
+            "source": "GP_direction",
+            "ell_over_rd": 2.0,
+            "direction": 6560,
+            "amplitude_ml": 9.5,
+            "J_ref": 1792.2784746755997,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.0914874333722344,
+            "minimum_nuisance_gbar_m_s2": 3.450812595334552e-11
+          }
+        },
+        "2sigma_one_sided": {
+          "record_index": 1,
+          "J_ref": 38.49896080560537,
+          "P": 0.0429236467794163,
+          "record": {
+            "source": "saved_audited_central_order_QP",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 38.49896080560537,
+            "valid": true,
+            "conditional_logp": -3.0391402031992705,
+            "marginal_logp": -3.148332397927531,
+            "minimum_nuisance_gbar_m_s2": 1.8448078237499687e-11
+          }
+        },
+        "5sigma_one_sided": {
+          "record_index": 0,
+          "J_ref": 0.0,
+          "P": 0.017744224914278812,
+          "record": {
+            "source": "SPARC_constant_0.5",
+            "ell_over_rd": null,
+            "direction": null,
+            "amplitude_ml": null,
+            "J_ref": 0.0,
+            "valid": true,
+            "conditional_logp": -4.031695172942804,
+            "marginal_logp": -4.031695172942804,
+            "minimum_nuisance_gbar_m_s2": 5.623063905436388e-12
+          }
+        }
+      },
+      "frontier_cross_check_passed": true
+    }
+  ]
+}

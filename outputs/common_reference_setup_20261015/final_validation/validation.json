@@ -1,0 +1,228 @@
+{
+  "created_utc": "2026-10-15T20:00:47.415496+00:00",
+  "tests": 16,
+  "successful": true,
+  "seconds": 3.70956759294495,
+  "failures": 0,
+  "errors": 0,
+  "sources": {
+    "common_isotonic_reference.py": "ef291d8777536d3e286f4381d1e0ca2774e390c6bb5c2cbe90d3e4d14a5f5863",
+    "common_reference_driver.py": "d24087a17d08d11a7dd7ff9454ab7b8fe6b0f28e972e34b3e953af0f35f49ee8",
+    "audit_data_extraction.py": "b890bfdf2503369b5add98d1a0c1bad4fb07a5bf4ef0c286f2193518be426021",
+    "test_common_isotonic_reference.py": "10ba22316c9e1e3f531bc97382ae4157d8a34b4c7363204fbe0573bec865fd31",
+    "inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+    "plot_inverse_rar_comparison.py": "0786d429a29b1cb6df3b77cb264a56020d2deb6ef89d23b91cdbfaa7b1f537ac",
+    "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+    "gp_rar_search_retained.py": "ff323faf54ba97bb7d0a55f8de91403d5db7520a828255f2cac5980e40e4de7c",
+    "run_bulge_reruns_20261015.py": "390c944ccbed072dcbe3f527983355f2d10b041dc469ffd2f4681e3c092dab44"
+  },
+  "dry_runs": [
+    {
+      "status": "prepared_no_force_no_draws",
+      "galaxy": "UGC07399",
+      "B": 8,
+      "seed": 20261015,
+      "baseline_disc_ml": 0.5,
+      "nominal_nuisance": {
+        "gas_median": 1.0,
+        "gas_dex": 0.04,
+        "bulge_median": 0.7,
+        "bulge_dex": 0.1,
+        "samples": 9
+      },
+      "probability_settings": {
+        "ngrid": 400,
+        "zpadding": 8.0,
+        "log_tolerance": 2e-05,
+        "max_refinements": 8,
+        "max_tie_permutations": 720,
+        "floor_relative": 1e-08
+      },
+      "retained_rows": 10,
+      "full_density_rows": 59,
+      "R0_nodes_removed_by_force_solver": 0,
+      "normalization": {
+        "Ltotal_1e9": 1.156,
+        "Lbulge_1e9": 0.0,
+        "Ldisk_1e9": 1.156,
+        "kappa": 1.0,
+        "reference_distance_Mpc": 8.43
+      },
+      "invariants": {
+        "force_model": {
+          "geometry": {
+            "distance_Mpc": 8.43,
+            "inclination_deg": 55.0,
+            "zd_kpc": 0.2680724769453478,
+            "vertical_profile": "exp"
+          },
+          "force_source_sha256": {
+            "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+            "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+            "vcdisk": "92be1231d7c15ca3cacf87d4ae2da82ecafb5b4d4ed5f97f1f6bbeaf3ad76c4f"
+          },
+          "density_support": "full supplied profile; remove R=0 before Casertano",
+          "kinematic_support": "overlap only; refuse outside positive force support",
+          "interpolation": "signed W/R force interpolation then multiply observed R",
+          "signed_W": "V*abs(V)",
+          "units": {
+            "radius": "kpc",
+            "velocity": "km/s",
+            "acceleration": "m/s^2"
+          },
+          "kpc_metres": 3.086e+19
+        },
+        "galaxy": "UGC07399",
+        "parser_id": "sparc_rotmod_header_v1_gas3_disk4",
+        "input_sha256": {
+          "rotmod": "da764292b2408250db2b377f079b586b133930ca60c9eeb9a9ab82f603ee12de",
+          "dens": "340fccc8b74f39aa416906c5ba6395f7889784840922500de81cecda7c205677",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+          "normalization": "332ab6f63100b5d0b5593013f61fcf1b6966496d24d8221e4eee8bfd2cb44bc0"
+        },
+        "normalization_id": "disc_to_catalogue_total_minus_published_bulge_v1",
+        "nuisance_model": {
+          "gas_median": 1.0,
+          "gas_dex": 0.04,
+          "bulge_median": 0.7,
+          "bulge_dex": 0.1,
+          "samples": 9
+        },
+        "retained_mask": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "kinematics_sha256": "bcbd914f797546c4f47859f44061eeef566efc406b43c5a71b1b30a629e4a652",
+        "probability_settings": {
+          "ngrid": 400,
+          "zpadding": 8.0,
+          "log_tolerance": 2e-05,
+          "max_refinements": 8,
+          "max_tie_permutations": 720,
+          "floor_relative": 1e-08
+        },
+        "probability_sha256": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+      },
+      "maximum_output_bytes": 8388608,
+      "force_solves": 1,
+      "mock_force_solves": 0
+    },
+    {
+      "status": "prepared_no_force_no_draws",
+      "galaxy": "NGC0891",
+      "B": 8,
+      "seed": 20261015,
+      "baseline_disc_ml": 0.5,
+      "nominal_nuisance": {
+        "gas_median": 1.0,
+        "gas_dex": 0.04,
+        "bulge_median": 0.7,
+        "bulge_dex": 0.1,
+        "samples": 9
+      },
+      "probability_settings": {
+        "ngrid": 400,
+        "zpadding": 8.0,
+        "log_tolerance": 2e-05,
+        "max_refinements": 8,
+        "max_tie_permutations": 720,
+        "floor_relative": 1e-08
+      },
+      "retained_rows": 17,
+      "full_density_rows": 49,
+      "R0_nodes_removed_by_force_solver": 1,
+      "normalization": {
+        "Ltotal_1e9": 138.34,
+        "Lbulge_1e9": 18.8773,
+        "Ldisk_1e9": 119.4627,
+        "kappa": 0.8635441665461905,
+        "reference_distance_Mpc": 9.91
+      },
+      "invariants": {
+        "force_model": {
+          "geometry": {
+            "distance_Mpc": 9.91,
+            "inclination_deg": 90.0,
+            "zd_kpc": 0.3544834840926084,
+            "vertical_profile": "exp"
+          },
+          "force_source_sha256": {
+            "mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+            "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+            "vcdisk": "92be1231d7c15ca3cacf87d4ae2da82ecafb5b4d4ed5f97f1f6bbeaf3ad76c4f"
+          },
+          "density_support": "full supplied profile; remove R=0 before Casertano",
+          "kinematic_support": "overlap only; refuse outside positive force support",
+          "interpolation": "signed W/R force interpolation then multiply observed R",
+          "signed_W": "V*abs(V)",
+          "units": {
+            "radius": "kpc",
+            "velocity": "km/s",
+            "acceleration": "m/s^2"
+          },
+          "kpc_metres": 3.086e+19
+        },
+        "galaxy": "NGC0891",
+        "parser_id": "sparc_rotmod_header_v1_gas3_disk4",
+        "input_sha256": {
+          "rotmod": "646e25cf1943a57f5a3da9d86126298bd5d38419f62a70664e2b7f7bb3247a34",
+          "dens": "7793bf9fe8ce17dde33119290a5379705d80484f8e5d678818c5f33e6b708ba7",
+          "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+          "normalization": "332ab6f63100b5d0b5593013f61fcf1b6966496d24d8221e4eee8bfd2cb44bc0"
+        },
+        "normalization_id": "disc_to_catalogue_total_minus_published_bulge_v1",
+        "nuisance_model": {
+          "gas_median": 1.0,
+          "gas_dex": 0.04,
+          "bulge_median": 0.7,
+          "bulge_dex": 0.1,
+          "samples": 9
+        },
+        "retained_mask": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false
+        ],
+        "kinematics_sha256": "0d7222d745ccb005e0dfe2893caeb12d130be35454a77d6fd728f618f3595755",
+        "probability_settings": {
+          "ngrid": 400,
+          "zpadding": 8.0,
+          "log_tolerance": 2e-05,
+          "max_refinements": 8,
+          "max_tie_permutations": 720,
+          "floor_relative": 1e-08
+        },
+        "probability_sha256": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f"
+      },
+      "maximum_output_bytes": 8388608,
+      "force_solves": 1,
+      "mock_force_solves": 0
+    }
+  ],
+  "real_galaxy_solves": 0,
+  "real_galaxy_mock_draws": 0,
+  "production_sources_preserved": true
+}

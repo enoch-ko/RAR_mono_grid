@@ -1,0 +1,536 @@
+{
+  "status": "prepared_not_submitted",
+  "output_root": "/mnt/users/koe/RAR_mono_grid/outputs/bulge_normalized_20261015",
+  "targets": [
+    "IC4202",
+    "NGC0891",
+    "NGC2683",
+    "NGC2841",
+    "NGC2955",
+    "NGC4013",
+    "NGC4138",
+    "NGC4157",
+    "NGC4217",
+    "NGC5005",
+    "NGC5033",
+    "NGC5985",
+    "NGC6195",
+    "NGC6674",
+    "NGC6946",
+    "NGC7331",
+    "NGC7814",
+    "UGC02487",
+    "UGC02885",
+    "UGC02916",
+    "UGC02953",
+    "UGC03205",
+    "UGC03546",
+    "UGC03580",
+    "UGC05253",
+    "UGC06614",
+    "UGC06786",
+    "UGC06787",
+    "UGC06973",
+    "UGC08699",
+    "UGC09133",
+    "UGC11914"
+  ],
+  "source_sha256": {
+    "/mnt/users/koe/RAR_mono_grid/utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+    "/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+    "/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR_boundary.py": "ca3c46f2be4601822e67d6999e0cbf232bf22a5965bca08007a23173664923cd",
+    "/mnt/users/koe/RAR_mono_grid/inverse_rar_diagnostic.py": "c2d4cae176bc05ae718da306548add5a4976a623a6357ccf222f1d8e58835a47",
+    "/mnt/users/koe/RAR_mono_grid/probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f",
+    "/mnt/users/koe/RAR_mono_grid/gp_candidate_retention.py": "95ada187e5293b86e6dc25392e3433a510deba00da96f2acdf0a80700ce74f20",
+    "/mnt/users/koe/RAR_mono_grid/gp_rar_search_retained.py": "ff323faf54ba97bb7d0a55f8de91403d5db7520a828255f2cac5980e40e4de7c",
+    "/mnt/users/koe/RAR_mono_grid/plot_inverse_rar_comparison.py": "0786d429a29b1cb6df3b77cb264a56020d2deb6ef89d23b91cdbfaa7b1f537ac",
+    "/mnt/users/koe/RAR_mono_grid/run_bulge_reruns_20261015.py": "0a219665f76671171178e0f61befea5ad9c657538d6742c297b4af45d87c5829"
+  },
+  "input_sha256": {
+    "/mnt/users/koe/RAR_mono_grid/SPARC_table.txt": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/IC4202.dens": "c9796ff5728dd9e56cf8ce034d7ba77b30b89168ac7fe82fed99f3825bd4fc92",
+    "/mnt/users/koe/data/IC4202_rotmod.dat": "1b202036246f957a1d6b6fc1477d9c7b8a0f5f9583a16fe401a997c1cc8e6074",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC0891.dens": "7793bf9fe8ce17dde33119290a5379705d80484f8e5d678818c5f33e6b708ba7",
+    "/mnt/users/koe/data/NGC0891_rotmod.dat": "646e25cf1943a57f5a3da9d86126298bd5d38419f62a70664e2b7f7bb3247a34",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC2683.dens": "95c0ade65404bb824d8cb56ae5a44157d668ba77058f920f61ef32e2271666e1",
+    "/mnt/users/koe/data/NGC2683_rotmod.dat": "100f88a564d36ff4e24553cf939aab7b6f98350deb74e491c49aa82d10951662",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC2841.dens": "91205b50702c93a161011a48c37e4aabc02441c3ab82b0c1cbafe6c77dc96eb0",
+    "/mnt/users/koe/data/NGC2841_rotmod.dat": "3182e398c3325cb7d43dcda432e150e55a06be8d74b2e95fd92e094e291b4e5f",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC2955.dens": "868cc50b05fcb15b2461c37118791f053a6d86d7ff155f8895e3e6ff2b85dd58",
+    "/mnt/users/koe/data/NGC2955_rotmod.dat": "7852501ff93df47e2d81110ef4f32eec919c955522e4cec1135de19ed94855eb",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC4013.dens": "1c214c4dc8e50dc2624dcc0236fd0b3b3466341eb37287bf2aec5689851eaad2",
+    "/mnt/users/koe/data/NGC4013_rotmod.dat": "da5ba442cbf11e04932672f27a6848884965cd4c7377badb3cd1d0b3102e4f54",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC4138.dens": "11f284ac6a630840747b7176f69e1e1314bd6e14a957ec7f2d019b07bf22f4c9",
+    "/mnt/users/koe/data/NGC4138_rotmod.dat": "4ca29851e655379c6a8ab9f04f0cae996caeb3e82419296c576e8abe50dfb22c",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC4157.dens": "dc992bded8704aa213abb6aef97defba3d02f26e1687e26f03f7734ca1a74912",
+    "/mnt/users/koe/data/NGC4157_rotmod.dat": "acc1483c4f614bb0b0ea698b48f6895a7c6ffdda53d04c56e04b5894ec43667d",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC4217.dens": "4652cd4f5d0cfc39aa21c3b211d07bf0d0f411c6529bb2d2ccaad053ddde6843",
+    "/mnt/users/koe/data/NGC4217_rotmod.dat": "c97405576639281c5a0e5583bd68d98380c28507edbb36bffb99e96617230cb8",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC5005.dens": "cddb24a0e51458c6d967a900dd2960e2b51af9337e2632bd8238d0be737baa2f",
+    "/mnt/users/koe/data/NGC5005_rotmod.dat": "92708107b61d37f72200b769933544c5bf858635822d683dc3c12084018e34d0",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC5033.dens": "aafa5235e9a0e003b9fbf58ac01a5b0a45cbeb7a99f909c3c2373287176c180f",
+    "/mnt/users/koe/data/NGC5033_rotmod.dat": "1f6d7236a304040f3c9941f7168a9cac431127f538d8ed92d77245db32556195",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC5985.dens": "3186ddc69e30f553edff62aa3daa96a569d9bc2a631b7264dce5b4ada5526ebd",
+    "/mnt/users/koe/data/NGC5985_rotmod.dat": "bc9c25d1f854fb92d44fa7ba11ac336b9385cb68ac7568a4f8cbe692146c6fcd",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC6195.dens": "54b649c9079078b4926eebb9f5d8aca3a957c66b0c1eab2d07b5001d24cd6d08",
+    "/mnt/users/koe/data/NGC6195_rotmod.dat": "da1178b7bf0c9e8064852f3a2a75ae54eb37fb870de41d9d954e3ae6c87e2fe4",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC6674.dens": "e60448a742fc45f32c95b3c4fd1dbfb2dc704d035773a81e094825c6a78450a8",
+    "/mnt/users/koe/data/NGC6674_rotmod.dat": "50e1d8970da4d822d4bde143e1788fcf53e5ff69c90fa9742b9b2bb20847d229",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC6946.dens": "8836d24ec75380cfec472fa0e9a9d85ae672e7e0a9c9c943ab54872c251d7ba6",
+    "/mnt/users/koe/data/NGC6946_rotmod.dat": "a59510ea4e394916584e20e40ab05802296e1a8203a29e9b7a4d2ce4993698d0",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC7331.dens": "8dfee35990f50e5399a1b91f359dc2166115b792de1f9428588622ce77909e8c",
+    "/mnt/users/koe/data/NGC7331_rotmod.dat": "87055981e7f0c741584ddea2f0fe9660dba7cc0c86697f2eb53cdaa75e536c9b",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC7814.dens": "7907863b421ad93b08b412dbbb3678c2f06a19d776a8d7223e02c8990dacc88c",
+    "/mnt/users/koe/data/NGC7814_rotmod.dat": "54f0fef759ca4a536af157bd2c56c9ceb96a4fc469f037c26fb74035daf060cf",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC02487.dens": "5fd12f32311e4fcf38474905c6e8647085238be3b609b52d553d7d7e100d0725",
+    "/mnt/users/koe/data/UGC02487_rotmod.dat": "1fbe46204005f37b64fec2af018b067c65ad9775362314a3e16a77652eec69d9",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC02885.dens": "fa9aac199d64fc12a0b1d98f41fdb1f426bdfda96da32190975c501560506334",
+    "/mnt/users/koe/data/UGC02885_rotmod.dat": "8506311fa877c27e6f1dfae7dbcc383810b5f7d447c2e42f1316d9e94e6b56a9",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC02916.dens": "e5f4c642312dd7ea13b3dd010079c17be724ee721a2d921af5d11a9014a2ea49",
+    "/mnt/users/koe/data/UGC02916_rotmod.dat": "4b5a8b769f94f35c1ce6fed4900bdf621ead476d0a84df3189ea4ebb5110f5b5",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC02953.dens": "cb7568d0846a4b1a14869144c63859503d32f9f63b30fbcfcb924fc13b84dbb2",
+    "/mnt/users/koe/data/UGC02953_rotmod.dat": "af2db4fadac5afed7f89b33473282d666c4a29cd1d91d867825842a9518a8db9",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC03205.dens": "2178b46d0ab5117273e11de0bf4357af9f8cdb9af62fa1fa97c963e0ffa6272a",
+    "/mnt/users/koe/data/UGC03205_rotmod.dat": "b7297f3b0b47c4f84af703c57ed16950242ad206114a4cae85cfa8e532c0a8a4",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC03546.dens": "68967271c555aa32b52d88c3a780786e74552db96496a1784b7ee9ff7b16c9d3",
+    "/mnt/users/koe/data/UGC03546_rotmod.dat": "25128c8ac9b018419f7787a020526b673f2e285de6c0a7fb02d3e9cdf9967ebe",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC03580.dens": "1d58139cad08ac0377312eca31670111a53b204681ebb22a6919cb2bd4161af8",
+    "/mnt/users/koe/data/UGC03580_rotmod.dat": "9cf8a0ff9f63c328fc990627519b4f55a32c5923d2f42b126ed98f27952874c6",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC05253.dens": "47f4853b421615cfee9a1126e41e29460b0c47f1a22cfb724536394c936646e4",
+    "/mnt/users/koe/data/UGC05253_rotmod.dat": "66445fecf4d42bee13a0448b0bed17012e7c556a5ef5711e41c64975834e2b1e",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC06614.dens": "c96f9b90a5142c270947a4eef48f935ca86c6544a08d5b92960b9a30c051bc7f",
+    "/mnt/users/koe/data/UGC06614_rotmod.dat": "3965c5883e91710ecebb14e70ed640997ed97f0414018864531b0024081cc4a2",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC06786.dens": "2039f6c41d86e33a893d9f497e53f5c3725a7428afd230d595d0f777c7cbfc8e",
+    "/mnt/users/koe/data/UGC06786_rotmod.dat": "8353efa1643727d968113b5cc836ca8bac75d256a2e1043b62f56f29791f62fc",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC06787.dens": "fa1461c64a21423b40b31a641cc3a5522d94f47fbdc4d702b6aa811f0bb7f0b0",
+    "/mnt/users/koe/data/UGC06787_rotmod.dat": "519900d9f360782451247b9d057da4c3589ce1f7ed84083e65ba294f5aa2989a",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC06973.dens": "a4931ee7c209f7ae22d812da42e046a4e917ae57bb8044a091e80422b9f4d1f6",
+    "/mnt/users/koe/data/UGC06973_rotmod.dat": "b2aa464658a93c44c349abe466215591cb41195c0357f7c921fe3eb0bb77a875",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC08699.dens": "53b0100bdbfae3c8d10d5a070806ab2b92850189f1e640cded71bcbc53812d5d",
+    "/mnt/users/koe/data/UGC08699_rotmod.dat": "bc9f3b6a213f9948929d4e18d17ee0051c7c5ee1bc681cd92c50cd69801a4540",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC09133.dens": "7bb389adf331c451fb5b3c8ea674ad26704fafc62f15ff00179617b4f098059f",
+    "/mnt/users/koe/data/UGC09133_rotmod.dat": "be94b89187d8239e4e9fbb7f4f4a4721cfe8d9c4cbbfbd9277d7b5666516bf7c",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC11914.dens": "0ab96a2694164c48bb34bb71484256c91256aebffe8af6efcf115e1c419b9d45",
+    "/mnt/users/koe/data/UGC11914_rotmod.dat": "90eb236318000ba68e7c5ef99de2dc7a8c5b6b6a9a7509fdd7b964b59ad393df",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/UGC07399.dens": "340fccc8b74f39aa416906c5ba6395f7889784840922500de81cecda7c205677",
+    "/mnt/users/koe/data/UGC07399_rotmod.dat": "da764292b2408250db2b377f079b586b133930ca60c9eeb9a9ab82f603ee12de",
+    "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_001-035_20261005.json": "70dbe159045decceab7b1639f6ab5bb948b4dfcefa0c6012ba5d790994c7707c",
+    "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_036-070_20261005.json": "b5fb791c1bd456ff5afd0883e86b9d1c4273fe3ff7ae36c097ebdf7ec7ac620a",
+    "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_071-105_20261005.json": "f48b0d94a7234322c45116e82c7eff6f520d2e5bc45f3a766bcc615af72f582a",
+    "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_106-140_20261005.json": "4dfa4f8e4b3f958bac99d6371c413b91c1c995e009404e2377f82ee277061f4a",
+    "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_141-175_20261005.json": "d67c27c18c378474f97bf8c84db355f09536e5ae6a5bd94e4f94849e850dc6bc",
+    "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_full_retained_20261014_d5000_a16/batch_manifest.json": "6b19eb3d01a70721f4c0057e94fadd8eeb8e3a1e34c690adafd0a4fd45c9aa3c",
+    "/mnt/users/koe/RAR_mono_grid/outputs/bulge_normalized_20261015/inputs/Bulges.mrt": "5af4fb0706df8cd097eded2ca7749fe3fb3240314afed333f84ab8c00b662a84",
+    "/mnt/users/koe/RAR_mono_grid/outputs/bulge_normalized_20261015/inputs/SPARC_Lelli2016c.mrt": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+    "/mnt/users/koe/RAR_mono_grid/outputs/bulge_normalized_20261015/inputs/normalization.json": "332ab6f63100b5d0b5593013f61fcf1b6966496d24d8221e4eee8bfd2cb44bc0"
+  },
+  "gp_settings": {
+    "directions": 5000,
+    "amplitude_steps": 16,
+    "ell_over_rd": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "seed": 20261013,
+    "replicate": 0,
+    "sampling_scheme": "nested-v1",
+    "checkpoint_mode": "retained-only",
+    "max_retained_bytes": 8388608,
+    "min_ml": 0.01,
+    "max_ml": 10.0,
+    "length_fraction": 0.3,
+    "gbar_floor_relative": 1e-08,
+    "gas_ml": 1.0,
+    "bulge_ml": 0.7,
+    "gas_ml_dex": 0.04,
+    "bulge_ml_dex": 0.1,
+    "ml_samples": 9,
+    "prob_grid_size": 400,
+    "zpadding": 8.0,
+    "boundary_log_tolerance": 2e-05,
+    "boundary_max_refinements": 8
+  },
+  "qp_settings": {
+    "knots_from_dens": true,
+    "knots": 8,
+    "min_ml": 0.01,
+    "max_ml": 10.0,
+    "retry_max_ml": 20.0,
+    "length_fraction": 0.3,
+    "gas_ml": 1.0,
+    "bulge_ml": 0.7,
+    "gas_ml_dex": 0.04,
+    "bulge_ml_dex": 0.1,
+    "ml_samples": 9,
+    "prob_grid_size": 400,
+    "zpadding": 8.0,
+    "gbar_floor_relative": 1e-08,
+    "qp_backend": "osqp",
+    "osqp_eps": 1e-09,
+    "osqp_max_iter": 100000,
+    "osqp_time_limit": 10.0
+  },
+  "plan": {
+    "constant": [
+      {
+        "shard": 1,
+        "galaxies": [
+          "NGC4013",
+          "NGC4138",
+          "NGC5985",
+          "NGC7814",
+          "UGC02487",
+          "UGC02953",
+          "UGC03546",
+          "UGC06614"
+        ],
+        "weight": 1435983
+      },
+      {
+        "shard": 2,
+        "galaxies": [
+          "IC4202",
+          "NGC4157",
+          "NGC4217",
+          "NGC7331",
+          "UGC02916",
+          "UGC06786",
+          "UGC06973",
+          "UGC09133"
+        ],
+        "weight": 1379963
+      },
+      {
+        "shard": 3,
+        "galaxies": [
+          "NGC2683",
+          "NGC2841",
+          "NGC2955",
+          "NGC5033",
+          "NGC6674",
+          "UGC06787",
+          "UGC08699",
+          "UGC11914"
+        ],
+        "weight": 1394367
+      },
+      {
+        "shard": 4,
+        "galaxies": [
+          "NGC0891",
+          "NGC5005",
+          "NGC6195",
+          "NGC6946",
+          "UGC02885",
+          "UGC03205",
+          "UGC03580",
+          "UGC05253"
+        ],
+        "weight": 1387953
+      }
+    ],
+    "linear": [
+      {
+        "shard": 1,
+        "galaxies": [
+          "NGC4138",
+          "UGC02953",
+          "UGC06614",
+          "UGC06973"
+        ],
+        "weight": 1084440
+      },
+      {
+        "shard": 2,
+        "galaxies": [
+          "NGC5033",
+          "NGC7814",
+          "UGC02487",
+          "UGC09133"
+        ],
+        "weight": 648740
+      },
+      {
+        "shard": 3,
+        "galaxies": [
+          "NGC2841",
+          "NGC5005",
+          "NGC5985",
+          "UGC02885"
+        ],
+        "weight": 647701
+      },
+      {
+        "shard": 4,
+        "galaxies": [
+          "NGC4013",
+          "NGC6946",
+          "UGC03546",
+          "UGC08699"
+        ],
+        "weight": 640830
+      },
+      {
+        "shard": 5,
+        "galaxies": [
+          "NGC0891",
+          "NGC6195",
+          "UGC03205",
+          "UGC05253"
+        ],
+        "weight": 641649
+      },
+      {
+        "shard": 6,
+        "galaxies": [
+          "NGC2683",
+          "NGC4217",
+          "NGC7331",
+          "UGC06787"
+        ],
+        "weight": 649930
+      },
+      {
+        "shard": 7,
+        "galaxies": [
+          "NGC2955",
+          "NGC6674",
+          "UGC02916",
+          "UGC06786"
+        ],
+        "weight": 638932
+      },
+      {
+        "shard": 8,
+        "galaxies": [
+          "IC4202",
+          "NGC4157",
+          "UGC03580",
+          "UGC11914"
+        ],
+        "weight": 646044
+      }
+    ],
+    "qp": [
+      {
+        "shard": 1,
+        "galaxies": [
+          "NGC4138",
+          "UGC02953",
+          "UGC06614",
+          "UGC06973"
+        ],
+        "weight": 1084440
+      },
+      {
+        "shard": 2,
+        "galaxies": [
+          "NGC5033",
+          "NGC7814",
+          "UGC02487",
+          "UGC09133"
+        ],
+        "weight": 648740
+      },
+      {
+        "shard": 3,
+        "galaxies": [
+          "NGC2841",
+          "NGC5005",
+          "NGC5985",
+          "UGC02885"
+        ],
+        "weight": 647701
+      },
+      {
+        "shard": 4,
+        "galaxies": [
+          "NGC4013",
+          "NGC6946",
+          "UGC03546",
+          "UGC08699"
+        ],
+        "weight": 640830
+      },
+      {
+        "shard": 5,
+        "galaxies": [
+          "NGC0891",
+          "NGC6195",
+          "UGC03205",
+          "UGC05253"
+        ],
+        "weight": 641649
+      },
+      {
+        "shard": 6,
+        "galaxies": [
+          "NGC2683",
+          "NGC4217",
+          "NGC7331",
+          "UGC06787"
+        ],
+        "weight": 649930
+      },
+      {
+        "shard": 7,
+        "galaxies": [
+          "NGC2955",
+          "NGC6674",
+          "UGC02916",
+          "UGC06786"
+        ],
+        "weight": 638932
+      },
+      {
+        "shard": 8,
+        "galaxies": [
+          "IC4202",
+          "NGC4157",
+          "UGC03580",
+          "UGC11914"
+        ],
+        "weight": 646044
+      }
+    ],
+    "gp": [
+      {
+        "shard": 1,
+        "galaxies": [
+          "UGC02953",
+          "UGC06614"
+        ],
+        "weight": 1031640
+      },
+      {
+        "shard": 2,
+        "galaxies": [
+          "NGC4138",
+          "UGC09133"
+        ],
+        "weight": 442723
+      },
+      {
+        "shard": 3,
+        "galaxies": [
+          "NGC2841",
+          "UGC06973"
+        ],
+        "weight": 390628
+      },
+      {
+        "shard": 4,
+        "galaxies": [
+          "NGC6946",
+          "UGC02487"
+        ],
+        "weight": 396816
+      },
+      {
+        "shard": 5,
+        "galaxies": [
+          "NGC0891",
+          "UGC05253"
+        ],
+        "weight": 383609
+      },
+      {
+        "shard": 6,
+        "galaxies": [
+          "NGC6674",
+          "UGC06787"
+        ],
+        "weight": 372414
+      },
+      {
+        "shard": 7,
+        "galaxies": [
+          "NGC4013",
+          "UGC02916"
+        ],
+        "weight": 371898
+      },
+      {
+        "shard": 8,
+        "galaxies": [
+          "NGC2683",
+          "UGC11914"
+        ],
+        "weight": 317100
+      },
+      {
+        "shard": 9,
+        "galaxies": [
+          "UGC02885",
+          "UGC03580"
+        ],
+        "weight": 294592
+      },
+      {
+        "shard": 10,
+        "galaxies": [
+          "NGC4157",
+          "UGC06786"
+        ],
+        "weight": 259884
+      },
+      {
+        "shard": 11,
+        "galaxies": [
+          "NGC7331",
+          "NGC7814"
+        ],
+        "weight": 255238
+      },
+      {
+        "shard": 12,
+        "galaxies": [
+          "NGC6195",
+          "UGC03205"
+        ],
+        "weight": 258040
+      },
+      {
+        "shard": 13,
+        "galaxies": [
+          "NGC4217",
+          "UGC08699"
+        ],
+        "weight": 215748
+      },
+      {
+        "shard": 14,
+        "galaxies": [
+          "NGC2955",
+          "NGC5985"
+        ],
+        "weight": 209193
+      },
+      {
+        "shard": 15,
+        "galaxies": [
+          "NGC5033",
+          "UGC03546"
+        ],
+        "weight": 208631
+      },
+      {
+        "shard": 16,
+        "galaxies": [
+          "IC4202",
+          "NGC5005"
+        ],
+        "weight": 190112
+      }
+    ]
+  },
+  "old_gp_root": "/mnt/users/koe/RAR_mono_grid/outputs/gp_rar_full_retained_20261014_d5000_a16",
+  "source_policy": "original files read-only; per-worker runtime injection",
+  "stages": {
+    "A": "4 constant + 8 linear + 8 QP",
+    "B": "16 GP only after all corrected QP output JSONs exist"
+  },
+  "note": "No log-linear jobs. Finite-search results not calibrated significance/global optima."
+}

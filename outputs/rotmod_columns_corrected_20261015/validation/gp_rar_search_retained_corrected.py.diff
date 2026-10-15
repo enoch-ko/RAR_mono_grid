@@ -1,0 +1,51 @@
+--- gp_rar_search_retained.py
++++ gp_rar_search_retained_corrected.py
+@@ -20,14 +20,15 @@
+ from scipy.linalg import solve_triangular
+ 
+ from gp_candidate_retention import CandidateRetention, DEFAULT_THRESHOLDS, limited_json
+-import inverse_rar_diagnostic as inverse
++import inverse_rar_diagnostic_corrected as inverse
++from sparc_rotmod_columns import parser_provenance
+ import mono_SPARC_RAR as mono
+ import probability_recursion as boundary
+ from utils import DEFAULT_DENS_ROOT, DEFAULT_PROJECT_ROOT, DEFAULT_TABLE_PATH
+ from utils import _tie_groups, load_sparc_table, lognormal_quadrature, vel2acc
+ 
+ PILOTS = ("NGC3521", "UGC02916", "UGC07399", "D512-2")
+-SOURCE_FILES = ("inverse_rar_diagnostic.py", "mono_SPARC_RAR.py",
++SOURCE_FILES = ("inverse_rar_diagnostic_corrected.py", "sparc_rotmod_columns.py", "mono_SPARC_RAR.py",
+                 "utils.py", "probability_recursion.py", "gp_candidate_retention.py")
+ 
+ 
+@@ -226,6 +227,10 @@
+     if path is None:
+         return None, {"status": "not_supplied"}
+     data = json.loads(Path(path).read_text())
++    if data.get("provenance",{}).get("input_parser")!=parser_provenance():
++        raise ValueError("QP reference lacks corrected gas-column provenance; refit required")
++    if not isinstance(data.get("runs"),list) and data.get("provenance",{}).get("script_sha256")!=inverse.sha256(inverse.__file__):
++        raise ValueError("QP reference inverse implementation differs from corrected loader")
+     if isinstance(data.get("runs"), list):
+         return warm_reference_profile(path, data, galaxy, knots, lower, upper, args, input_hashes)
+     fit = data.get("optimization", {})
+@@ -441,7 +446,9 @@
+             "checkpoint_directory": str(checkpoint_root),
+             "records": records, "frontier": frontier,
+             "provenance": {"script_sha256": initial_script_hash,
+-                           "script_file": "gp_rar_search_retained.py",
++                           "script_file": Path(__file__).name,
++                           "input_parser": parser_provenance(),
++                           "column_fix_parent_sha256": "ff323faf54ba97bb7d0a55f8de91403d5db7520a828255f2cac5980e40e4de7c",
+                            "numerical_parent_script_sha256": "50ae153f2689a511c62bfa89f33410b41ff1bbab6a9b491491f2a8084bfa8934",
+                            "source_sha256": initial_hashes,
+                            "input_sha256": input_hashes,
+@@ -454,7 +461,7 @@
+     parser.add_argument("--galaxy", action="append",
+                         help="Repeat for a subset; defaults to all four pilots")
+     parser.add_argument("--output-root", type=Path,
+-                        default=Path(DEFAULT_PROJECT_ROOT) / "outputs" / "gp_rar_retained_manual")
++                        default=Path(DEFAULT_PROJECT_ROOT) / "outputs" / "rotmod_columns_corrected_20261015" / "gp")
+     parser.add_argument("--data-root", type=Path, default=mono.DEFAULT_DATA_ROOT)
+     parser.add_argument("--dens-root", type=Path, default=Path(DEFAULT_DENS_ROOT))
+     parser.add_argument("--validation-root", type=Path,

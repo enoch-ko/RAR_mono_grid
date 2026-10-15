@@ -1,0 +1,30 @@
+{
+  "status": "passed_scalar_normalization_checks",
+  "policy": "disc_to_catalogue_total_minus_published_bulge_v1",
+  "manifest_sha256": "2179e61b9e4f854ca2f4b1436bf90b1624dcce074e192f868dd3f8ffa1ac84e1",
+  "normalization_sha256": "332ab6f63100b5d0b5593013f61fcf1b6966496d24d8221e4eee8bfd2cb44bc0",
+  "launcher_sha256": "390c944ccbed072dcbe3f527983355f2d10b041dc469ffd2f4681e3c092dab44",
+  "sources": {
+    "bulges": "https://astroweb.case.edu/SPARC/Bulges.mrt",
+    "catalogue": "https://astroweb.case.edu/SPARC/SPARC_Lelli2016c.mrt"
+  },
+  "luminosity_checks": 33,
+  "force_checks": [
+    {
+      "galaxy": "UGC07399",
+      "kappa": 1.0,
+      "force_relative_delta": 0.0
+    },
+    {
+      "galaxy": "NGC0891",
+      "kappa": 0.8635441665461905,
+      "force_relative_delta": 2.630992782962799e-16
+    },
+    {
+      "galaxy": "NGC7814",
+      "kappa": 0.3237263347153456,
+      "force_relative_delta": 4.579360348608795e-16
+    }
+  ],
+  "scope": "scalar normalization and common solver only; not probability/search convergence or physical calibration"
+}

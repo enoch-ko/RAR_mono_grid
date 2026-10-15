@@ -1,0 +1,32 @@
+{
+  "status": "definition_trials_only_not_production_or_calibration",
+  "inputs": {
+    "outputs/mock_fixed_profile_N/pilot_N5_10_20_40_q9_p400_20261014/mock_rows.csv": "220de3dd36c3be781261da4f79f51b16d5f50bacf2f949aa2ed812c19d8c8524",
+    "outputs/mock_fixed_profile_N/pilot_N5_10_20_40_q9_p400_20261014/manifest.json": "74c3a5cf83ceb4ba7ff2ee6c8e34edd3556b4641321ce000f6a9021459baefd6"
+  },
+  "probability_formulas": {
+    "N": "log_score=raw_logP/N",
+    "Nminus1": "log_score=raw_logP/(N-1),N>=2",
+    "N1": "ordering is trivial P=1; score1; no division by zero"
+  },
+  "numeric_cut": {
+    "one_sided_3sigma": 0.0013498980316300957,
+    "two_sided_3sigma": 0.0026997960632601913,
+    "applied_after_transformation": true,
+    "not_calibrated_significance": true
+  },
+  "all_eight_pass_trial_one_sided_cut": true,
+  "deviation_fixture": {
+    "formula": "sum h*(di^2+di*dj+dj^2)/(3*sY^2)",
+    "optional_average": "divide by total support span",
+    "scale_used_only_for_unit_fixtures": 1.0,
+    "zero_constant_linear_and_refinement_checks": "passed",
+    "scientific_scale_support_and_weighting": "not_selected"
+  },
+  "warnings": [
+    "two realizations only",
+    "both root trials still decrease with bin count",
+    "no new mock draws, probabilities, integrator calls or production changes",
+    "N_eff trials are fixed counting conventions, not estimated independent sample sizes"
+  ]
+}

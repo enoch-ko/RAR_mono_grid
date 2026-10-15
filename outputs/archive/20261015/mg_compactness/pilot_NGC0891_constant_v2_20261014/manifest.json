@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "galaxy": "NGC0891",
+  "selection": "explicit_analytic_profile_not_threshold_selected",
+  "model_mass_specification": null,
+  "model_total_policy": "only explicitly declared complete component model; not a verified force match or astronomical true total",
+  "units": {
+    "mass": "1e9_Msun",
+    "radius": "kpc",
+    "SB_input": "Lsun/pc2"
+  },
+  "input_paths": {
+    "table": "/mnt/users/koe/RAR_mono_grid/SPARC_table.txt",
+    "dens": "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC0891.dens",
+    "rotmod": "/mnt/users/koe/data/NGC0891_rotmod.dat"
+  },
+  "input_sha256": {
+    "table": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+    "dens": "7793bf9fe8ce17dde33119290a5379705d80484f8e5d678818c5f33e6b708ba7",
+    "rotmod": "646e25cf1943a57f5a3da9d86126298bd5d38419f62a70664e2b7f7bb3247a34"
+  },
+  "source_sha256": {
+    "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+    "sparc_scale_proxies.py": "d1cbf0cf63ed9850c6279356c4bb47483144ff37aafbb124fec55f468adb3600",
+    "report_mg_compactness.py": "9d63dd3a62728e8cbf6125e531db0e659b9f241b7765f025f1f689e402b24acf"
+  },
+  "nuisance": {
+    "gas_ml": 1.0,
+    "gas_ml_dex": 0.04,
+    "bulge_ml": 0.7,
+    "bulge_ml_dex": 0.1,
+    "ml_samples": 9
+  },
+  "bulge": {
+    "presence": "present_in_supplied_rotmod_template",
+    "total_mass_1e9": null,
+    "total_status": "unavailable_no_documented_total_mass",
+    "enclosed_proxy_1e9": 13.24629064437111,
+    "enclosed_radius_kpc": 17.11
+  },
+  "a_proxy_kpc": 3.0,
+  "a0_m_s2": 1.2e-10,
+  "helium_factor": 1.33,
+  "gas_catalogue_1e9_Msun": 5.93446,
+  "gas_support": "catalogue_HI_mass; molecular_gas_omitted; radial_distribution_unavailable",
+  "bulge_enclosed_method": "median_ML*R_last*Vbul_template_last^2/G; spherical; not total",
+  "conventions": {
+    "solver_disk_normalization": "disc alone scaled to full catalogue L; bulge total unavailable unless template absent",
+    "decomposed_light": "disc+bulge light jointly scaled to catalogue L; photometric bulge unverified against rotmod"
+  },
+  "supports": {
+    "original_photometric": {
+      "rmin_kpc": 0.0,
+      "rmax_kpc": 16.78069,
+      "bins": 49
+    },
+    "positive_radius_force": {
+      "rmin_kpc": 0.1917,
+      "rmax_kpc": 16.78069,
+      "bins": 48
+    }
+  },
+  "integration": "trapezoidal 2*pi*R*SB*ML over labelled tabulated support; not exact implicit vcdisk mass",
+  "profile_parameters": {
+    "family": "constant",
+    "mean_ml": 0.5,
+    "slope": 0.0
+  },
+  "force_or_probability_recomputed": false,
+  "radial_acceleration_fields": "unavailable_no_audited_saved_field_adapter",
+  "categorical_MG_classification": false,
+  "rows": 4
+}

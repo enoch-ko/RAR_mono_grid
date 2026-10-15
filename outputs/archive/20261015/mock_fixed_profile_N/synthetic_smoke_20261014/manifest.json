@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "scope": "controlled_fixed_profile_N_dependence_only",
+  "settings": {
+    "self_test": false,
+    "counts": [
+      2,
+      3,
+      5
+    ],
+    "replicates": 2,
+    "seed": 20261014,
+    "fractional_velocity_error": 0.05,
+    "ml_samples": 9,
+    "prob_grid_size": 64,
+    "output_root": "outputs/mock_fixed_profile_N/synthetic_smoke_20261014"
+  },
+  "design": {
+    "radius_kpc": [
+      1.0,
+      2.114742526881128,
+      4.47213595499958,
+      9.457416090031758,
+      20.0
+    ],
+    "disk_g_m_s2": [
+      2.0999999999999997e-10,
+      6.640783086353598e-11,
+      2.1000000000000008e-11,
+      6.640783086353599e-12,
+      2.1e-12
+    ],
+    "gas_unit_g_m_s2": [
+      7.5e-11,
+      2.3717082451262854e-11,
+      7.500000000000003e-12,
+      2.3717082451262854e-12,
+      7.5e-13
+    ],
+    "bulge_unit_g_m_s2": [
+      2.142857142857143e-11,
+      6.7763092717893875e-12,
+      2.142857142857144e-12,
+      6.776309271789388e-13,
+      2.1428571428571433e-13
+    ],
+    "latent_velocity_kms": [
+      122.93605376604445,
+      114.69232943240138,
+      111.44913818157517,
+      112.32161183891796,
+      116.45662982902924
+    ],
+    "error_velocity_kms": [
+      6.146802688302223,
+      5.734616471620069,
+      5.572456909078759,
+      5.616080591945899,
+      5.8228314914514625
+    ],
+    "subset_indices": {
+      "2": [
+        0,
+        4
+      ],
+      "3": [
+        0,
+        2,
+        4
+      ],
+      "5": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "source_sha256": {
+    "mock_fixed_profile_N.py": "2fa568193a2617fe0bf0d549c060f8c0de14fd563c6c6d6dba64022fe3a62e5f",
+    "probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f",
+    "utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+    "sparc_scale_proxies.py": "d1cbf0cf63ed9850c6279356c4bb47483144ff37aafbb124fec55f468adb3600"
+  },
+  "noise": "independent Gaussian velocity noise; no rejected/resampled draws",
+  "seed_recipe": "SeedSequence([master,replicate]); same parent draw for all N",
+  "nesting": "within declared parent size; changing maxN changes design",
+  "gas_prior": "median1.0,0.04dex; lognormal GH",
+  "bulge_prior": "median0.7,0.1dex; lognormal GH",
+  "probability_controls": {
+    "starting_grid": 64,
+    "zpadding": 8.0,
+    "log_tolerance": 2e-05,
+    "max_refinements": 8
+  },
+  "failures": 0,
+  "calibrated_GP_thresholds": false,
+  "selection_repeated": false,
+  "galaxy_matched": false,
+  "distance_inclination_fixed": true,
+  "limitation": "component fractions share shape, so nuisance rescaling normally preserves ordering; not full galaxy-shaped nuisance sensitivity",
+  "interpretation": "descriptive ordering probabilities, not p-values or physical MG classification"
+}

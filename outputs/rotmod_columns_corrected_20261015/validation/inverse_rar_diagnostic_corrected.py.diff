@@ -1,0 +1,58 @@
+--- inverse_rar_diagnostic.py
++++ inverse_rar_diagnostic_corrected.py
+@@ -20,6 +20,7 @@
+ from scipy.optimize import LinearConstraint, linprog, minimize, nnls
+ 
+ import mono_SPARC_RAR as mono
++from sparc_rotmod_columns import (ROTMOD_PARSER_ID, read_rotmod, read_column, parser_provenance)
+ from utils import (DEFAULT_DENS_ROOT, DEFAULT_PROJECT_ROOT, DEFAULT_TABLE_PATH, get_SBdisk,
+                    load_sparc_table, lognormal_quadrature, vel2acc)
+ 
+@@ -316,16 +317,16 @@
+     row = table.loc[table.Galaxy == galaxy]
+     if len(row) != 1:
+         raise ValueError(f"expected one catalogue row for {galaxy}")
+-    raw = np.loadtxt(Path(data_root) / f"{galaxy}_rotmod.dat", ndmin=2)
+-    if raw.shape[1] < 6:
+-        raise ValueError("rotmod needs at least six columns")
++    raw = read_rotmod(Path(data_root) / f"{galaxy}_rotmod.dat")
+     rad, brightness = get_SBdisk(galaxy, dens_root=dens_root, table=table)
+     if (len(rad) < 3 or not np.all(np.isfinite(rad)) or
+             np.any(np.diff(rad) <= 0) or np.any(rad < 0) or
+             not np.all(np.isfinite(brightness))):
+         raise ValueError("invalid full photometric grid")
+     mask = np.isfinite(raw[:, 0]) & (raw[:, 0] >= rad[0]) & (raw[:, 0] <= rad[-1])
+-    r, vobs, errv, vgas, vbul = [raw[mask, j] for j in (0, 1, 2, 4, 5)]
++    # Select by the verified header: gas is column3, NOT the disc template in4.
++    r, vobs, errv, vgas, vbul = [read_column(raw, name, mask)
++        for name in ("Rad", "Vobs", "errV", "Vgas", "Vbul")]
+     if (len(r) < 2 or np.any(r <= 0) or np.any(errv <= 0)
+             or not np.all(np.isfinite([r, vobs, errv, vgas, vbul]))):
+         raise ValueError("invalid retained kinematic data")
+@@ -417,6 +418,8 @@
+               "prior_direct_cache_qc": prior_qc,
+               "provenance": {"created_utc": datetime.now(timezone.utc).isoformat(),
+                              "script_sha256": sha256(__file__),
++                             "script_file": Path(__file__).name,
++                             "input_parser": parser_provenance(),
+                              "driver_sha256": sha256(mono.__file__),
+                              "utils_sha256": sha256(Path(DEFAULT_PROJECT_ROOT) / "utils.py"),
+                              "python": sys.version,
+@@ -510,7 +513,7 @@
+         parser.error("knots, ml samples and probability grid must be valid")
+     if args.output is None:
+         args.output = (Path(DEFAULT_PROJECT_ROOT) / "outputs" /
+-                       "inverse_rar_diagnostic" / f"{args.galaxy}_inverse.json")
++                       "rotmod_columns_corrected_20261015" / "qp" / f"{args.galaxy}_inverse.json")
+     if not (0 < args.min_ml < 0.5 < args.max_ml) or args.retry_max_ml <= 0.5:
+         parser.error("M/L bounds must contain the reference 0.5")
+     plot_path = args.output.with_suffix(".png")
+@@ -518,7 +521,7 @@
+         raise FileExistsError(f"result or plot already exists: {args.output}, {plot_path}")
+     result = analyze(args)
+     args.output.parent.mkdir(parents=True, exist_ok=True)
+-    import plot_inverse_rar_comparison as plotter
++    import plot_inverse_rar_comparison_corrected as plotter
+     result["provenance"]["plot_script_sha256"] = sha256(plotter.__file__)
+     try:
+         result["plot"] = plotter.render_plot(
