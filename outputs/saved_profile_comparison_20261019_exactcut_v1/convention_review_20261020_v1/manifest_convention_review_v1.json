@@ -1,0 +1,1286 @@
+{
+  "purpose": "visual review of existing saved selections only; no fits or probabilities recomputed",
+  "source_version": "source-scoped v7; preserved unchanged",
+  "inputs": {
+    "/mnt/users/koe/RAR_mono_grid/outputs/saved_profile_comparison_20261019_exactcut_v1/constant_rawP_accepted_grid_runs_source_scoped_v7.csv": {
+      "sha256": "79fd62fdbfd1cf647b197869be3ead0296e3a0e45613a95eea88cb0b849591f1",
+      "bytes": 11727
+    },
+    "/mnt/users/koe/RAR_mono_grid/outputs/saved_profile_comparison_20261019_exactcut_v1/linear_marginalised_rawP_leastJrad_selected_profiles_v7.csv": {
+      "sha256": "7b688a72835b9257560a7b2b4cd3968f2336351736aef3d7aedb83105a84472d",
+      "bytes": 41518
+    },
+    "/mnt/users/koe/RAR_mono_grid/outputs/saved_profile_comparison_20261019_exactcut_v1/grid_figure_manifest_20261020_source_scoped_v7.json": {
+      "sha256": "ba0a0cec8974010a47bbb2d139a32c3751841bb693635699a9d2f7d24036fc3c",
+      "bytes": 95179
+    }
+  },
+  "constant": {
+    "catalogue_rows": 175,
+    "qualifying_galaxies": 67,
+    "no_qualifying_galaxies": 108,
+    "audit_invalid_nonfinite_malformed_cells": 0,
+    "ordering": "ascending 0.5 \u00d7 SPARC catalogue total luminosity L",
+    "colour": "viridis by 0.5 \u00d7 catalogue total L",
+    "threshold": "raw P >= exact Phi(-3); no sigma calibration implied",
+    "prior_band": "log10(0.5) +/- 0.1 dex",
+    "label_rotation_degrees": 45,
+    "bold_labels": "only galaxies with zero qualifying cells",
+    "status_by_galaxy": [
+      {
+        "galaxy": "UGCA444",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC04483",
+        "status": "qualifying_interval",
+        "qualifying_cells": 32,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3741",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "D564-8",
+        "status": "qualifying_interval",
+        "qualifying_cells": 8,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07577",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "DDO154",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "ESO444-G084",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "CamB",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "KK98-251",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC05764",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC6789",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07559",
+        "status": "qualifying_interval",
+        "qualifying_cells": 25,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07232",
+        "status": "qualifying_interval",
+        "qualifying_cells": 47,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07866",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGCA442",
+        "status": "qualifying_interval",
+        "qualifying_cells": 19,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "PGC51017",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "DDO064",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "DDO168",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3109",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGCA281",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "D631-7",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC05918",
+        "status": "qualifying_interval",
+        "qualifying_cells": 2,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC2366",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4068",
+        "status": "qualifying_interval",
+        "qualifying_cells": 30,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07608",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC08550",
+        "status": "qualifying_interval",
+        "qualifying_cells": 24,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC00731",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "D512-2",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC09992",
+        "status": "qualifying_interval",
+        "qualifying_cells": 43,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC01281",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC00891",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07603",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC08837",
+        "status": "qualifying_interval",
+        "qualifying_cells": 23,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC05721",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC1705",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "DDO170",
+        "status": "qualifying_interval",
+        "qualifying_cells": 32,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "DDO161",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F565-V2",
+        "status": "qualifying_interval",
+        "qualifying_cells": 4,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC05829",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC05716",
+        "status": "qualifying_interval",
+        "qualifying_cells": 30,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC2915",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC04305",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07690",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC11820",
+        "status": "qualifying_interval",
+        "qualifying_cells": 23,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F583-1",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06446",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "IC2574",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC08490",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC05414",
+        "status": "qualifying_interval",
+        "qualifying_cells": 27,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4214",
+        "status": "qualifying_interval",
+        "qualifying_cells": 34,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07399",
+        "status": "qualifying_interval",
+        "qualifying_cells": 43,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC08286",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC12632",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC04278",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC02023",
+        "status": "qualifying_interval",
+        "qualifying_cells": 43,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06667",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F563-V1",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC04499",
+        "status": "qualifying_interval",
+        "qualifying_cells": 26,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06818",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC12732",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F583-4",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC02259",
+        "status": "qualifying_interval",
+        "qualifying_cells": 26,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC10310",
+        "status": "qualifying_interval",
+        "qualifying_cells": 29,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07261",
+        "status": "qualifying_interval",
+        "qualifying_cells": 41,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F571-V1",
+        "status": "qualifying_interval",
+        "qualifying_cells": 50,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F563-1",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC00191",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC04325",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F567-2",
+        "status": "qualifying_interval",
+        "qualifying_cells": 26,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07151",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06399",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07524",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07125",
+        "status": "qualifying_interval",
+        "qualifying_cells": 21,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F574-2",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06923",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC0300",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC5585",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F563-V2",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC00634",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC0100",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC05750",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC2976",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC05999",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07089",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC02455",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06628",
+        "status": "qualifying_interval",
+        "qualifying_cells": 29,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F568-V1",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC0024",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F561-1",
+        "status": "qualifying_interval",
+        "qualifying_cells": 28,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC05005",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC07323",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "ESO116-G012",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC0055",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC05986",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06983",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F568-1",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F574-1",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC1003",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06917",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC7793",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC0247",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC01230",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F568-3",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06930",
+        "status": "qualifying_interval",
+        "qualifying_cells": 36,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC2403",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F571-8",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4183",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "F579-V1",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC00128",
+        "status": "qualifying_interval",
+        "qualifying_cells": 30,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC11557",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC6503",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC03580",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3972",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4010",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3769",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4559",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4389",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4085",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3917",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC6015",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3949",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3198",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4138",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC08699",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "ESO079-G014",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06973",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3893",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4100",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC6946",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC09037",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3726",
+        "status": "qualifying_interval",
+        "qualifying_cells": 46,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC1090",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC0289",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3877",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06786",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC7814",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4013",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC2683",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC2903",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3521",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4217",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4051",
+        "status": "qualifying_interval",
+        "qualifying_cells": 46,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06787",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC03546",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4157",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC4088",
+        "status": "qualifying_interval",
+        "qualifying_cells": 46,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC5033",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC03205",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC02916",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC06614",
+        "status": "qualifying_interval",
+        "qualifying_cells": 46,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC0891",
+        "status": "qualifying_interval",
+        "qualifying_cells": 49,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC12506",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3953",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC11914",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC2998",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC5055",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC05253",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC5907",
+        "status": "qualifying_interval",
+        "qualifying_cells": 41,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC5005",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "IC4202",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC2841",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC5985",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC6674",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC3992",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC7331",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC02953",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC09133",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "ESO563-G021",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC0801",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC2955",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC5371",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC11455",
+        "status": "no_qualifying_cell",
+        "qualifying_cells": 0,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "NGC6195",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC02885",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      },
+      {
+        "galaxy": "UGC02487",
+        "status": "qualifying_interval",
+        "qualifying_cells": 51,
+        "marginalised_cells": 51,
+        "invalid_cells": 0
+      }
+    ]
+  },
+  "linear": {
+    "selected_points": 77,
+    "selection": "existing saved minimum-J_rad qualifying profile per galaxy",
+    "axes": "saved mean parameter at each galaxy pivot B/A versus disk_slope in kpc^-1",
+    "external_overlay": "withheld; no verified shared coefficient/pivot mapping or band/component compatibility"
+  },
+  "external_radius_note": "No R_bar/R_d rescaling applied; R_bar is not assumed to equal R_d.",
+  "figure_files": [
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/saved_profile_comparison_20261019_exactcut_v1/convention_review_20261020_v1/constant_mass_ordered_intervals_v1.png",
+      "bytes": 793460,
+      "sha256": "04069100f82a495258c0193b600306fee42b209b2f7df18d7a12f6af9101716e"
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/saved_profile_comparison_20261019_exactcut_v1/convention_review_20261020_v1/constant_mass_ordered_intervals_v1.pdf",
+      "bytes": 43036,
+      "sha256": "2c1ca12658c0c45286e9cfe1cec2bab2e3148cb4771ab67314219cedd5ee0b4f"
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/saved_profile_comparison_20261019_exactcut_v1/convention_review_20261020_v1/linear_leastJrad_points_v1.png",
+      "bytes": 99753,
+      "sha256": "146cd630600135f9a47d3e2a9d622d5bdf5fdc56ec8e7e98b7123019c3640173"
+    },
+    {
+      "path": "/mnt/users/koe/RAR_mono_grid/outputs/saved_profile_comparison_20261019_exactcut_v1/convention_review_20261020_v1/linear_leastJrad_points_v1.pdf",
+      "bytes": 25170,
+      "sha256": "db4217944b554a858b31c3fd85400d116d2b58489222a832138494e2536da7f5"
+    }
+  ]
+}
