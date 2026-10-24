@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-19T21:27:46.156477+00:00",
+  "queue": {
+    "argv": [
+      "squeue",
+      "-u",
+      "koe",
+      "-h",
+      "-o",
+      "%i|%T|%M"
+    ],
+    "cwd": "/mnt/users/koe/RAR_mono_grid",
+    "utc": "2026-10-19T21:27:46.101332+00:00",
+    "returncode": 0,
+    "stdout": "935526|RUNNING|13-09:06:29\n969420|RUNNING|3-05:42:45\n969421|RUNNING|3-05:42:45\n973883|RUNNING|5:53:49\n973884|RUNNING|5:53:49\n973878|RUNNING|5:53:52\n973879|RUNNING|5:53:52\n973880|RUNNING|5:53:52\n973881|RUNNING|5:53:52\n973882|RUNNING|5:53:52\n973873|RUNNING|5:53:55\n973874|RUNNING|5:53:55\n973875|RUNNING|5:53:55\n973876|RUNNING|5:53:55\n973877|RUNNING|5:53:55\n973869|RUNNING|5:53:58\n973870|RUNNING|5:53:58\n973871|RUNNING|5:53:58\n973872|RUNNING|5:53:58\n973865|RUNNING|5:54:01\n973866|RUNNING|5:54:01\n973867|RUNNING|5:54:01\n973868|RUNNING|5:54:01\n973864|RUNNING|5:54:04\n973851|RUNNING|5:56:06\n",
+    "stderr": ""
+  },
+  "active": 25,
+  "old_absent": true,
+  "kept_state": [
+    "RUNNING",
+    "13-09:06:29"
+  ],
+  "cancellation_accounting": {
+    "argv": [
+      "sacct",
+      "-n",
+      "-P",
+      "-j",
+      "935528,935529,935531",
+      "-o",
+      "JobIDRaw,State,ExitCode"
+    ],
+    "cwd": "/mnt/users/koe/RAR_mono_grid",
+    "utc": "2026-10-19T21:27:46.156423+00:00",
+    "returncode": 0,
+    "stdout": "935528|CANCELLED by 21268|0:0\n935528.batch|CANCELLED|0:15\n935528.0|CANCELLED|0:15\n935529|CANCELLED by 21268|0:0\n935529.batch|CANCELLED|0:15\n935529.0|CANCELLED|0:15\n935531|CANCELLED by 21268|0:0\n935531.batch|CANCELLED|0:15\n935531.0|CANCELLED|0:15\n",
+    "stderr": ""
+  },
+  "new_actual_steps": null,
+  "records": [],
+  "submitted": 0,
+  "unapproved16to37_submitted": false,
+  "source_pins_verified": true
+}

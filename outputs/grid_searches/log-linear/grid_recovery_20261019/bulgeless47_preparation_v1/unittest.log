@@ -1,0 +1,36 @@
+{"state": "shard_start", "job_id": "synthetic-job", "utc": "2026-10-19T20:33:13.143961+00:00"}
+{"state": "shard_complete", "utc": "2026-10-19T20:33:13.144327+00:00", "files": ["/tmp/tmpfmrix6hj/science/profile_grid.shard_01.csv", "/tmp/tmpfmrix6hj/science/fully_marginalised.shard_01.csv", "/tmp/tmpfmrix6hj/science/run_metadata.shard_01.json"]}
+{"state": "shard_start", "job_id": "first", "utc": "2026-10-19T20:33:13.152539+00:00"}
+{"state": "shard_failed", "utc": "2026-10-19T20:33:13.152694+00:00", "error": "RuntimeError('fixture')", "traceback": "Traceback (most recent call last):\n  File \"/mnt/users/koe/RAR_mono_grid/run_loglinear_recovery_20261019.py\", line 118, in run\n    (worker if work is None else work)(m,plan,event)\n  File \"/mnt/users/koe/RAR_mono_grid/test_loglinear_bulgeless47_20261019.py\", line 88, in failed\n    def failed(*args):raise RuntimeError(\"fixture\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: fixture\n"}
+{"state": "shard_start", "job_id": "fixture", "utc": "2026-10-19T20:33:13.158410+00:00"}
+{"state": "shard_failed", "utc": "2026-10-19T20:33:13.158596+00:00", "error": "RuntimeError('missing final shard products')", "traceback": "Traceback (most recent call last):\n  File \"/mnt/users/koe/RAR_mono_grid/run_loglinear_recovery_20261019.py\", line 121, in run\n    if not all(p.is_file() for p in required): raise RuntimeError(\"missing final shard products\")\n                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: missing final shard products\n"}
+test_actual_normalization_adapter_called_once_with_mocked_boundary (test_loglinear_recovery_20261019.RecoveryTests.test_actual_normalization_adapter_called_once_with_mocked_boundary) ... ok
+test_changed_source_pin_rejected (test_loglinear_recovery_20261019.RecoveryTests.test_changed_source_pin_rejected) ... ok
+test_duplicate_allocation_rejected (test_loglinear_recovery_20261019.RecoveryTests.test_duplicate_allocation_rejected) ... ok
+test_exact_allocation_and_no_output_dry_plan (test_loglinear_recovery_20261019.RecoveryTests.test_exact_allocation_and_no_output_dry_plan) ... ok
+test_login_execution_rejected_before_context_or_outputs (test_loglinear_recovery_20261019.RecoveryTests.test_login_execution_rejected_before_context_or_outputs) ... ok
+test_mock_success_is_exclusive_and_records_failure (test_loglinear_recovery_20261019.RecoveryTests.test_mock_success_is_exclusive_and_records_failure) ... ok
+test_real_parser_accepts_all_planned_flags_without_calculation (test_loglinear_recovery_20261019.RecoveryTests.test_real_parser_accepts_all_planned_flags_without_calculation) ... ok
+test_allocation_audit_pin_changed (test_loglinear_bulgeless47_20261019.ReplacementTests.test_allocation_audit_pin_changed) ... ok
+test_bulge_or_kappa_refused (test_loglinear_bulgeless47_20261019.ReplacementTests.test_bulge_or_kappa_refused) ... ok
+test_changed_settings_refused (test_loglinear_bulgeless47_20261019.ReplacementTests.test_changed_settings_refused) ... ok
+test_claim_duplicate_and_durable_products (test_loglinear_bulgeless47_20261019.ReplacementTests.test_claim_duplicate_and_durable_products) ... ok
+test_duplicate_or_missing_refused (test_loglinear_bulgeless47_20261019.ReplacementTests.test_duplicate_or_missing_refused) ... ok
+test_exact_allocation (test_loglinear_bulgeless47_20261019.ReplacementTests.test_exact_allocation) ... ok
+test_existing_claim_blocks_no_products_retry (test_loglinear_bulgeless47_20261019.ReplacementTests.test_existing_claim_blocks_no_products_retry) ... ok
+test_input_pin_changed (test_loglinear_bulgeless47_20261019.ReplacementTests.test_input_pin_changed) ... ok
+test_missing_products_not_complete (test_loglinear_bulgeless47_20261019.ReplacementTests.test_missing_products_not_complete) ... ok
+test_multi_galaxy_shard_refused (test_loglinear_bulgeless47_20261019.ReplacementTests.test_multi_galaxy_shard_refused) ... ok
+test_other_namespace_refused (test_loglinear_bulgeless47_20261019.ReplacementTests.test_other_namespace_refused) ... ok
+test_plan_flags_and_single_selection (test_loglinear_bulgeless47_20261019.ReplacementTests.test_plan_flags_and_single_selection) ... ok
+test_private_engine_does_not_mutate_public_module (test_loglinear_bulgeless47_20261019.ReplacementTests.test_private_engine_does_not_mutate_public_module) ... ok
+test_scheduler_guard_no_output (test_loglinear_bulgeless47_20261019.ReplacementTests.test_scheduler_guard_no_output) ... ok
+test_source_pin_changed (test_loglinear_bulgeless47_20261019.ReplacementTests.test_source_pin_changed) ... ok
+test_unknown_shard_refused (test_loglinear_bulgeless47_20261019.ReplacementTests.test_unknown_shard_refused) ... ok
+test_unreviewed_exclusions_refused (test_loglinear_bulgeless47_20261019.ReplacementTests.test_unreviewed_exclusions_refused) ... ok
+test_worker_mock_install_once_restores_hooks (test_loglinear_bulgeless47_20261019.ReplacementTests.test_worker_mock_install_once_restores_hooks) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 1.894s
+
+OK

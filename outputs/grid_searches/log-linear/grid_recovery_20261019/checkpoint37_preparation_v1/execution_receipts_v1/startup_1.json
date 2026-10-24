@@ -1,0 +1,315 @@
+{
+  "utc": "2026-10-19T21:30:50.378970+00:00",
+  "queue": {
+    "argv": [
+      "squeue",
+      "-u",
+      "koe",
+      "-h",
+      "-o",
+      "%i|%T|%M"
+    ],
+    "cwd": "/mnt/users/koe/RAR_mono_grid",
+    "utc": "2026-10-19T21:30:50.168679+00:00",
+    "returncode": 0,
+    "stdout": "935526|RUNNING|13-09:09:33\n969420|RUNNING|3-05:45:49\n969421|RUNNING|3-05:45:49\n974577|RUNNING|0:23\n974578|RUNNING|0:23\n974579|RUNNING|0:23\n974580|RUNNING|0:23\n974572|RUNNING|0:26\n974573|RUNNING|0:26\n974574|RUNNING|0:26\n974575|RUNNING|0:26\n974576|RUNNING|0:26\n974568|RUNNING|0:29\n974569|RUNNING|0:29\n974570|RUNNING|0:29\n974571|RUNNING|0:29\n974567|RUNNING|0:32\n974566|RUNNING|3:03\n973883|RUNNING|5:56:53\n973884|RUNNING|5:56:53\n973878|RUNNING|5:56:56\n973879|RUNNING|5:56:56\n973880|RUNNING|5:56:56\n973881|RUNNING|5:56:56\n973882|RUNNING|5:56:56\n973873|RUNNING|5:56:59\n973874|RUNNING|5:56:59\n973875|RUNNING|5:56:59\n973876|RUNNING|5:56:59\n973877|RUNNING|5:56:59\n973869|RUNNING|5:57:02\n973870|RUNNING|5:57:02\n973871|RUNNING|5:57:02\n973872|RUNNING|5:57:02\n973865|RUNNING|5:57:05\n973866|RUNNING|5:57:05\n973867|RUNNING|5:57:05\n973868|RUNNING|5:57:05\n973864|RUNNING|5:57:08\n973851|RUNNING|5:59:10\n",
+    "stderr": ""
+  },
+  "active": 40,
+  "old_absent": true,
+  "kept_state": [
+    "RUNNING",
+    "13-09:09:33"
+  ],
+  "cancellation_accounting": {
+    "argv": [
+      "sacct",
+      "-n",
+      "-P",
+      "-j",
+      "935528,935529,935531",
+      "-o",
+      "JobIDRaw,State,ExitCode"
+    ],
+    "cwd": "/mnt/users/koe/RAR_mono_grid",
+    "utc": "2026-10-19T21:30:50.321694+00:00",
+    "returncode": 0,
+    "stdout": "935528|CANCELLED by 21268|0:0\n935528.batch|CANCELLED|0:15\n935528.0|CANCELLED|0:15\n935529|CANCELLED by 21268|0:0\n935529.batch|CANCELLED|0:15\n935529.0|CANCELLED|0:15\n935531|CANCELLED by 21268|0:0\n935531.batch|CANCELLED|0:15\n935531.0|CANCELLED|0:15\n",
+    "stderr": ""
+  },
+  "new_actual_steps": {
+    "argv": [
+      "sacct",
+      "-n",
+      "-P",
+      "-j",
+      "974566,974567,974568,974569,974570,974571,974572,974573,974574,974575,974576,974577,974578,974579,974580",
+      "-o",
+      "JobIDRaw,State,ExitCode"
+    ],
+    "cwd": "/mnt/users/koe/RAR_mono_grid",
+    "utc": "2026-10-19T21:30:50.378922+00:00",
+    "returncode": 0,
+    "stdout": "974566|RUNNING|0:0\n974566.batch|RUNNING|0:0\n974566.0|RUNNING|0:0\n974567|RUNNING|0:0\n974567.batch|RUNNING|0:0\n974567.0|RUNNING|0:0\n974568|RUNNING|0:0\n974568.batch|RUNNING|0:0\n974568.0|RUNNING|0:0\n974569|RUNNING|0:0\n974569.batch|RUNNING|0:0\n974569.0|RUNNING|0:0\n974570|RUNNING|0:0\n974570.batch|RUNNING|0:0\n974570.0|RUNNING|0:0\n974571|RUNNING|0:0\n974571.batch|RUNNING|0:0\n974571.0|RUNNING|0:0\n974572|RUNNING|0:0\n974572.batch|RUNNING|0:0\n974572.0|RUNNING|0:0\n974573|RUNNING|0:0\n974573.batch|RUNNING|0:0\n974573.0|RUNNING|0:0\n974574|RUNNING|0:0\n974574.batch|RUNNING|0:0\n974574.0|RUNNING|0:0\n974575|RUNNING|0:0\n974575.batch|RUNNING|0:0\n974575.0|RUNNING|0:0\n974576|RUNNING|0:0\n974576.batch|RUNNING|0:0\n974576.0|RUNNING|0:0\n974577|RUNNING|0:0\n974577.batch|RUNNING|0:0\n974577.0|RUNNING|0:0\n974578|RUNNING|0:0\n974578.batch|RUNNING|0:0\n974578.0|RUNNING|0:0\n974579|RUNNING|0:0\n974579.batch|RUNNING|0:0\n974579.0|RUNNING|0:0\n974580|RUNNING|0:0\n974580.batch|RUNNING|0:0\n974580.0|RUNNING|0:0\n",
+    "stderr": ""
+  },
+  "records": [
+    {
+      "shard": "01",
+      "galaxy": "UGC11455",
+      "job_id": "974566",
+      "queue_state": [
+        "RUNNING",
+        "3:03"
+      ],
+      "claim_present": true,
+      "source_pinned_context": true,
+      "events": [
+        "shard_start",
+        "galaxy_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 249,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "02",
+      "galaxy": "UGCA444",
+      "job_id": "974567",
+      "queue_state": [
+        "RUNNING",
+        "0:32"
+      ],
+      "claim_present": false,
+      "source_pinned_context": true,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "03",
+      "galaxy": "UGC04278",
+      "job_id": "974568",
+      "queue_state": [
+        "RUNNING",
+        "0:29"
+      ],
+      "claim_present": false,
+      "source_pinned_context": true,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "04",
+      "galaxy": "UGC05721",
+      "job_id": "974569",
+      "queue_state": [
+        "RUNNING",
+        "0:29"
+      ],
+      "claim_present": false,
+      "source_pinned_context": true,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "05",
+      "galaxy": "UGC09037",
+      "job_id": "974570",
+      "queue_state": [
+        "RUNNING",
+        "0:29"
+      ],
+      "claim_present": false,
+      "source_pinned_context": true,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "06",
+      "galaxy": "UGC06446",
+      "job_id": "974571",
+      "queue_state": [
+        "RUNNING",
+        "0:29"
+      ],
+      "claim_present": false,
+      "source_pinned_context": true,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "07",
+      "galaxy": "UGC12732",
+      "job_id": "974572",
+      "queue_state": [
+        "RUNNING",
+        "0:26"
+      ],
+      "claim_present": false,
+      "source_pinned_context": true,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "08",
+      "galaxy": "UGC12506",
+      "job_id": "974573",
+      "queue_state": [
+        "RUNNING",
+        "0:26"
+      ],
+      "claim_present": false,
+      "source_pinned_context": true,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "09",
+      "galaxy": "UGC12632",
+      "job_id": "974574",
+      "queue_state": [
+        "RUNNING",
+        "0:26"
+      ],
+      "claim_present": false,
+      "source_pinned_context": true,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "10",
+      "galaxy": "UGC04305",
+      "job_id": "974575",
+      "queue_state": [
+        "RUNNING",
+        "0:26"
+      ],
+      "claim_present": false,
+      "source_pinned_context": true,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "11",
+      "galaxy": "UGC11557",
+      "job_id": "974576",
+      "queue_state": [
+        "RUNNING",
+        "0:26"
+      ],
+      "claim_present": false,
+      "source_pinned_context": false,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "12",
+      "galaxy": "UGC05829",
+      "job_id": "974577",
+      "queue_state": [
+        "RUNNING",
+        "0:23"
+      ],
+      "claim_present": false,
+      "source_pinned_context": false,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "13",
+      "galaxy": "UGC06917",
+      "job_id": "974578",
+      "queue_state": [
+        "RUNNING",
+        "0:23"
+      ],
+      "claim_present": false,
+      "source_pinned_context": false,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "14",
+      "galaxy": "UGC08550",
+      "job_id": "974579",
+      "queue_state": [
+        "RUNNING",
+        "0:23"
+      ],
+      "claim_present": false,
+      "source_pinned_context": false,
+      "events": [
+        "shard_start"
+      ],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    },
+    {
+      "shard": "15",
+      "galaxy": "UGC05986",
+      "job_id": "974580",
+      "queue_state": [
+        "RUNNING",
+        "0:23"
+      ],
+      "claim_present": false,
+      "source_pinned_context": false,
+      "events": [],
+      "failed": false,
+      "partial_csv_bytes": 0,
+      "checkpoint_complete": false
+    }
+  ],
+  "submitted": 15,
+  "unapproved16to37_submitted": false,
+  "source_pins_verified": true
+}

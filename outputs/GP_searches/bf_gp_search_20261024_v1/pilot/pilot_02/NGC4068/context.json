@@ -1,0 +1,651 @@
+{
+  "schema": "bf-aware-gp-context-v1",
+  "galaxy": "NGC4068",
+  "stage": "pilot",
+  "manifest_sha256": "577cb8ce344869e3b18163d818fcebc76d6dbce06a32b1cd7a6c12c9a9af1981",
+  "input_pins": {
+    "/mnt/users/koe/RAR_mono_grid/outputs/bayes_factors/bayes_factor_full_sample_20261022/receipts/NGC4068.json": "c48ba83e0bbc981ae7d69acafd5e2d694682923057689f9801d77a7b45d18da8",
+    "/mnt/users/koe/data/NGC4068_rotmod.dat": "fd55de1c241b2e7fc5044d08e8840d4628d7b02a95996cb65ce7ce2676052400",
+    "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC4068.dens": "b6627f437fc7072aeeffcf768b385b03bcd7901ec236881e1cf2995341e8b56a"
+  },
+  "source_pins": {
+    "/mnt/users/koe/RAR_mono_grid/bayes_factors/bf_joint_adapter_20261023_v1/adapter.py": "134e1b0121f6ffe9b83ceac7f00f10755f3096b30b985f94813a726917442357",
+    "/mnt/users/koe/RAR_mono_grid/utils.py": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+    "/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR.py": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+    "/mnt/users/koe/RAR_mono_grid/probability_recursion.py": "50d35254a6d9a0a2ce16b35eb98af37c2e449b0a5f1d72ff0b5bcae1430da76f",
+    "/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR_boundary.py": "ca3c46f2be4601822e67d6999e0cbf232bf22a5965bca08007a23173664923cd",
+    "/mnt/users/koe/RAR_mono_grid/sparc_rotmod_columns.py": "c677f6b97fda1f60b1992372e7ff7c7a826e7ca5b78826c8135f1f8a8efb596b",
+    "/mnt/users/koe/RAR_mono_grid/outputs/bulge_normalized_20261015/inputs/normalization.json": "332ab6f63100b5d0b5593013f61fcf1b6966496d24d8221e4eee8bfd2cb44bc0",
+    "/mnt/users/koe/RAR_mono_grid/SPARC_table.txt": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+    "/mnt/users/koe/RAR_mono_grid/gp_rar_search_retained_corrected.py": "f3b84e65c38cb4d6cc9619b7c71773d4698521aeba7351a03e3338cee1076d70",
+    "/mnt/users/koe/RAR_mono_grid/gp_candidate_retention.py": "95ada187e5293b86e6dc25392e3433a510deba00da96f2acdf0a80700ce74f20",
+    "/mnt/users/koe/RAR_mono_grid/inverse_rar_diagnostic_corrected.py": "62889056f39a44ce15cc1493f2769fba3ad7611dd06e8a76b1c3d852a9778884",
+    "/mnt/users/koe/RAR_mono_grid/GP_searches/bf_gp_search_20261024_v1/core.py": "2e88b22260254f1548e1453a1f09f667330b4ddc0ce6760e254c1c4ae6b635a0",
+    "/mnt/users/koe/RAR_mono_grid/GP_searches/bf_gp_search_20261024_v1/driver.py": "4293541d6d73df78e6a4134eb76e6eca26ec358e6076590f591a18ae46b27872",
+    "/mnt/users/koe/RAR_mono_grid/GP_searches/bf_gp_search_20261024_v1/worker.sh": "aa83c0c12acd286b09c2d78e302dcd031aa084820dcaba07c324270967a66e99",
+    "/mnt/users/koe/RAR_mono_grid/tests/test_bf_gp_20261024_v1.py": "700950a3eef738a741243e48e5d9ca7afe27be37b898344b10621549ea17c73e",
+    "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_001-035_20261005.json": "70dbe159045decceab7b1639f6ab5bb948b4dfcefa0c6012ba5d790994c7707c",
+    "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_036-070_20261005.json": "b5fb791c1bd456ff5afd0883e86b9d1c4273fe3ff7ae36c097ebdf7ec7ac620a",
+    "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_071-105_20261005.json": "f48b0d94a7234322c45116e82c7eff6f520d2e5bc45f3a766bcc615af72f582a",
+    "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_106-140_20261005.json": "4dfa4f8e4b3f958bac99d6371c413b91c1c995e009404e2377f82ee277061f4a",
+    "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_141-175_20261005.json": "d67c27c18c378474f97bf8c84db355f09536e5ae6a5bd94e4f94849e850dc6bc"
+  },
+  "parser": "sparc_rotmod_header_v1_gas3_disk4",
+  "normalization": {
+    "policy": "disc_to_catalogue_total_minus_published_bulge_v1",
+    "applications": 1,
+    "Ltotal_1e9": 0.236,
+    "Lbulge_1e9": 0.0,
+    "Ldisk_1e9": 0.236,
+    "kappa": 1.0,
+    "reference_distance_Mpc": 4.37
+  },
+  "radii_kpc": [
+    0.21,
+    0.64,
+    1.06,
+    1.48,
+    1.91,
+    2.33
+  ],
+  "row_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "vobs": [
+    4.68,
+    13.1,
+    22.5,
+    30.4,
+    36.0,
+    41.9
+  ],
+  "sigma_v": [
+    3.65,
+    3.44,
+    2.45,
+    1.71,
+    1.7,
+    4.97
+  ],
+  "vgas": [
+    0.92,
+    4.01,
+    7.7,
+    12.5,
+    17.24,
+    19.86
+  ],
+  "vbul": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "knots_kpc": [
+    0.01377,
+    0.01525,
+    0.01674,
+    0.01843,
+    0.02034,
+    0.02225,
+    0.02458,
+    0.02691,
+    0.02966,
+    0.03263,
+    0.0358,
+    0.03941,
+    0.04343,
+    0.04767,
+    0.05254,
+    0.05784,
+    0.06356,
+    0.06991,
+    0.07691,
+    0.08453,
+    0.09301,
+    0.10233,
+    0.1125,
+    0.12394,
+    0.13623,
+    0.14979,
+    0.16483,
+    0.18136,
+    0.19958,
+    0.21949,
+    0.24131,
+    0.26547,
+    0.29195,
+    0.32119,
+    0.35339,
+    0.38877,
+    0.42754,
+    0.47034,
+    0.51737,
+    0.56907,
+    0.62606,
+    0.68856,
+    0.75741,
+    0.83326,
+    0.91652,
+    1.00826,
+    1.10911,
+    1.21991,
+    1.34194,
+    1.47627,
+    1.62372,
+    1.78622,
+    1.96482,
+    2.16122,
+    2.37732,
+    2.61503,
+    2.87668,
+    3.16439
+  ],
+  "rd_kpc": 0.59,
+  "settings": {
+    "grid_size": 51,
+    "ml_samples": 9,
+    "prob_grid_size": 400,
+    "zpadding": 8,
+    "boundary_log_tolerance": 2e-05,
+    "boundary_max_refinements": 8,
+    "gas_ml": 1.0,
+    "gas_ml_dex": 0.04,
+    "bulge_ml": 0.7,
+    "bulge_ml_dex": 0.1,
+    "tie_atol": 0,
+    "max_tie_permutations": 720,
+    "length_fraction": 0.3,
+    "ell_over_rd": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "seed": 20261024,
+    "replicate": 0,
+    "min_ml": 0.01,
+    "max_ml": 10.0,
+    "amplitude_steps": 16
+  },
+  "quadrature": [
+    {
+      "gas_ml": 0.6599182903397267,
+      "bulge_ml": 0.24764151581870858,
+      "weight": 4.993367444185436e-10
+    },
+    {
+      "gas_ml": 0.6599182903397267,
+      "bulge_ml": 0.33462250013976214,
+      "weight": 6.232571687980521e-08
+    },
+    {
+      "gas_ml": 0.6599182903397267,
+      "bulge_ml": 0.43392357122818814,
+      "weight": 1.1154242390027854e-06
+    },
+    {
+      "gas_ml": 0.6599182903397267,
+      "bulge_ml": 0.553060285674684,
+      "weight": 5.454564722370784e-06
+    },
+    {
+      "gas_ml": 0.6599182903397267,
+      "bulge_ml": 0.6999999999999998,
+      "weight": 9.080215977750991e-06
+    },
+    {
+      "gas_ml": 0.6599182903397267,
+      "bulge_ml": 0.8859793637184485,
+      "weight": 5.454564722370784e-06
+    },
+    {
+      "gas_ml": 0.6599182903397267,
+      "bulge_ml": 1.1292311192339508,
+      "weight": 1.1154242390027854e-06
+    },
+    {
+      "gas_ml": 0.6599182903397267,
+      "bulge_ml": 1.4643366772866173,
+      "weight": 6.232571687980521e-08
+    },
+    {
+      "gas_ml": 0.6599182903397267,
+      "bulge_ml": 1.9786666156522608,
+      "weight": 4.993367444185436e-10
+    },
+    {
+      "gas_ml": 0.744359678930795,
+      "bulge_ml": 0.24764151581870858,
+      "weight": 6.232571687980521e-08
+    },
+    {
+      "gas_ml": 0.744359678930795,
+      "bulge_ml": 0.33462250013976214,
+      "weight": 7.779309309802478e-06
+    },
+    {
+      "gas_ml": 0.744359678930795,
+      "bulge_ml": 0.43392357122818814,
+      "weight": 0.00013922391271628212
+    },
+    {
+      "gas_ml": 0.744359678930795,
+      "bulge_ml": 0.553060285674684,
+      "weight": 0.0006808224317337659
+    },
+    {
+      "gas_ml": 0.744359678930795,
+      "bulge_ml": 0.6999999999999998,
+      "weight": 0.001133365362278305
+    },
+    {
+      "gas_ml": 0.744359678930795,
+      "bulge_ml": 0.8859793637184485,
+      "weight": 0.0006808224317337659
+    },
+    {
+      "gas_ml": 0.744359678930795,
+      "bulge_ml": 1.1292311192339508,
+      "weight": 0.00013922391271628212
+    },
+    {
+      "gas_ml": 0.744359678930795,
+      "bulge_ml": 1.4643366772866173,
+      "weight": 7.779309309802478e-06
+    },
+    {
+      "gas_ml": 0.744359678930795,
+      "bulge_ml": 1.9786666156522608,
+      "weight": 6.232571687980521e-08
+    },
+    {
+      "gas_ml": 0.8258973656480925,
+      "bulge_ml": 0.24764151581870858,
+      "weight": 1.1154242390027854e-06
+    },
+    {
+      "gas_ml": 0.8258973656480925,
+      "bulge_ml": 0.33462250013976214,
+      "weight": 0.00013922391271628212
+    },
+    {
+      "gas_ml": 0.8258973656480925,
+      "bulge_ml": 0.43392357122818814,
+      "weight": 0.0024916476643506926
+    },
+    {
+      "gas_ml": 0.8258973656480925,
+      "bulge_ml": 0.553060285674684,
+      "weight": 0.012184470244877753
+    },
+    {
+      "gas_ml": 0.8258973656480925,
+      "bulge_ml": 0.6999999999999998,
+      "weight": 0.020283492272850458
+    },
+    {
+      "gas_ml": 0.8258973656480925,
+      "bulge_ml": 0.8859793637184485,
+      "weight": 0.012184470244877753
+    },
+    {
+      "gas_ml": 0.8258973656480925,
+      "bulge_ml": 1.1292311192339508,
+      "weight": 0.0024916476643506926
+    },
+    {
+      "gas_ml": 0.8258973656480925,
+      "bulge_ml": 1.4643366772866173,
+      "weight": 0.00013922391271628212
+    },
+    {
+      "gas_ml": 0.8258973656480925,
+      "bulge_ml": 1.9786666156522608,
+      "weight": 1.1154242390027854e-06
+    },
+    {
+      "gas_ml": 0.9100594704074447,
+      "bulge_ml": 0.24764151581870858,
+      "weight": 5.454564722370784e-06
+    },
+    {
+      "gas_ml": 0.9100594704074447,
+      "bulge_ml": 0.33462250013976214,
+      "weight": 0.0006808224317337659
+    },
+    {
+      "gas_ml": 0.9100594704074447,
+      "bulge_ml": 0.43392357122818814,
+      "weight": 0.012184470244877753
+    },
+    {
+      "gas_ml": 0.9100594704074447,
+      "bulge_ml": 0.553060285674684,
+      "weight": 0.059583590919544946
+    },
+    {
+      "gas_ml": 0.9100594704074447,
+      "bulge_ml": 0.6999999999999998,
+      "weight": 0.09918882657318173
+    },
+    {
+      "gas_ml": 0.9100594704074447,
+      "bulge_ml": 0.8859793637184485,
+      "weight": 0.059583590919544946
+    },
+    {
+      "gas_ml": 0.9100594704074447,
+      "bulge_ml": 1.1292311192339508,
+      "weight": 0.012184470244877753
+    },
+    {
+      "gas_ml": 0.9100594704074447,
+      "bulge_ml": 1.4643366772866173,
+      "weight": 0.0006808224317337659
+    },
+    {
+      "gas_ml": 0.9100594704074447,
+      "bulge_ml": 1.9786666156522608,
+      "weight": 5.454564722370784e-06
+    },
+    {
+      "gas_ml": 1.0,
+      "bulge_ml": 0.24764151581870858,
+      "weight": 9.080215977750991e-06
+    },
+    {
+      "gas_ml": 1.0,
+      "bulge_ml": 0.33462250013976214,
+      "weight": 0.001133365362278305
+    },
+    {
+      "gas_ml": 1.0,
+      "bulge_ml": 0.43392357122818814,
+      "weight": 0.020283492272850458
+    },
+    {
+      "gas_ml": 1.0,
+      "bulge_ml": 0.553060285674684,
+      "weight": 0.09918882657318173
+    },
+    {
+      "gas_ml": 1.0,
+      "bulge_ml": 0.6999999999999998,
+      "weight": 0.16511967750062992
+    },
+    {
+      "gas_ml": 1.0,
+      "bulge_ml": 0.8859793637184485,
+      "weight": 0.09918882657318173
+    },
+    {
+      "gas_ml": 1.0,
+      "bulge_ml": 1.1292311192339508,
+      "weight": 0.020283492272850458
+    },
+    {
+      "gas_ml": 1.0,
+      "bulge_ml": 1.4643366772866173,
+      "weight": 0.001133365362278305
+    },
+    {
+      "gas_ml": 1.0,
+      "bulge_ml": 1.9786666156522608,
+      "weight": 9.080215977750991e-06
+    },
+    {
+      "gas_ml": 1.0988292881038728,
+      "bulge_ml": 0.24764151581870858,
+      "weight": 5.454564722370784e-06
+    },
+    {
+      "gas_ml": 1.0988292881038728,
+      "bulge_ml": 0.33462250013976214,
+      "weight": 0.0006808224317337659
+    },
+    {
+      "gas_ml": 1.0988292881038728,
+      "bulge_ml": 0.43392357122818814,
+      "weight": 0.012184470244877753
+    },
+    {
+      "gas_ml": 1.0988292881038728,
+      "bulge_ml": 0.553060285674684,
+      "weight": 0.059583590919544946
+    },
+    {
+      "gas_ml": 1.0988292881038728,
+      "bulge_ml": 0.6999999999999998,
+      "weight": 0.09918882657318173
+    },
+    {
+      "gas_ml": 1.0988292881038728,
+      "bulge_ml": 0.8859793637184485,
+      "weight": 0.059583590919544946
+    },
+    {
+      "gas_ml": 1.0988292881038728,
+      "bulge_ml": 1.1292311192339508,
+      "weight": 0.012184470244877753
+    },
+    {
+      "gas_ml": 1.0988292881038728,
+      "bulge_ml": 1.4643366772866173,
+      "weight": 0.0006808224317337659
+    },
+    {
+      "gas_ml": 1.0988292881038728,
+      "bulge_ml": 1.9786666156522608,
+      "weight": 5.454564722370784e-06
+    },
+    {
+      "gas_ml": 1.2108042010949955,
+      "bulge_ml": 0.24764151581870858,
+      "weight": 1.1154242390027854e-06
+    },
+    {
+      "gas_ml": 1.2108042010949955,
+      "bulge_ml": 0.33462250013976214,
+      "weight": 0.00013922391271628212
+    },
+    {
+      "gas_ml": 1.2108042010949955,
+      "bulge_ml": 0.43392357122818814,
+      "weight": 0.0024916476643506926
+    },
+    {
+      "gas_ml": 1.2108042010949955,
+      "bulge_ml": 0.553060285674684,
+      "weight": 0.012184470244877753
+    },
+    {
+      "gas_ml": 1.2108042010949955,
+      "bulge_ml": 0.6999999999999998,
+      "weight": 0.020283492272850458
+    },
+    {
+      "gas_ml": 1.2108042010949955,
+      "bulge_ml": 0.8859793637184485,
+      "weight": 0.012184470244877753
+    },
+    {
+      "gas_ml": 1.2108042010949955,
+      "bulge_ml": 1.1292311192339508,
+      "weight": 0.0024916476643506926
+    },
+    {
+      "gas_ml": 1.2108042010949955,
+      "bulge_ml": 1.4643366772866173,
+      "weight": 0.00013922391271628212
+    },
+    {
+      "gas_ml": 1.2108042010949955,
+      "bulge_ml": 1.9786666156522608,
+      "weight": 1.1154242390027854e-06
+    },
+    {
+      "gas_ml": 1.343436551314022,
+      "bulge_ml": 0.24764151581870858,
+      "weight": 6.232571687980521e-08
+    },
+    {
+      "gas_ml": 1.343436551314022,
+      "bulge_ml": 0.33462250013976214,
+      "weight": 7.779309309802478e-06
+    },
+    {
+      "gas_ml": 1.343436551314022,
+      "bulge_ml": 0.43392357122818814,
+      "weight": 0.00013922391271628212
+    },
+    {
+      "gas_ml": 1.343436551314022,
+      "bulge_ml": 0.553060285674684,
+      "weight": 0.0006808224317337659
+    },
+    {
+      "gas_ml": 1.343436551314022,
+      "bulge_ml": 0.6999999999999998,
+      "weight": 0.001133365362278305
+    },
+    {
+      "gas_ml": 1.343436551314022,
+      "bulge_ml": 0.8859793637184485,
+      "weight": 0.0006808224317337659
+    },
+    {
+      "gas_ml": 1.343436551314022,
+      "bulge_ml": 1.1292311192339508,
+      "weight": 0.00013922391271628212
+    },
+    {
+      "gas_ml": 1.343436551314022,
+      "bulge_ml": 1.4643366772866173,
+      "weight": 7.779309309802478e-06
+    },
+    {
+      "gas_ml": 1.343436551314022,
+      "bulge_ml": 1.9786666156522608,
+      "weight": 6.232571687980521e-08
+    },
+    {
+      "gas_ml": 1.5153391179462519,
+      "bulge_ml": 0.24764151581870858,
+      "weight": 4.993367444185436e-10
+    },
+    {
+      "gas_ml": 1.5153391179462519,
+      "bulge_ml": 0.33462250013976214,
+      "weight": 6.232571687980521e-08
+    },
+    {
+      "gas_ml": 1.5153391179462519,
+      "bulge_ml": 0.43392357122818814,
+      "weight": 1.1154242390027854e-06
+    },
+    {
+      "gas_ml": 1.5153391179462519,
+      "bulge_ml": 0.553060285674684,
+      "weight": 5.454564722370784e-06
+    },
+    {
+      "gas_ml": 1.5153391179462519,
+      "bulge_ml": 0.6999999999999998,
+      "weight": 9.080215977750991e-06
+    },
+    {
+      "gas_ml": 1.5153391179462519,
+      "bulge_ml": 0.8859793637184485,
+      "weight": 5.454564722370784e-06
+    },
+    {
+      "gas_ml": 1.5153391179462519,
+      "bulge_ml": 1.1292311192339508,
+      "weight": 1.1154242390027854e-06
+    },
+    {
+      "gas_ml": 1.5153391179462519,
+      "bulge_ml": 1.4643366772866173,
+      "weight": 6.232571687980521e-08
+    },
+    {
+      "gas_ml": 1.5153391179462519,
+      "bulge_ml": 1.9786666156522608,
+      "weight": 4.993367444185436e-10
+    }
+  ],
+  "domain": "signed_finite_gbar_full_nuisance_mass",
+  "positive_ML": true,
+  "proposal_bounds": [
+    0.01,
+    10.0
+  ],
+  "proposal_endpoint_roundoff_tolerance": 1.4210854715202004e-13,
+  "J_ref": "fixed reference kernel at length_fraction of full knot span; same metric for all proposal ell/Rd",
+  "tie_policy": "uniform_auxiliary_permutation_of_descending_gbar_tie_groups",
+  "denominator_method": "positive_bernstein_uniform_order_v1",
+  "RNG_states": {
+    "0.5": {
+      "bit_generator": "PCG64",
+      "state": {
+        "state": 327589360103840835699783613627432536408,
+        "inc": 247695766685927915578470629254909918401
+      },
+      "has_uint32": 0,
+      "uinteger": 0
+    },
+    "1.0": {
+      "bit_generator": "PCG64",
+      "state": {
+        "state": 61013462843292464840363144951647487491,
+        "inc": 203616434344831030078614001815312226273
+      },
+      "has_uint32": 0,
+      "uinteger": 0
+    },
+    "2.0": {
+      "bit_generator": "PCG64",
+      "state": {
+        "state": 329343164840442403417035350361902612360,
+        "inc": 309001947343023520169337149228193625213
+      },
+      "has_uint32": 0,
+      "uinteger": 0
+    },
+    "4.0": {
+      "bit_generator": "PCG64",
+      "state": {
+        "state": 154983053817371923889871861135651285121,
+        "inc": 249567884211879540684275107930858763737
+      },
+      "has_uint32": 0,
+      "uinteger": 0
+    }
+  },
+  "RNG_bit_generator": "PCG64",
+  "profile_hash_encoding": "SHA256 little-endian float64 knot vector",
+  "profile_replay": "same pinned numerical libraries, persisted proposal matrices, nested RNG direction descriptor; verify profile_sha256 before reuse",
+  "basis_sha256": "0d3cad0ec52fc690a7dbe8f6bc8232829a88052a4adebaf6291bcef0de1a6339",
+  "cache_gate": {
+    "files": [
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_001-035_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_036-070_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_071-105_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_106-140_20261005.json",
+      "/mnt/users/koe/RAR_mono_grid/outputs/real_disk_cache_all175_p101_141-175_20261005.json"
+    ],
+    "records": 14,
+    "zero_start": false,
+    "retained_kinematic_points": 6
+  },
+  "scientific_validated": false,
+  "cut_accuracy": "unverified"
+}

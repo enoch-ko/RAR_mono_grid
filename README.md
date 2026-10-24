@@ -1,64 +1,30 @@
-# Grid-based Monotonicity Probability Mapping of SPARC RARs
+# Bayesian Assessment of RAR Monotonicity in SPARC Galaxies
 
-## Project goal
+## Project overview
 
-This project tests the compatibility of the radial acceleration relation (RAR) with
-monotonicity across SPARC galaxies under explicit baryonic, observational-uncertainty,
-and stellar-disc mass-to-light (M/L) assumptions. The results will be used to assess
-implications for the SPARC error model and for Modified Inertia (MI) versus Modified
-Gravity (MG). The MI interpretation is conditional on isolated, approximately circular
-systems and a one-to-one monotonic relation between observed and baryonic acceleration.
-Numerical results remain provisional until convergence, quality-control, and provenance
-checks are documented.
+This project assesses whether SPARC galaxy rotation-curve data are compatible with a monotonic relation between observed and baryonic acceleration under alternative radial stellar-disc mass-to-light (M/L) profiles. Grid-based and Gaussian-process (GP) searches examine constant, linear and log-linear profiles. The analysis records the monotonicity probability, P_mono, and Bayes factors comparing the monotonic model with an encompassing model that allows unrestricted orderings.
 
-## Analysis design
+The physical motivation includes the increasing circular-orbit mappings predicted by some modified-inertia (MI) models. Implications for modified-gravity (MG) models depend on the specific theory, geometry and environment. This project does not provide a full comparison of MI, MG and ΛCDM theories.
 
-### SPARC grid statistics
+A separate comparison workflow fits resolved K-band M/L profiles from MIGHTEE-HI/LADUMA data. These comparisons are descriptive and are not used as calibrated priors for SPARC.
 
-- Evaluate constant, linear, and log-linear radial stellar-disc M/L profiles on declared
-  parameter grids for each galaxy.
-- At each grid point, marginalise over gas and bulge M/L using the SPARC uncertainty
-  model; retain the bin-by-bin results as well as per-galaxy summaries.
-- Compute the probability of the specified monotonic ordering of observed acceleration
-  with baryonic acceleration. These are monotonicity probabilities under the stated
-  uncertainty and nuisance-parameter model, not conventional rotation-curve likelihoods.
-- Use the signed SPARC gas contribution, retain only positive finite stellar-disc
-  profiles, and average probabilities over tied baryonic-acceleration orderings.
+## Analysis and interpretation
 
-### Fully marginalised statistics
+The grid calculations evaluate the stated profile families while accounting for gas and bulge M/L uncertainty. GP searches explore additional candidate profiles and retain probability and Bayes-factor information. These quantities describe compatibility under the declared data, error model and priors; they are not conventional rotation-curve likelihoods.
 
-Keep grid-based probabilities distinct from fully marginalised probabilities. The latter
-integrate over disc M/L using the SPARC-informed lognormal prior (default: M/L centred
-on 0.5 with width 0.1 dex in log10(M/L)). For radial profiles, validate both a finite uniform
-slope prior over [-5, 5] as a diagnostic and the SPARC-informed Gaussian prior
-N(0, 0.5) as the intended headline case. Keep distance and inclination fixed to the
-SPARC catalogue values for this phase; defer population aggregation until per-galaxy
-results are validated.
+Numerical results remain provisional until the relevant jobs are complete and numerical convergence, quality-control and provenance checks are documented. Processing coverage alone is not scientific validation.
 
-### MIGHTEE-HI/LADUMA comparison
+## Processing snapshot — 24 October 2026
 
-Use the supplied resolved K-band M/L data to fit constant, linear, and log-linear radial
-profiles, and estimate per-galaxy slope distributions and within-galaxy variation across
-radial bins. Compare these results with SPARC; they are descriptive comparisons, not
-calibrated SPARC priors. Resolve sample membership and validate units, radii, uncertainties,
-and other data-quality issues before drawing conclusions.
+Bayes-factor processing covers all 175 galaxies for constant and linear profiles, and 130 of 175 for log-linear profiles. The remaining 45 log-linear galaxies are assigned to existing jobs; their outputs still need to finish and be processed. Two of the three GP pilot jobs have completed successfully; the third was still running at the latest check. These are processing counts, not validated scientific conclusions.
 
-## Key components
+## Directory guide
 
-- `mono_SPARC_RAR.py` — SPARC grid evaluation, nuisance integration, radial-prior cases,
-  and output writing.
-- `merge_run_shards.py` — validates compatible shard outputs and combines them with
-  provenance metadata.
-- `utils.py` — data loading, radial integrals, quadrature, monotonicity calculation,
-  and tied-ordering handling.
-- `test_marginalisation.py` — lightweight tests that do not require SPARC data or a
-  galaxy analysis run.
-- `RAR_plot.py` — exploratory RAR plotting tool.
-- `SPARC_table.txt` — local SPARC catalogue copy.
-- `ML_Andreea.csv` — MIGHTEE-HI/LADUMA M/L reference data supplied by Andreea
-  Vărăşteanu; see [Vărăşteanu et al. (2026)](https://arxiv.org/abs/2608.03576).
-
-Analysis products include per-galaxy profile-grid and fully marginalised tables,
-run metadata, and diagnostic plots. Do not treat a run as complete until its expected
-shards have been validated and merged; do not make scientific claims from results that
-have not passed the planned convergence and quality-control checks.
+- archive/ — retired or superseded files retained for reference.
+- grid_searches/constant/, grid_searches/linear/ and grid_searches/log-linear/ — grid-search code and material organized by profile family.
+- GP_searches/ — Gaussian-process search code, inputs and run definitions.
+- bayes_factors/ — Bayes-factor calculations, processing tools and comparisons.
+- outputs/ — results grouped under outputs/archive/, outputs/grid_searches/{constant,linear,log-linear}/, outputs/GP_searches/, outputs/bayes_factors/, outputs/tests/, outputs/validation/ and outputs/miscellaneous/; there is no nested outputs/ directory.
+- tests/ — automated tests for analysis and support code.
+- validation/ — numerical checks, quality-control tools and validation records.
+- miscellaneous/ — documentation, reference data and supporting utilities.

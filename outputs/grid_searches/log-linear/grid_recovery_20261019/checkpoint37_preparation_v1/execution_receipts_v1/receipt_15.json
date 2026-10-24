@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "addqueue",
+    "-q",
+    "cmb",
+    "-n",
+    "1",
+    "-m",
+    "8",
+    "-c",
+    "2 days",
+    "/mnt/users/koe/RAR_mono_grid/run_loglinear_checkpoint37_20261019.py",
+    "15"
+  ],
+  "cwd": "/mnt/users/koe/RAR_mono_grid/outputs/grid_recovery_20261019/checkpoint37_preparation_v1/submission_logs",
+  "utc": "2026-10-19T21:30:25.809359+00:00",
+  "returncode": 0,
+  "stdout": "You have priority on this queue.\nSubmitting job with the following command:/usr/local/shared/slurm/bin/sbatch --no-kill -p cmb-priority --qos=cmb-priority --mem-per-cpu=8192 --nice -n 1 --output=run_loglinear_checkpoint37_20261019.py-%j.out --job-name=\"2\u00a3days\" /mnt/users/koe/RAR_mono_grid/outputs/grid_recovery_20261019/checkpoint37_preparation_v1/submission_logs/run_loglinear_checkpoint37_20261019.py.sh\nSending program's output to file: run_loglinear_checkpoint37_20261019.py-974580.out\n\n",
+  "stderr": "",
+  "generated_wrapper_text": "#!/bin/bash -l\necho =========================================================   \necho Job submitted  date = Mon 19 Oct 22:30:25 BST 2026      \ndate_start=`date +%s`\necho $SLURM_JOB_NUM_NODES nodes \\( $SLURM_CPUS_ON_NODE processes per node \\)        \necho $SLURM_JOB_NUM_NODES hosts used: $SLURM_JOB_NODELIST      \n# Set this otherwise a different transport gets selected on some nodes and things break in strange ways\nexport OMPI_MCA_pml=^cm\necho Job output begins                                           \necho -----------------                                           \necho   \n#hostname\n\n# Need to set the max locked memory very high otherwise IB can't allocate enough and fails with \"UCX  ERROR Failed to allocate memory pool chunk: Input/output error\"\nulimit -l unlimited\n\nexport OMP_NUM_THEADS=1\n /usr/local/shared/slurm/bin/srun -u -n 1 --mpi=pmix --mem-per-cpu=8192 nice -n 10 /mnt/users/koe/RAR_mono_grid/run_loglinear_checkpoint37_20261019.py 15\n  echo ---------------                                           \n  echo Job output ends                                           \n\n  date_end=`date +%s`\n  seconds=$((date_end-date_start))\n  minutes=$((seconds/60))\n  seconds=$((seconds-60*minutes))\n  hours=$((minutes/60))\n  minutes=$((minutes-60*hours))\n  echo =========================================================   \n  echo PBS job: finished   date = `date`   \n  echo Total run time : $hours Hours $minutes Minutes $seconds Seconds\n  echo =========================================================\n",
+  "shard": "15",
+  "job_id": "974580"
+}

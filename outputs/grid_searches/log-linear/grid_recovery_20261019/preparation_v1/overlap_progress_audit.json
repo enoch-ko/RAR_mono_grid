@@ -1,0 +1,641 @@
+{
+  "first": {
+    "utc": "2026-10-19T15:10:39+00:00",
+    "origin": "read-only terminal sstat observation before preparation",
+    "cpu": {
+      "935526": "13-02:44:59",
+      "935528": "13-02:44:51",
+      "935529": "13-02:44:45",
+      "935531": "13-02:44:44"
+    }
+  },
+  "second_utc": "2026-10-19T15:20:00.433213+00:00",
+  "sstat": {
+    "argv": [
+      "sstat",
+      "-a",
+      "-j",
+      "935526,935528,935529,935531",
+      "-n",
+      "-P",
+      "-o",
+      "JobID,AveCPU,AveRSS,MaxRSS,NTasks"
+    ],
+    "returncode": 0,
+    "stdout": "935526.batch|00:00:01|5364K|5364K|1\n935526.0|13-02:54:21|205420K|747428K|1\n935528.batch|00:00:01|5364K|5364K|1\n935528.0|13-02:54:12|214300K|258884K|1\n935529.batch|00:00:01|5364K|5364K|1\n935529.0|13-02:54:06|174348K|265312K|1\n935531.batch|00:00:01|5348K|5348K|1\n935531.0|13-02:54:05|210056K|217656K|1\n",
+    "stderr": ""
+  },
+  "worker_processes": {
+    "argv": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=10",
+      "comp48",
+      "ps -u koe -o pid=,etimes=,cputimes=,pcpu=,rss=,stat=,wchan:20=,args="
+    ],
+    "returncode": 0,
+    "stdout": "1399400 1133926  1133656 99.9 311700 RN  -                    python /mnt/users/koe/RAR_mono_grid/./mono_SPARC_RAR_boundary.py --profile log_linear --grid-size 51 --prob-grid-size 400 --ml-samples 9 --zpadding 8 --boundary-log-tolerance 2e-5 --boundary-max-refinements 8 --galaxy-range 108 124 --shard-id 7 --output-root outputs/rerun_boundary_20261006/log_linear\n1399430 1133926  1133664 99.9 259532 RN  -                    python /mnt/users/koe/RAR_mono_grid/./mono_SPARC_RAR_boundary.py --profile log_linear --grid-size 51 --prob-grid-size 400 --ml-samples 9 --zpadding 8 --boundary-log-tolerance 2e-5 --boundary-max-refinements 8 --galaxy-range 73 90 --shard-id 5 --output-root outputs/rerun_boundary_20261006/log_linear\n1399570 1133923  1133649 99.9 243980 RN  -                    python /mnt/users/koe/RAR_mono_grid/./mono_SPARC_RAR_boundary.py --profile log_linear --grid-size 51 --prob-grid-size 400 --ml-samples 9 --zpadding 8 --boundary-log-tolerance 2e-5 --boundary-max-refinements 8 --galaxy-range 159 175 --shard-id 10 --output-root outputs/rerun_boundary_20261006/log_linear\n1399571 1133923  1133650 99.9 270496 RN  -                    python /mnt/users/koe/RAR_mono_grid/./mono_SPARC_RAR_boundary.py --profile log_linear --grid-size 51 --prob-grid-size 400 --ml-samples 9 --zpadding 8 --boundary-log-tolerance 2e-5 --boundary-max-refinements 8 --galaxy-range 125 141 --shard-id 8 --output-root outputs/rerun_boundary_20261006/log_linear",
+    "stderr": ""
+  },
+  "queue": {
+    "argv": [
+      "squeue",
+      "-h",
+      "-u",
+      "koe",
+      "-o",
+      "%i|%T|%M|%o"
+    ],
+    "returncode": 0,
+    "stdout": "935529|RUNNING|13-02:58:43|/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR_boundary.py.sh\n935531|RUNNING|13-02:58:43|/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR_boundary.py.sh\n935526|RUNNING|13-02:58:46|/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR_boundary.py.sh\n935528|RUNNING|13-02:58:46|/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR_boundary.py.sh\n969420|RUNNING|2-23:35:02|/mnt/users/koe/RAR_mono_grid/outputs/science_20261016/logs/run_science_shard_20261016.py.sh\n969421|RUNNING|2-23:35:02|/mnt/users/koe/RAR_mono_grid/outputs/science_20261016/logs/run_science_shard_20261016.py.sh\n",
+    "stderr": ""
+  },
+  "jobs": [
+    {
+      "job_id": 935526,
+      "shard": 5,
+      "allocation": [
+        "NGC4138",
+        "NGC4157",
+        "NGC4183",
+        "NGC4214",
+        "NGC4217",
+        "NGC4389",
+        "NGC4559",
+        "NGC5005",
+        "NGC5033",
+        "NGC5055",
+        "NGC5371",
+        "NGC5585",
+        "NGC5907",
+        "NGC5985",
+        "NGC6015",
+        "NGC6195",
+        "NGC6503",
+        "NGC6674"
+      ],
+      "overlap_with_new": [
+        "NGC4138",
+        "NGC4157",
+        "NGC4217",
+        "NGC5005",
+        "NGC5033",
+        "NGC5985",
+        "NGC6195",
+        "NGC6674"
+      ],
+      "unique_bulgeless": [
+        "NGC4183",
+        "NGC4214",
+        "NGC4389",
+        "NGC4559",
+        "NGC5055",
+        "NGC5371",
+        "NGC5585",
+        "NGC5907",
+        "NGC6015",
+        "NGC6503"
+      ],
+      "logged_current_index": 11,
+      "current_galaxy": "NGC5371",
+      "current_has_bulge": false,
+      "preceding_galaxies_in_memory": [
+        "NGC4138",
+        "NGC4157",
+        "NGC4183",
+        "NGC4214",
+        "NGC4217",
+        "NGC4389",
+        "NGC4559",
+        "NGC5005",
+        "NGC5033",
+        "NGC5055"
+      ],
+      "current_and_remaining": [
+        "NGC5371",
+        "NGC5585",
+        "NGC5907",
+        "NGC5985",
+        "NGC6015",
+        "NGC6195",
+        "NGC6503",
+        "NGC6674"
+      ],
+      "overlap_current_and_remaining": [
+        "NGC5985",
+        "NGC6195",
+        "NGC6674"
+      ],
+      "unique_bulgeless_current_and_remaining": [
+        "NGC5371",
+        "NGC5585",
+        "NGC5907",
+        "NGC6015",
+        "NGC6503"
+      ],
+      "log": {
+        "path": "/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR_boundary.py-935526.out",
+        "exists": true,
+        "size": 453,
+        "mtime_unix": 1792384117.014264,
+        "tail": "=========================================================\nJob submitted date = Tue 6 Oct 13:21:15 BST 2026\n1 nodes ( 1 processes per node )\n1 hosts used: comp48\nJob output begins\n-----------------\n\nProcessing galaxy 1/18\nProcessing galaxy 2/18\nProcessing galaxy 3/18\nProcessing galaxy 4/18\nProcessing galaxy 5/18\nProcessing galaxy 6/18\nProcessing galaxy 7/18\nProcessing galaxy 8/18\nProcessing galaxy 9/18\nProcessing galaxy 10/18\nProcessing galaxy 11/18\n",
+        "error_flag": false
+      },
+      "per_galaxy_plots": [
+        {
+          "galaxy": "NGC4138",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/NGC4138.png",
+          "size": 51074,
+          "mtime_unix": 1791299310.96508
+        },
+        {
+          "galaxy": "NGC4157",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/NGC4157.png",
+          "size": 53220,
+          "mtime_unix": 1791330928.0144708
+        },
+        {
+          "galaxy": "NGC4183",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/NGC4183.png",
+          "size": 56770,
+          "mtime_unix": 1791383071.055592
+        },
+        {
+          "galaxy": "NGC4214",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/NGC4214.png",
+          "size": 59816,
+          "mtime_unix": 1791399681.68282
+        },
+        {
+          "galaxy": "NGC4217",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/NGC4217.png",
+          "size": 51528,
+          "mtime_unix": 1791434816.4543254
+        },
+        {
+          "galaxy": "NGC4389",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/NGC4389.png",
+          "size": 58679,
+          "mtime_unix": 1791438297.4946644
+        },
+        {
+          "galaxy": "NGC4559",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/NGC4559.png",
+          "size": 55976,
+          "mtime_unix": 1791526257.6131945
+        },
+        {
+          "galaxy": "NGC5005",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/NGC5005.png",
+          "size": 55711,
+          "mtime_unix": 1791558680.8678384
+        },
+        {
+          "galaxy": "NGC5033",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/NGC5033.png",
+          "size": 51756,
+          "mtime_unix": 1791738174.937801
+        },
+        {
+          "galaxy": "NGC5055",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/NGC5055.png",
+          "size": 53192,
+          "mtime_unix": 1792384082.545756
+        }
+      ],
+      "final_csv_exists": false,
+      "final_marginal_csv_exists": false,
+      "cpu_second_observation": [
+        "935526.0",
+        "13-02:54:21",
+        "205420K",
+        "747428K",
+        "1"
+      ],
+      "cpu_increase_seconds": 562,
+      "disposition": "retain_mixed_shard_unique_bulgeless_work; CPU activity alone is not proof of scientific progress"
+    },
+    {
+      "job_id": 935528,
+      "shard": 7,
+      "allocation": [
+        "UGC02885",
+        "UGC02916",
+        "UGC02953",
+        "UGC03205",
+        "UGC03546",
+        "UGC03580",
+        "UGC04278",
+        "UGC04305",
+        "UGC04325",
+        "UGC04483",
+        "UGC04499",
+        "UGC05005",
+        "UGC05253",
+        "UGC05414",
+        "UGC05716",
+        "UGC05721",
+        "UGC05750"
+      ],
+      "overlap_with_new": [
+        "UGC02885",
+        "UGC02916",
+        "UGC02953",
+        "UGC03205",
+        "UGC03546",
+        "UGC03580",
+        "UGC05253"
+      ],
+      "unique_bulgeless": [
+        "UGC04278",
+        "UGC04305",
+        "UGC04325",
+        "UGC04483",
+        "UGC04499",
+        "UGC05005",
+        "UGC05414",
+        "UGC05716",
+        "UGC05721",
+        "UGC05750"
+      ],
+      "logged_current_index": 3,
+      "current_galaxy": "UGC02953",
+      "current_has_bulge": true,
+      "preceding_galaxies_in_memory": [
+        "UGC02885",
+        "UGC02916"
+      ],
+      "current_and_remaining": [
+        "UGC02953",
+        "UGC03205",
+        "UGC03546",
+        "UGC03580",
+        "UGC04278",
+        "UGC04305",
+        "UGC04325",
+        "UGC04483",
+        "UGC04499",
+        "UGC05005",
+        "UGC05253",
+        "UGC05414",
+        "UGC05716",
+        "UGC05721",
+        "UGC05750"
+      ],
+      "overlap_current_and_remaining": [
+        "UGC02953",
+        "UGC03205",
+        "UGC03546",
+        "UGC03580",
+        "UGC05253"
+      ],
+      "unique_bulgeless_current_and_remaining": [
+        "UGC04278",
+        "UGC04305",
+        "UGC04325",
+        "UGC04483",
+        "UGC04499",
+        "UGC05005",
+        "UGC05414",
+        "UGC05716",
+        "UGC05721",
+        "UGC05750"
+      ],
+      "log": {
+        "path": "/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR_boundary.py-935528.out",
+        "exists": true,
+        "size": 267,
+        "mtime_unix": 1792150169.3738716,
+        "tail": "=========================================================\nJob submitted date = Tue 6 Oct 13:21:16 BST 2026\n1 nodes ( 1 processes per node )\n1 hosts used: comp48\nJob output begins\n-----------------\n\nProcessing galaxy 1/17\nProcessing galaxy 2/17\nProcessing galaxy 3/17\n",
+        "error_flag": false
+      },
+      "per_galaxy_plots": [
+        {
+          "galaxy": "UGC02885",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC02885.png",
+          "size": 51116,
+          "mtime_unix": 1791374743.2950532
+        },
+        {
+          "galaxy": "UGC02916",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC02916.png",
+          "size": 52437,
+          "mtime_unix": 1792150135.7483704
+        }
+      ],
+      "final_csv_exists": false,
+      "final_marginal_csv_exists": false,
+      "cpu_second_observation": [
+        "935528.0",
+        "13-02:54:12",
+        "214300K",
+        "258884K",
+        "1"
+      ],
+      "cpu_increase_seconds": 561,
+      "disposition": "retain_mixed_shard_unique_bulgeless_work; CPU activity alone is not proof of scientific progress"
+    },
+    {
+      "job_id": 935529,
+      "shard": 8,
+      "allocation": [
+        "UGC05764",
+        "UGC05829",
+        "UGC05918",
+        "UGC05986",
+        "UGC05999",
+        "UGC06399",
+        "UGC06446",
+        "UGC06614",
+        "UGC06628",
+        "UGC06667",
+        "UGC06786",
+        "UGC06787",
+        "UGC06818",
+        "UGC06917",
+        "UGC06923",
+        "UGC06930",
+        "UGC06973"
+      ],
+      "overlap_with_new": [
+        "UGC06614",
+        "UGC06786",
+        "UGC06787",
+        "UGC06973"
+      ],
+      "unique_bulgeless": [
+        "UGC05764",
+        "UGC05829",
+        "UGC05918",
+        "UGC05986",
+        "UGC05999",
+        "UGC06399",
+        "UGC06446",
+        "UGC06628",
+        "UGC06667",
+        "UGC06818",
+        "UGC06917",
+        "UGC06923",
+        "UGC06930"
+      ],
+      "logged_current_index": 12,
+      "current_galaxy": "UGC06787",
+      "current_has_bulge": true,
+      "preceding_galaxies_in_memory": [
+        "UGC05764",
+        "UGC05829",
+        "UGC05918",
+        "UGC05986",
+        "UGC05999",
+        "UGC06399",
+        "UGC06446",
+        "UGC06614",
+        "UGC06628",
+        "UGC06667",
+        "UGC06786"
+      ],
+      "current_and_remaining": [
+        "UGC06787",
+        "UGC06818",
+        "UGC06917",
+        "UGC06923",
+        "UGC06930",
+        "UGC06973"
+      ],
+      "overlap_current_and_remaining": [
+        "UGC06787",
+        "UGC06973"
+      ],
+      "unique_bulgeless_current_and_remaining": [
+        "UGC06818",
+        "UGC06917",
+        "UGC06923",
+        "UGC06930"
+      ],
+      "log": {
+        "path": "/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR_boundary.py-935529.out",
+        "exists": true,
+        "size": 477,
+        "mtime_unix": 1792266751.250631,
+        "tail": "=========================================================\nJob submitted date = Tue 6 Oct 13:21:16 BST 2026\n1 nodes ( 1 processes per node )\n1 hosts used: comp48\nJob output begins\n-----------------\n\nProcessing galaxy 1/17\nProcessing galaxy 2/17\nProcessing galaxy 3/17\nProcessing galaxy 4/17\nProcessing galaxy 5/17\nProcessing galaxy 6/17\nProcessing galaxy 7/17\nProcessing galaxy 8/17\nProcessing galaxy 9/17\nProcessing galaxy 10/17\nProcessing galaxy 11/17\nProcessing galaxy 12/17\n",
+        "error_flag": false
+      },
+      "per_galaxy_plots": [
+        {
+          "galaxy": "UGC05764",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC05764.png",
+          "size": 60086,
+          "mtime_unix": 1791317976.2267804
+        },
+        {
+          "galaxy": "UGC05829",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC05829.png",
+          "size": 58528,
+          "mtime_unix": 1791331753.4386337
+        },
+        {
+          "galaxy": "UGC05918",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC05918.png",
+          "size": 61764,
+          "mtime_unix": 1791337423.5996606
+        },
+        {
+          "galaxy": "UGC05986",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC05986.png",
+          "size": 55094,
+          "mtime_unix": 1791350794.512664
+        },
+        {
+          "galaxy": "UGC05999",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC05999.png",
+          "size": 61372,
+          "mtime_unix": 1791352970.3830633
+        },
+        {
+          "galaxy": "UGC06399",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC06399.png",
+          "size": 59739,
+          "mtime_unix": 1791360597.9818418
+        },
+        {
+          "galaxy": "UGC06446",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC06446.png",
+          "size": 60674,
+          "mtime_unix": 1791387582.8308728
+        },
+        {
+          "galaxy": "UGC06614",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC06614.png",
+          "size": 54989,
+          "mtime_unix": 1791406098.7141747
+        },
+        {
+          "galaxy": "UGC06628",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC06628.png",
+          "size": 62665,
+          "mtime_unix": 1791411421.7559
+        },
+        {
+          "galaxy": "UGC06667",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC06667.png",
+          "size": 59420,
+          "mtime_unix": 1791419304.5541327
+        },
+        {
+          "galaxy": "UGC06786",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC06786.png",
+          "size": 54177,
+          "mtime_unix": 1792266716.5391204
+        }
+      ],
+      "final_csv_exists": false,
+      "final_marginal_csv_exists": false,
+      "cpu_second_observation": [
+        "935529.0",
+        "13-02:54:06",
+        "174348K",
+        "265312K",
+        "1"
+      ],
+      "cpu_increase_seconds": 561,
+      "disposition": "retain_mixed_shard_unique_bulgeless_work; CPU activity alone is not proof of scientific progress"
+    },
+    {
+      "job_id": 935531,
+      "shard": 10,
+      "allocation": [
+        "UGC08550",
+        "UGC08699",
+        "UGC08837",
+        "UGC09037",
+        "UGC09133",
+        "UGC09992",
+        "UGC10310",
+        "UGC11455",
+        "UGC11557",
+        "UGC11820",
+        "UGC11914",
+        "UGC12506",
+        "UGC12632",
+        "UGC12732",
+        "UGCA281",
+        "UGCA442",
+        "UGCA444"
+      ],
+      "overlap_with_new": [
+        "UGC08699",
+        "UGC09133",
+        "UGC11914"
+      ],
+      "unique_bulgeless": [
+        "UGC08550",
+        "UGC08837",
+        "UGC09037",
+        "UGC09992",
+        "UGC10310",
+        "UGC11455",
+        "UGC11557",
+        "UGC11820",
+        "UGC12506",
+        "UGC12632",
+        "UGC12732",
+        "UGCA281",
+        "UGCA442",
+        "UGCA444"
+      ],
+      "logged_current_index": 5,
+      "current_galaxy": "UGC09133",
+      "current_has_bulge": true,
+      "preceding_galaxies_in_memory": [
+        "UGC08550",
+        "UGC08699",
+        "UGC08837",
+        "UGC09037"
+      ],
+      "current_and_remaining": [
+        "UGC09133",
+        "UGC09992",
+        "UGC10310",
+        "UGC11455",
+        "UGC11557",
+        "UGC11820",
+        "UGC11914",
+        "UGC12506",
+        "UGC12632",
+        "UGC12732",
+        "UGCA281",
+        "UGCA442",
+        "UGCA444"
+      ],
+      "overlap_current_and_remaining": [
+        "UGC09133",
+        "UGC11914"
+      ],
+      "unique_bulgeless_current_and_remaining": [
+        "UGC09992",
+        "UGC10310",
+        "UGC11455",
+        "UGC11557",
+        "UGC11820",
+        "UGC12506",
+        "UGC12632",
+        "UGC12732",
+        "UGCA281",
+        "UGCA442",
+        "UGCA444"
+      ],
+      "log": {
+        "path": "/mnt/users/koe/RAR_mono_grid/mono_SPARC_RAR_boundary.py-935531.out",
+        "exists": true,
+        "size": 313,
+        "mtime_unix": 1791703238.4256144,
+        "tail": "=========================================================\nJob submitted date = Tue 6 Oct 13:21:17 BST 2026\n1 nodes ( 1 processes per node )\n1 hosts used: comp48\nJob output begins\n-----------------\n\nProcessing galaxy 1/17\nProcessing galaxy 2/17\nProcessing galaxy 3/17\nProcessing galaxy 4/17\nProcessing galaxy 5/17\n",
+        "error_flag": false
+      },
+      "per_galaxy_plots": [
+        {
+          "galaxy": "UGC08550",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC08550.png",
+          "size": 64361,
+          "mtime_unix": 1791304654.6783938
+        },
+        {
+          "galaxy": "UGC08699",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC08699.png",
+          "size": 53036,
+          "mtime_unix": 1791654134.6269636
+        },
+        {
+          "galaxy": "UGC08837",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC08837.png",
+          "size": 68832,
+          "mtime_unix": 1791659659.8103802
+        },
+        {
+          "galaxy": "UGC09037",
+          "path": "/mnt/users/koe/RAR_mono_grid/outputs/rerun_boundary_20261006/log_linear/plots/log_linear_2D_grids/UGC09037.png",
+          "size": 53166,
+          "mtime_unix": 1791703233.0525324
+        }
+      ],
+      "final_csv_exists": false,
+      "final_marginal_csv_exists": false,
+      "cpu_second_observation": [
+        "935531.0",
+        "13-02:54:05",
+        "210056K",
+        "217656K",
+        "1"
+      ],
+      "cpu_increase_seconds": 561,
+      "disposition": "retain_mixed_shard_unique_bulgeless_work; CPU activity alone is not proof of scientific progress"
+    }
+  ],
+  "new_unique_galaxies": 59,
+  "active_overlap_galaxies": 22,
+  "active_unique_bulgeless": 47,
+  "cancellations": 0,
+  "reason": "No whole job redundant; all mix useful bulgeless work with superseded bulge work. Do not discard in-memory rows without approved replacement scope."
+}
