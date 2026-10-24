@@ -16,7 +16,11 @@ Numerical results remain provisional until the relevant jobs are complete and nu
 
 ## Processing snapshot — 24 October 2026
 
-Bayes-factor processing covers all 175 galaxies for constant and linear profiles, and 130 of 175 for log-linear profiles. The remaining 45 log-linear galaxies are assigned to existing jobs; their outputs still need to finish and be processed. Two of the three GP pilot jobs have completed successfully; the third was still running at the latest check. These are processing counts, not validated scientific conclusions.
+Bayes-factor processing covers 175/175 galaxies for constant profiles, 175/175 for linear profiles, and 130/175 for log-linear profiles. The remaining 45 log-linear cases are assigned to existing jobs; their final valid outputs still need to be published and processed.
+
+All three BF-aware GP pilot jobs completed on Glamdring with scheduler exit code 0 and complete batch receipts: pilot_01/UGC00634 (job 991244), pilot_02/NGC4068 (job 991246), and pilot_03/NGC7331 (job 991247). Each reports `finite_search_complete`, 7,681 candidate evaluations, and zero invalid candidates. The local copy matches pilots 1 and 2 but is incomplete for pilot 3; [GP_searches/README.md](GP_searches/README.md) lists the eight artifacts to synchronize.
+
+Pilot completion and processing coverage describe workflow state, not scientific validation. The GP outputs retain `scientific_validated=false` and `cut_accuracy=unverified`; numerical convergence and inference checks remain separate.
 
 ## Directory guide
 
