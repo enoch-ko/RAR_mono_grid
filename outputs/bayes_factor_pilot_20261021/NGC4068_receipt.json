@@ -1,0 +1,104 @@
+{
+  "galaxy": "NGC4068",
+  "probability_kind": "conditional",
+  "saved_logp_conditional": -3.9697935360026917,
+  "numerator_source": {
+    "csv": "outputs/rerun_boundary_20261006/constant/profile_grid.shard_02.csv",
+    "row": {
+      "galaxy": "NGC4068",
+      "profile": "constant",
+      "probability_kind": "conditional",
+      "grid_i": "0",
+      "grid_j": "25",
+      "log10_upsilon_disk": "-0.30102999566398125",
+      "upsilon_disk_mean": "0.49999999999999994",
+      "disk_slope": "nan",
+      "log_probability": "-3.9697935360026917",
+      "valid": "True",
+      "invalid_reason": "",
+      "warnings": ""
+    },
+    "csv_sha256": "80346e8dcbdc3da7f660ea5c870f827e1d570c2ae5695318f868f185ab1a094a",
+    "run_metadata": "outputs/rerun_boundary_20261006/constant/run_metadata.shard_02.json",
+    "run_metadata_sha256": "eafb7ddec186f894d116d1bb6dab26b1f24e07a581b2e0e5b10cfa3171161c59"
+  },
+  "conditioning": {
+    "profile": "constant",
+    "disk_ml": 0.5,
+    "gas_ml_factor": 1.0,
+    "bulge": "absent"
+  },
+  "radii_kpc": [
+    0.21,
+    0.64,
+    1.06,
+    1.48,
+    1.91,
+    2.33
+  ],
+  "gbar_km2_s2_kpc": [
+    3.5733535049284765e-12,
+    7.964735662521601e-12,
+    9.176490481969942e-12,
+    9.733647413470378e-12,
+    1.0133349276145744e-11,
+    9.157321013929665e-12
+  ],
+  "vobs_km_s": [
+    4.68,
+    13.1,
+    22.5,
+    30.4,
+    36.0,
+    41.9
+  ],
+  "sigma_v_km_s": [
+    3.65,
+    3.44,
+    2.45,
+    1.71,
+    1.7,
+    4.97
+  ],
+  "descending_gbar_order_zero_based": [
+    4,
+    3,
+    2,
+    5,
+    1,
+    0
+  ],
+  "exact_tie_groups_in_sorted_order": [],
+  "tie_atol": 0.0,
+  "scorer_retained_mask": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "scorer_mask_definition": "finite rotmod radius inside full .dens [Rmin,Rmax]; all retained Vobs, errV, Vgas, Vbul and radius finite; errV>0; r>0",
+  "force_solver_call_count": 1,
+  "force_source_sha256": "3c92a62b6cc8fcb48c670261e03e52ec7bf0eb5eb54ec112426c8c4e2315191b",
+  "utils_source_sha256": "37b95aa822f84e1c6f618a165e20894f1976f51feaae033960ca941d758eb4ce",
+  "rotmod_source": "/mnt/users/koe/data/NGC4068_rotmod.dat",
+  "rotmod_sha256": "fd55de1c241b2e7fc5044d08e8840d4628d7b02a95996cb65ce7ce2676052400",
+  "dens_source": "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG/NGC4068.dens",
+  "dens_sha256": "b6627f437fc7072aeeffcf768b385b03bcd7901ec236881e1cf2995341e8b56a",
+  "dens_root": "/mnt/users/koe/SPARC_RAR/BulgeDiskDec_LTG",
+  "table_source": "/mnt/users/koe/RAR_mono_grid/SPARC_table.txt",
+  "table_sha256": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+  "solver_warnings": [],
+  "run_settings": {
+    "source_sha256": "58f56ab694993b02405cdfbf5ecdbce4d3c426f23dd1dac6165fe9bafbbd476e",
+    "data_root": null,
+    "dens_root": null,
+    "disk_ml_median": 0.5,
+    "gas_ml_median": 1.0,
+    "bulge_ml_median": 0.7,
+    "conditional_probability": true,
+    "gas_bulge_marginalisation": true
+  },
+  "note": "Receipt preparation computes only the single constant disk force response and gbar ordering; it does not evaluate or recompute Q/P."
+}

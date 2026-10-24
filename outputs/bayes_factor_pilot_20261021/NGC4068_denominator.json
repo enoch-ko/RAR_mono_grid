@@ -1,0 +1,69 @@
+{
+  "scope": "denominator-only conditional broad-limit ratio; no force, Q, or numerator recomputation",
+  "galaxy": "NGC4068",
+  "numerator_source": {
+    "csv": "outputs/rerun_boundary_20261006/constant/profile_grid.shard_02.csv",
+    "row": {
+      "galaxy": "NGC4068",
+      "profile": "constant",
+      "probability_kind": "conditional",
+      "grid_i": "0",
+      "grid_j": "25",
+      "log10_upsilon_disk": "-0.30102999566398125",
+      "upsilon_disk_mean": "0.49999999999999994",
+      "disk_slope": "nan",
+      "log_probability": "-3.9697935360026917",
+      "valid": "True",
+      "invalid_reason": "",
+      "warnings": ""
+    },
+    "csv_sha256": "80346e8dcbdc3da7f660ea5c870f827e1d570c2ae5695318f868f185ab1a094a",
+    "run_metadata": "outputs/rerun_boundary_20261006/constant/run_metadata.shard_02.json",
+    "run_metadata_sha256": "eafb7ddec186f894d116d1bb6dab26b1f24e07a581b2e0e5b10cfa3171161c59"
+  },
+  "saved_logp_conditional": -3.9697935360026917,
+  "prior_velocity_support_unit_interval": "Uniform(-1,1)",
+  "prior_log_probability": -8.5533222974911,
+  "log_bayes_factor_using_saved_numerator": 4.583528761488408,
+  "bayes_factor_using_saved_numerator": 97.85910709297393,
+  "recursion_grid_refinement": [
+    {
+      "ngrid": 8001,
+      "prior_log_probability": -8.553038142503018,
+      "prior_probability": 0.0001929579743015861
+    },
+    {
+      "ngrid": 16001,
+      "prior_log_probability": -8.553039182847389,
+      "prior_probability": 0.00019295777355894818
+    },
+    {
+      "ngrid": 32001,
+      "prior_log_probability": -8.5533222974911,
+      "prior_probability": 0.00019290315212006523
+    }
+  ],
+  "prior_mc_crosscheck": {
+    "draws": 100000,
+    "successes": 15,
+    "probability": 0.00015,
+    "standard_error": 3.872692861562868e-05,
+    "zero_success_upper_95": null,
+    "z_score_vs_recursion": -1.1078377153501189
+  },
+  "seed": 1729,
+  "mc_draws": 100000,
+  "tie_atol": 0.0,
+  "conditioning": {
+    "profile": "constant",
+    "disk_ml": 0.5,
+    "gas_ml_factor": 1.0,
+    "bulge": "absent"
+  },
+  "notes": [
+    "Common velocity scaling leaves the ordering denominator unchanged.",
+    "Gaussian Q is not recalculated; numerator compatibility must be established before interpreting the ratio.",
+    "Recursion refinement and prior-MC uncertainty are separate checks.",
+    "This pilot is conditional and is not manuscript evidence."
+  ]
+}
