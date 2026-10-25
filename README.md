@@ -2,33 +2,46 @@
 
 ## Project overview
 
-This project assesses whether SPARC galaxy rotation-curve data are compatible with a monotonic relation between observed and baryonic acceleration under alternative radial stellar-disc mass-to-light (M/L) profiles. Grid-based and Gaussian-process (GP) searches examine constant, linear and log-linear profiles. The analysis records the monotonicity probability, P_mono, and Bayes factors comparing the monotonic model with an encompassing model that allows unrestricted orderings.
+This repository contains research code, inputs, tests and selected outputs for studying the radial acceleration relation (RAR) in SPARC galaxy rotation curves. The analysis asks how compatible the observed and baryonic accelerations are with a monotonic ordering when the stellar-disc mass-to-light (M/L) profile is allowed to vary with radius.
 
-The physical motivation includes the increasing circular-orbit mappings predicted by some modified-inertia (MI) models. Implications for modified-gravity (MG) models depend on the specific theory, geometry and environment. This project does not provide a full comparison of MI, MG and ΛCDM theories.
+The grid searches cover constant, linear and log-linear disc M/L profiles. Gaussian-process (GP) searches explore more flexible radial profiles. The workflows account for gas and bulge M/L uncertainty and report the monotonicity probability, `P_mono`. Bayes-factor analyses compare the posterior probability of the monotonic ordering with its matched prior ordering probability; the denominator is candidate-specific and is averaged over the same nuisance settings as the numerator.
 
-A separate comparison workflow fits resolved K-band M/L profiles from MIGHTEE-HI/LADUMA data. These comparisons are descriptive and are not used as calibrated priors for SPARC.
+A separate workflow compares resolved K-band M/L profiles from MIGHTEE-HI and LADUMA data. This comparison is descriptive context and is not used as a calibrated prior for SPARC. The physical motivation includes increasing circular-orbit mappings in some modified-inertia models; implications for modified-gravity theories depend on the specific theory, geometry and environment. This repository does not provide a full comparison of modified inertia, modified gravity and ΛCDM.
 
-## Analysis and interpretation
+## Search results and interpretation
 
-The grid calculations evaluate the stated profile families while accounting for gas and bulge M/L uncertainty. GP searches explore additional candidate profiles and retain probability and Bayes-factor information. These quantities describe compatibility under the declared data, error model and priors; they are not conventional rotation-curve likelihoods.
+Finite grid and GP searches report the best-found candidates and frontiers within the evaluated domain; they do not establish a global optimum. GP proposal directions are search devices, not posterior samples. `P_mono` and the Bayes factors are conditional on the declared data, error model, nuisance assumptions and priors. They are not conventional rotation-curve likelihoods or probabilities that a physical theory is true.
 
-Numerical results remain provisional until the relevant jobs are complete and numerical convergence, quality-control and provenance checks are documented. Processing coverage alone is not scientific validation.
+As of 25 October 2026, the three BF-aware GP pilots (UGC00634, NGC4068 and NGC7331) are complete, but remain operational checks: their outputs mark `scientific_validated=false` and `cut_accuracy=unverified`, and they used an earlier driver/manifest. The user-approved full-sample batch has now been submitted as 20 GP jobs (992046–992065); all were running at the latest check. Ten multi-galaxy shards are ordered by increasing radial sample count, and the ten largest-sample galaxies run separately. The batch covers 175 galaxies and brings the active account total to 41 tasks. No production results are complete yet; output reconciliation, numerical accuracy near the provisional BF cuts and convergence checks remain open. See [the GP search guide](GP_searches/README.md) for the live batch record and [the Bayes-factor guide](bayes_factors/README.md) for the statistic and its limits.
 
-## Processing snapshot — 24 October 2026
+## Directory structure
 
-Bayes-factor processing covers 175/175 galaxies for constant profiles, 175/175 for linear profiles, and 130/175 for log-linear profiles. The remaining 45 log-linear cases are assigned to existing jobs; their final valid outputs still need to be published and processed.
+```text
+archive/                         retired or superseded material
 
-All three BF-aware GP pilot jobs completed on Glamdring with scheduler exit code 0 and complete batch receipts: pilot_01/UGC00634 (job 991244), pilot_02/NGC4068 (job 991246), and pilot_03/NGC7331 (job 991247). Each reports `finite_search_complete`, 7,681 candidate evaluations, and zero invalid candidates. The local copy matches pilots 1 and 2 but is incomplete for pilot 3; [GP_searches/README.md](GP_searches/README.md) lists the eight artifacts to synchronize.
+grid_searches/
+  constant/
+  linear/
+  log-linear/
 
-Pilot completion and processing coverage describe workflow state, not scientific validation. The GP outputs retain `scientific_validated=false` and `cut_accuracy=unverified`; numerical convergence and inference checks remain separate.
+GP_searches/                     Gaussian-process search code and run definitions
+bayes_factors/                   Bayes-factor methods and workflow tools
 
-## Directory guide
+outputs/
+  archive/
+  grid_searches/
+    constant/
+    linear/
+    log-linear/
+  GP_searches/
+  bayes_factors/
+  tests/
+  validation/
+  miscellaneous/
 
-- archive/ — retired or superseded files retained for reference.
-- grid_searches/constant/, grid_searches/linear/ and grid_searches/log-linear/ — grid-search code and material organized by profile family.
-- GP_searches/ — Gaussian-process search code, inputs and run definitions.
-- bayes_factors/ — Bayes-factor calculations, processing tools and comparisons.
-- outputs/ — results grouped under outputs/archive/, outputs/grid_searches/{constant,linear,log-linear}/, outputs/GP_searches/, outputs/bayes_factors/, outputs/tests/, outputs/validation/ and outputs/miscellaneous/; there is no nested outputs/ directory.
-- tests/ — automated tests for analysis and support code.
-- validation/ — numerical checks, quality-control tools and validation records.
-- miscellaneous/ — documentation, reference data and supporting utilities.
+tests/                           automated tests
+validation/                      validation tools and records
+miscellaneous/                   documentation, reference data and support code
+```
+
+The folder-specific README files describe each workflow. Some dated scripts use site-specific paths or dependencies, so inspect their instructions and provenance before running them.
