@@ -8,7 +8,7 @@ The proposal GP is a search device. Its candidates are neither posterior samples
 
 This folder contains two related generations of code: earlier probability-only searches and the BF-aware implementation in `bf_gp_search_20261024_v1/`. They should not be treated as interchangeable. The shared grid probability and force routines live under `../miscellaneous/support_code/`; the BF-aware package also depends on corrected profile/force support code and frozen inputs listed in its manifest.
 
-## Status — 24 October 2026
+## Status — 25 October 2026
 
 All three BF-aware pilots completed on Glamdring. Scheduler accounting reports exit code 0, and each batch receipt lists its assigned galaxy as completed with no failed or unprocessed entries.
 
@@ -20,18 +20,9 @@ All three BF-aware pilots completed on Glamdring. Scheduler accounting reports e
 
 Each result reports `finite_search_complete`, but the outputs retain `scientific_validated=false` and `cut_accuracy=unverified`; scheduler success does not validate the numerical thresholds or scientific interpretation.
 
-The local mirror matches the remote pilot_01 and pilot_02 artifacts by filename, size, and modification time. Pilot_03 is not fully synchronized. From `/mnt/users/koe/RAR_mono_grid/outputs/GP_searches/bf_gp_search_20261024_v1/pilot/pilot_03/`, copy these six files for a complete local review set:
+The local `pilot_03` copy is now complete. It contains `batch_receipt.json` plus, under `NGC7331/`, the completion and result records, `progress_ell_0.json` through `progress_ell_3.json`, `context.json`, `response_basis.npz`, and the full `all_candidates.jsonl.gz` and `paired_order_cache.jsonl.gz` journals. No `pilot_03` artifact remains outstanding for local review. The three pilots used an earlier driver/manifest and do not validate the current production cut accuracy.
 
-- `batch_receipt.json`
-- `NGC7331/completion.json`, `NGC7331/result.json`
-- `NGC7331/progress_ell_1.json`, `NGC7331/progress_ell_2.json`, `NGC7331/progress_ell_3.json`
-
-Refresh these two local partial journals from their completed remote versions:
-
-- `NGC7331/all_candidates.jsonl.gz` (local 166,465 bytes; remote 631,521 bytes)
-- `NGC7331/paired_order_cache.jsonl.gz` (local 14,174 bytes; remote 82,480 bytes)
-
-The local `progress_ell_0.json`, `context.json`, and `response_basis.npz` match; no replacement is needed. These eight files have not been copied by this update.
+The user approved the exact guarded full-sample proposal on 25 October. Jobs 992046–992065 are all RUNNING at the latest check: shards 01–10 on comp47 and 11–20 on comp48. The ten multi-galaxy shards are ordered by increasing radial sample count; the ten galaxies with the most radial samples run as single-galaxy tasks. The batch covers 175 unique galaxies, brings the active account total to 41 tasks, and passed 21 pinned-file checks, 20 batch-receipt checks and the ordered-roster check; all submission command exits were zero. The planned storage is 30.078 GiB, within the capacity the user confirmed. No production job is yet reported complete. The proposal retains a stale pending-approval note, but the exact proposal was approved and matching receipts confirm submission.
 
 ## Method
 
