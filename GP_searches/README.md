@@ -8,7 +8,7 @@ The proposal GP is a search device. Its candidates are neither posterior samples
 
 This folder contains two related generations of code: earlier probability-only searches and the BF-aware implementation in `bf_gp_search_20261024_v1/`. They should not be treated as interchangeable. The shared grid probability and force routines live under `../miscellaneous/support_code/`; the BF-aware package also depends on corrected profile/force support code and frozen inputs listed in its manifest.
 
-## Status — 25 October 2026
+## Status — 28 October 2026
 
 All three BF-aware pilots completed on Glamdring. Scheduler accounting reports exit code 0, and each batch receipt lists its assigned galaxy as completed with no failed or unprocessed entries.
 
@@ -20,9 +20,11 @@ All three BF-aware pilots completed on Glamdring. Scheduler accounting reports e
 
 Each result reports `finite_search_complete`, but the outputs retain `scientific_validated=false` and `cut_accuracy=unverified`; scheduler success does not validate the numerical thresholds or scientific interpretation.
 
-The local `pilot_03` copy is now complete. It contains `batch_receipt.json` plus, under `NGC7331/`, the completion and result records, `progress_ell_0.json` through `progress_ell_3.json`, `context.json`, `response_basis.npz`, and the full `all_candidates.jsonl.gz` and `paired_order_cache.jsonl.gz` journals. No `pilot_03` artifact remains outstanding for local review. The three pilots used an earlier driver/manifest and do not validate the current production cut accuracy.
+The local `pilot_03` copy is complete, including its batch receipt, per-galaxy completion/result records, progress files, context, response basis, candidate journal and paired-order cache. The three pilots used an earlier driver/manifest and do not validate current production cut accuracy.
 
-The user approved the exact guarded full-sample proposal on 25 October. Jobs 992046–992065 are all RUNNING at the latest check: shards 01–10 on comp47 and 11–20 on comp48. The ten multi-galaxy shards are ordered by increasing radial sample count; the ten galaxies with the most radial samples run as single-galaxy tasks. The batch covers 175 unique galaxies, brings the active account total to 41 tasks, and passed 21 pinned-file checks, 20 batch-receipt checks and the ordered-roster check; all submission command exits were zero. The planned storage is 30.078 GiB, within the capacity the user confirmed. No production job is yet reported complete. The proposal retains a stale pending-approval note, but the exact proposal was approved and matching receipts confirm submission.
+The exact guarded full-sample proposal was approved and submitted on 25 October. At 22:58:20 UTC on 27 October, Charlie's read-only snapshot showed 28 jobs running overall; of GP jobs 992046–992065, 17 were running and 992059, 992060 and 992065 had completed successfully. No job in this 20-job batch was pending, failed or missing. This is a dated scheduler snapshot. The 20-job batch covers 175 unique galaxies and passed its pinned-file, receipt and ordered-roster checks at submission. The active manifest and receipts remain intact. The user reviewed the separate review-only candidate manifest and 20 draft receipts; those files remain inactive and are not needed to authorize the submitted jobs. No promotion is underway.
+
+Charlie completed and tested the runtime-cap and checkpoint/resumability implementation before production submission. Runtime caps and resumable checkpoints are therefore implemented; the three pilots still provide too little evidence for an empirical runtime law, and radial-bin count remains only a rough workload proxy. Candidate-retention/search stability and scientific validation of the full production outputs remain open. A 28 October follow-up roster check could not proceed because the existing VS Code connection could not reconnect while the Mac was locked; no server or scheduler command was run, so current queue state is unverified.
 
 ## Method
 

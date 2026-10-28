@@ -6,11 +6,13 @@ For a fixed stellar-disc profile, the Bayes factor asks whether the observed vel
 
 The raw monotonicity probability, `P_mono`, and the Bayes factor answer different questions. A large BF can coexist with a small `P_mono` when the same ordering is rarer under the unrestricted prior. The provisional thresholds `log10(BF) > 1, 1.5, 2` are strict cutoffs under review; they are not validated physical boundaries.
 
-## Status — 24 October 2026
+## Status — 28 October 2026
 
-At the latest recorded 24 October processing snapshot, grid Bayes-factor processing covered 175/175 constant-profile galaxies, 175/175 linear-profile galaxies, and 130/175 log-linear-profile galaxies. The remaining 45 log-linear cases are assigned to existing jobs; final valid outputs remain pending publication and processing.
+The latest processed grid BF coverage is 175/175 constant-profile galaxies, 175/175 linear-profile galaxies and 130/175 log-linear-profile galaxies; 45 log-linear cases remain deferred in the saved-grid snapshot. A 19-candidate independent denominator check agreed within `1.6e-15` in `log10(BF)` with no threshold flips. It verifies only those selected denominator calculations and is not a global accuracy certificate.
 
-A targeted independent denominator check covered 19 selected saved candidates. All agreed with the higher-precision calculation, with a maximum change below `1.6e-15` in `log10(BF)` and no threshold flips. This verifies those selected denominator calculations only; it is not a global error certificate. Numerator, force, nuisance-quadrature, and tail-error guarantees remain separate validation questions.
+On 25 October, matched diagnostic atlas PDFs were rendered for the three profile families (59, 59 and 44 pages). The panels display log10(P_mono), log10(cbar) and the saved log10(BF), each with independent finite-cell colour ranges and provisional guides at 1, 1.5 and 2. The linear PDF's direct tick check is incomplete. These plots do not validate BF accuracy near the cuts, numerator calculations, forces, nuisance quadrature or scientific interpretation. The three matched PDFs have since been copied to the local repository; manuscript figure verification/update remains pending.
+
+At 23:45 UTC on 27 October, 11 log-linear jobs were still running: recovery shards 01–07, 09 and 14, plus cohort-10 checkpoint shards 05 and 09. The requested BF processing and plotting pass for their outputs was deferred until completion. Their roster coverage and any missing or unsubmitted jobs have not been confirmed. A 28 October read-only check was blocked because the existing VS Code connection could not reconnect while the Mac was locked; no remote or scheduler command was run. Reconcile job rosters and saved outputs after the connection is restored before claiming complete coverage or processing a supposedly final set.
 
 ## Adopted broad-limit construction
 

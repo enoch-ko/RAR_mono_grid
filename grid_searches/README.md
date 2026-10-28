@@ -6,9 +6,11 @@ The grid analysis evaluates monotonic radial-acceleration ordering for a finite 
 
 The shared calculation engine is in `../miscellaneous/support_code/mono_SPARC_RAR.py`; supporting disk, catalogue, and probability routines are in `../miscellaneous/support_code/`. The optional boundary-resolving probability entry point is `../miscellaneous/support_code/mono_SPARC_RAR_boundary.py`, with its integrator in `../miscellaneous/support_code/probability_recursion.py`. The folders here are not three complete standalone solvers: `constant/` and `linear/` currently contain plotters, while `log-linear/` contains dated recovery and checkpoint workflows.
 
-## Status — 24 October 2026
+## Status — 28 October 2026
 
-At the latest recorded 24 October coverage snapshot, grid-family Bayes-factor processing covered 175/175 galaxies for constant profiles, 175/175 for linear profiles, and 130/175 for log-linear profiles. The remaining 45 log-linear cases are assigned to existing jobs; their final valid outputs still need to be published and processed. These are coverage counts over evaluated profiles, not evidence that the finite grids locate a global optimum or validate a scientific conclusion.
+The latest processed diagnostic atlases cover 175/175 constant, 175/175 linear and 130/175 log-linear profiles; 45 log-linear profiles remain deferred in the saved-grid snapshot. The constant, linear and log-linear PDFs contain 59, 59 and 44 pages, with per-panel finite-cell colour ranges and log10(P_mono), log10(cbar) and log10(BF); provisional log10(BF) guides are at 1, 1.5 and 2. These plots show saved finite-grid results only; numerical accuracy and scientific validation remain open, and the direct tick check for the linear PDF is incomplete.
+
+At 23:45 UTC on 27 October, Charlie observed 11 log-linear jobs still running: recovery shards 01–07, 09 and 14, plus cohort-10 checkpoint shards 05 and 09. Their exact contribution to the deferred coverage and whether all expected shards had been submitted were not established. The requested Bayes-factor processing and plotting pass for those runs was deferred until completion. A 28 October read-only roster check was blocked when the existing VS Code connection could not reconnect and the Mac was locked; no remote or scheduler command was run. Reconcile the expected roster and saved outputs after the established connection is restored before treating coverage as complete.
 
 ## Method
 
