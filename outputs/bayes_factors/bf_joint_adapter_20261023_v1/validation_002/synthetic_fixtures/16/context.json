@@ -1,0 +1,81 @@
+{
+  "galaxy": "SYNTHETIC",
+  "candidate_id": "candidate-16",
+  "profile_family": "constant",
+  "profile_sha256": "7771d6b9c8f345de3daf53a3e1096756805d835cf8cddb9a6ca40cc0498de608",
+  "radii_kpc": [
+    1.0,
+    4.0
+  ],
+  "retained_row_ids": [
+    0,
+    2
+  ],
+  "vobs": [
+    4.0,
+    8.0
+  ],
+  "sigma_v": [
+    1.0,
+    2.0
+  ],
+  "mask_policy": "fixture inclusive support; preserve original row IDs",
+  "force_support_policy": "fixture signed acceleration at retained radii",
+  "source_sha256": {
+    "fixture_source": "088bbe459c2acd8493a16d56852eea0e52e128780d79a0c12b1361779db7d016"
+  },
+  "input_sha256": {
+    "rotmod": "16d8c5066dee0dfb09e9051863017ff149cb36e54482896058b9a512bacb3ab6",
+    "normalization": "45d07e9f5d0df42d35c076f9f99e774fee2979b614f4692480da934daa802e86"
+  },
+  "normalization": {
+    "policy": "disc_to_catalogue_total_minus_published_bulge_v1",
+    "applications": 1,
+    "kappa": 0.8,
+    "sha256": "45d07e9f5d0df42d35c076f9f99e774fee2979b614f4692480da934daa802e86"
+  },
+  "parser": {
+    "id": "sparc_rotmod_header_v1_gas3_disk4",
+    "gas_column": 3,
+    "disc_column": 4,
+    "gas_term": "Vgas*abs(Vgas)",
+    "disc_term": "signed_W_equals_minus_R_Fr"
+  },
+  "quadrature": {
+    "conditioning": "all_declared_nodes_no_drops",
+    "retained_prior_mass": 1.0,
+    "nodes": [
+      {
+        "id": "g0_b0",
+        "gas_ml": 0.5,
+        "bulge_ml": 0.7,
+        "weight": 0.25,
+        "valid": true
+      },
+      {
+        "id": "g1_b0",
+        "gas_ml": 2.0,
+        "bulge_ml": 0.7,
+        "weight": 0.75,
+        "valid": true
+      }
+    ]
+  },
+  "probability_settings": {
+    "tie_atol": 0.0,
+    "max_tie_permutations": 720,
+    "method": "synthetic_known_numerator",
+    "ngrid": 400,
+    "zpadding": 8.0,
+    "log_tolerance": 2e-05,
+    "max_refinements": 8
+  },
+  "domain": {
+    "policy": "signed_finite"
+  },
+  "tie_policy": "uniform_auxiliary_permutation_of_descending_gbar_tie_groups",
+  "velocity_model": "broad_limit_unbounded_signed_gaussian",
+  "numerator_semantics": "fixed_profile_gas_bulge_marginalised_order_probability",
+  "field_sha256": "8bd142b7fe627497c56e37452a7a32d731f8913e1747ecdbab2d970a5f9fc325",
+  "gbar_nodes_sha256": "91f1e93c8ff6a7e246cf6245a968ec087e397ec980a043f0649a434d8fc17f69"
+}
